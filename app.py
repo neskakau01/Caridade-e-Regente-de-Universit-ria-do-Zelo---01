@@ -5,9 +5,9 @@ import os
 # 1. CONFIGURAÇÃO DA PÁGINA
 st.set_page_config(page_title="Portal de Acesso Integrado", page_icon="🏢", layout="wide")
 
-# 2. CONTROLE DE ACESSO
-if 'autenticado' not in st.session_state:
-    st.session_state['autenticado'] = False
+# 2. CONTROLE DE ACESSO (Três estados: 'fachada_inicial', 'cruz_negra' ou 'intranet_falsa')
+if 'status_login' not in st.session_state:
+    st.session_state['status_login'] = 'fachada_inicial'
 
 # Funções para checar as imagens com extensão dupla .jpeg.jpeg
 def carregar_logo_fachada():
@@ -24,10 +24,10 @@ def carregar_logo_real():
             return nome
     return None
 
-# ==========================================
-# FASE 1: TELA DE FACHADA (CORPORATIVA)
-# ==========================================
-if not st.session_state['autenticado']:
+# ==============================================================================
+# FASE 1: TELA DE FACHADA INICIAL (PORTAL PÚBLICO + TELA DE LOGIN CORPORATIVA)
+# ==============================================================================
+if st.session_state['status_login'] == 'fachada_inicial':
     st.markdown("""
         <style>
         .stApp { background-color: #f8fafc; color: #1e293b; }
@@ -79,7 +79,7 @@ if not st.session_state['autenticado']:
         </div>
         <div class="card-noticia" style="border-left-color: #10b981;">
             <h4 style='margin:0 0 5px 0; font-size:14px; font-weight:bold;'>Infraestrutura e Logística Espacial</h4>
-            <p style='margin:0; font-size:13px;'>Cessão e mapeamento de amplas áreas abertas e centros de treinamento para laboratórios e faculdades de Educação Física, garantindo espaço técnico seguro para atividades externas.</p>
+            <p style='margin:0; font-size:13px;'>Cessão e mapeamento de amplas áreas abertas e centers de treinamento para laboratórios e faculdades de Educação Física, garantising espaço técnico seguro para atividades externas.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -98,13 +98,20 @@ if not st.session_state['autenticado']:
         
         st.write("")
         if st.button("Entrar no Sistema"):
-            if usuario_input == "W" and senha_input == "24\\12k-0Y":
+            if usuario_input == "" or senha_input == "":
+                st.warning("Por favor, preencha todos os campos de autenticação.")
+            # ACESSO REAL (Cruz Negra)
+            elif usuario_input == "W" and senha_input == "24\\12k-0Y":
                 with st.spinner("Descriptografando chaves de segurança..."):
                     time.sleep(2.5)
-                st.session_state['autenticado'] = True
+                st.session_state['status_login'] = 'cruz_negra'
                 st.rerun()
+            # ACESSO FALSO (Qualquer outro usuário ou senha joga na Intranet de Fachada)
             else:
-                st.error("Erro de autenticação: Credenciais inválidas ou nível de acesso insuficiente.")
+                with st.spinner("Conectando ao servidor institucional..."):
+                    time.sleep(1.5)
+                st.session_state['status_login'] = 'intranet_falsa'
+                st.rerun()
         st.markdown("</div>", unsafe_allow_html=True)
 
     with col_direita:
@@ -117,12 +124,162 @@ if not st.session_state['autenticado']:
         <div class="card-noticia">
             <span class="data-noticia font-mono">ÍNDICE DE ATIVOS ATUALIZADO</span>
             <h4 style='margin:5px 0; font-size:14px; font-weight:bold;'>Ajuste de Portfólio: Setor Alimentício (Fábricas de Chocolate)</h4>
-            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais in uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
+            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais em uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
         </div>
         <div class="card-noticia">
             <span class="data-noticia font-mono">DIRETRIZ DE REAQUISIÇÃO</span>
             <h4 style='margin:5px 0; font-size:14px; font-weight:bold;'>Retorno de Investimento Pós-Saneamento</h4>
             <p style='margin:0; font-size:13px;'>Após a intervenção de nossas equipes de auditoria de campo para a resolução dos problemas técnicos locais, o plano de recompra massiva de ações será executado, visando a estabilização e subsequente expansão econômica.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+# ==============================================================================
+# FASE 2: INTRANET DE FACHADA (TELA CORPORATIVA FALSA PARA ENGANAR CURIOSOS)
+# ==============================================================================
+elif st.session_state['status_login'] == 'intranet_falsa':
+    st.markdown("""
+        <style>
+        .stApp { background-color: #f1f5f9; color: #334155; }
+        h1, h2, h3 { color: #1e293b !important; font-family: 'Segoe UI', sans-serif; }
+        
+        /* CORREÇÃO DO TEXTO BRANCO NAS ABAS: força a fonte a ficar escura perto do preto */
+        .stTabs [data-baseweb="tab"] p {
+            color: #1e293b !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+        }
+        
+        .painel-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .painel-box h4, .painel-box h5, .painel-box p, .painel-box li {
+            color: #1e293b !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+    
+    # Barra lateral corporativa de mentira
+    st.sidebar.markdown("<h3 style='text-align:center; color:#2563eb !important;'>Painel do Usuário</h3>", unsafe_allow_html=True)
+    caminho_fachada = carregar_logo_fachada()
+    if caminho_fachada:
+        st.sidebar.image(caminho_fachada, use_container_width=True)
+    
+    st.sidebar.write("---")
+    st.sidebar.write("👤 **Colaborador:** Conectado como Usuário Externo")
+    st.sidebar.write("🔑 **Nível de Acesso:** Padrão / Administrativo")
+    
+    if st.sidebar.button("Encerrar Sessão (Logout)"):
+        st.session_state['status_login'] = 'fachada_inicial'
+        st.rerun()
+
+    # Cabeçalho da Intranet Falsa
+    st.markdown("""
+        <div style='background-color: #ffffff; padding: 20px; border-bottom: 2px solid #3b82f6; margin-bottom: 25px; border-radius:4px;'>
+            <h2 style='margin:0; font-size: 22px; color: #2563eb !important;'>🏢 Intranet Administrativa - Área de Colaboradores</h2>
+            <p style='margin:5px 0 0 0; color: #64748b !important;'>Caridade e Regente Universitária do Zelo — Gestão Logística e Acadêmica</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.info("📊 **Aviso do Sistema:** Seu terminal de acesso está operando em modo de visualização padrão. Modificações cadastrais exigem assinatura eletrônica da gerência.")
+    
+    # Abas antigas corrigidas + Novas abas de aprofundamento institucionais
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+        "📋 Controle de Insumos", 
+        "📑 Atas de Reuniões", 
+        "📈 Gráficos de Repasse",
+        "📜 Nossa História",
+        "👥 Corpo de Direção",
+        "🌱 Sustentabilidade",
+        "🤝 Parcerias Sociais"
+    ])
+    
+    with tab1:
+        st.markdown("""
+        <div class="painel-box">
+            <h4>Alocação de Materiais Anatômicos (Ciências Médicas)</h4>
+            <p>Listagem de repasses efetuados para os laboratórios credenciados neste trimestre de 2026:</p>
+            <ul>
+                <li><b>Lote #884-A:</b> Modelos de resina e tecidos de treinamento cirúrgico (Entregue - Campus Central).</li>
+                <li><b>Lote #887-B:</b> Peças biológicas conservadas para dissecção patológica (Retido para conferência de notas fiscais).</li>
+                <li><b>Lote #890-C:</b> Lâminas histológicas e reagentes de fixação celular (Em trânsito).</li>
+            </ul>
+        </div>
+        <div class="painel-box">
+            <h4>Infraestrutura Desportiva (Educação Física)</h4>
+            <p>Mapeamento de praças técnicas externas e arenas esportivas de treinamento:</p>
+            <ul>
+                <li><b>Setor Sul:</b> Liberação de pista de atletismo e quadras poliesportivas para testes de fisiologia do esforço.</li>
+                <li><b>Setor Norte (Fluvial):</b> Agendamento de treinos de campo suspensos temporariamente devido a readequações ambientais da prefeitura.</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with tab2:
+        st.markdown("""
+        <div class="painel-box">
+            <h5>Ata Ordinária #104 - Conselho Administrativo</h5>
+            <p style="font-size:12px; color:#64748b !important;">Data: 14 de Março de 2026 | Presidência de Gestão</p>
+            <p><i>"Ficou deliberado por unanimidade que as auditorias financeiras nas subsidiárias de produção de alimentos (Setor de Manufatura de Doces e Derivados) passarão a ser coordenadas por escritórios terceirizados, visando a blindagem patrimonial da mantenedora principal contra as oscilações bruscas verificadas na Bolsa de Valores no último mês..."</i></p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with tab3:
+        st.markdown("<div class='painel-box'>", unsafe_allow_html=True)
+        st.subheader("Gráfico de Distribuição Orçamentária")
+        st.bar_chart({"Insumos Médicos": 45, "Logística de Espaço": 35, "Auditorias de Ativos": 20})
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with tab4:
+        st.markdown("""
+        <div class="painel-box">
+            <h4>Fundação e Trajetória Institucional</h4>
+            <p>Fundada em meados do século passado sob os preceitos de amparo civilizatório e suporte acadêmico, a <b>Caridade e Regente Universitária do Zelo</b> nasceu como uma sociedade filantrópica voltada à unificação de grandes eixos acadêmicos federais e estaduais.</p>
+            <p>Originalmente criada para mitigar a escassez de infraestrutura pesada em polos universitários interioranos, a organização expandiu-se rapidamente através de doações de grandes heranças corporativas e fundos de investimentos privados. Hoje, atuamos em regime de cogestão logística, garantindo que os centros de pesquisa operem com estabilidade física, estrutural e financeira mesmo sob crises econômicas severas no mercado nacional.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with tab5:
+        st.markdown("""
+        <div class="painel-box">
+            <h4>Mesa Regente de Governança</h4>
+            <p>A governança das atividades da organização é rigidamente estruturada por membros de notório saber administrativo e fiscal:</p>
+            <ul>
+                <li><b>Diretor Geral de Patrimônio:</b> Dr. Alencastro Peixoto (Responsável pela custódia de áreas e concessões imobiliárias).</li>
+                <li><b>Vice-Diretor Executivo:</b> Prof. Marcus Vinícius Toledo (Coordenador técnico das cadeias de suprimentos e alocação).</li>
+                <li><b>Conselheira Consultiva Principal:</b> Dra. Ana Carter (Representante de Ativos Estratégicos).</li>
+                <li><b>Ouvidoria e Compliance:</b> Controladoria Interna de São Miguel dos Antares.</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with tab6:
+        st.markdown("""
+        <div class="painel-box">
+            <h4>Contribuições e Gestão Ecológica Vetorial</h4>
+            <p>Nossos complexos de treinamento externo e praças desportivas seguem os mais estritos protocolos ecológicos contemporâneos:</p>
+            <ul>
+                <li><b>Recuperação de Áreas Degradadas:</b> Projetos de reflorestamento controlado de matas ciliares e entornos periféricos em zonas industriais desativadas.</li>
+                <li><b>Tratamento de Efluentes Químicos:</b> Monitoramento rigoroso do descarte de reagentes e fixadores laboratoriais em parceria com agências ambientais.</li>
+                <li><b>Neutralização de Carbono:</b> Auditorias anuais de frotas logísticas de transporte pesado para garantir o cumprimento das metas internacionais de emissão zero.</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with tab7:
+        st.markdown("""
+        <div class="painel-box">
+            <h4>Expansão de Projetos Sociais Interdisciplinares</h4>
+            <p>Além da tradicional alocação direcionada às áreas de Medicina e Educação Física, a instituição mantém ativos de suporte em outros departamentos cruciais:</p>
+            <ul>
+                <li><b>Faculdades de Agronomia e Engenharia Ambiental:</b> Cessão de fazendas-modelo experimentais para mapeamento de lavouras e testes de solos agrícolas sem riscos fitossanitários.</li>
+                <li><b>Faculdades de Pedagogia e Ciências Sociais:</b> Financiamento do programa <i>"Zelo Integrado"</i>, que promove a alfabetização de jovens e adultos em comunidades vizinhas às nossas sedes fabris.</li>
+                <li><b>Infraestrutura de Telecomunicações:</b> Cooperação técnica com laboratórios de Engenharia para o desenvolvimento de redes locais de rádio internas e canais de segurança criptografados.</li>
+            </ul>
         </div>
         """, unsafe_allow_html=True)
 
