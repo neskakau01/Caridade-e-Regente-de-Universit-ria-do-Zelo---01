@@ -117,7 +117,7 @@ if not st.session_state['autenticado']:
         <div class="card-noticia">
             <span class="data-noticia font-mono">ÍNDICE DE ATIVOS ATUALIZADO</span>
             <h4 style='margin:5px 0; font-size:14px; font-weight:bold;'>Ajuste de Portfólio: Setor Alimentício (Fábricas de Chocolate)</h4>
-            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais em uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
+            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais in em uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
         </div>
         <div class="card-noticia">
             <span class="data-noticia font-mono">DIRETRIZ DE REAQUISIÇÃO</span>
@@ -130,7 +130,6 @@ if not st.session_state['autenticado']:
 # FASE 2: BANCO DE DADOS REAL - SÉRIO & ULTRA SECRETO
 # ==========================================
 else:
-    # Estilo visual bruto, militar e confidencial (Sem emojis desnecessários)
     st.markdown("""
         <style>
         .stApp { background-color: #0c0c0c; color: #dcdcdc; font-family: 'Courier New', Courier, monospace; }
@@ -159,12 +158,34 @@ else:
             border-radius: 4px;
             margin-bottom: 20px;
         }
+        .bloco-desbloqueado {
+            background-color: #0d1f11;
+            border: 1px solid #2e7d32;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
         .tag-vermelha {
             color: #ff3333 !important;
             font-weight: bold;
         }
-        h1, h2, h3, h4, p, li, span, label {
+        .tag-verde {
+            color: #4caf50 !important;
+            font-weight: bold;
+        }
+        .tarja-preta {
+            background-color: #000000;
+            color: #000000;
+            padding: 0 4px;
+        }
+        /* Ajuste tático para evitar quebra de ícones nativos */
+        h1, h2, h3, h4, p, li {
             color: #c8c8c8 !important;
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+        /* Aplica a fonte apenas dentro dos nossos blocos de dados */
+        .bloco-confidencial *, .bloco-desbloqueado * {
             font-family: 'Courier New', Courier, monospace !important;
         }
         div.row-widget.stRadio > div { background-color: #111111; padding: 12px; border: 1px solid #222222; }
@@ -175,7 +196,6 @@ else:
     if caminho_real:
         st.sidebar.image(caminho_real, use_container_width=True)
 
-    # Topo institucional sem o emoji quadrado perto do título
     st.markdown("""
         <div class="cabecalho-cn">
             <h1 style='margin:0; color:#990000 !important; font-weight:bold; letter-spacing: 3px;'>CRUZ NEGRA: ASCENSÃO</h1>
@@ -204,7 +224,7 @@ else:
     # --- DIRETÓRIO 1: TERMINAL CENTRAL ---
     if opcao == "Terminal Central / Diretoria":
         st.subheader("TERMINAL DE COMANDO OPERACIONAL")
-        st.write("Conexão estabelecida com o servidor Base-01. Sessão ativa sob a identificação da Diretoria.")
+        st.write("Conexão estabelecida com o servidor Base-01. Sessão activa sob a identificação da Diretoria.")
         st.write("---")
         
         st.markdown(f"""
@@ -244,7 +264,7 @@ else:
             <p><b class="tag-vermelha">Nível 4 - AC (Agente de Campo):</b> Veteranos de combate anômalo. Responsáveis pela liderança de incursões urbanas e aplicação imediata de protocolos de sigilo na comunidade.</p>
             <p><b class="tag-vermelha">Nível 5 - CT (Caçador em Treinamento):</b> Selecionados para o programa avançado de erradicação. Iniciam os testes de exposição direta à energia espiritual purificada.</p>
             <p><b class="tag-vermelha">Nível 6 - CA (Caçador de Área):</b> Destinados à contenção de anomalias territoriais massivas. Possuem autonomia tática para decretar quarentenas econômicas e físicas.</p>
-            <p><b class="tag-vermelha">Nível 7 - LC (Líder de Caça):</b> O ápice operacional da Cruz Negra. Agentes modificados com alto grau de resiliência a distorções da realidade, respondendo diretamente à Diretora Ana Carter.</p>
+            <p><b class="tag-vermelha">Nível 7 - LC (Líder de Caça):</b> O ápice operacional da Cruz Negra. Agentes modificados com alto grau de resiliência a distorções da reality, respondendo diretamente à Diretora Ana Carter.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -269,34 +289,99 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-    # --- DIRETÓRIO 5: RELATÓRIOS DE EXPEDIÇÃO ---
+    # --- DIRETÓRIO 5: RELATÓRIOS DE EXPEDIÇÃO (COM SISTEMA DE SENHA INTERNA) ---
     elif opcao == "Relatórios de Expedição de Campo":
         st.subheader("LOGS DE MISSÕES DE CAMPO INTERCEPTADOS [SECRETO]")
-        st.write("Registros históricos de incursões táticas autorizadas pela administração central.")
+        st.write("Registros históricos de incursões táticas autorizadas pela administração central. Requer senha criptográfica para visualização total.")
         st.write("---")
         
+        # --- LOG 1 ---
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-04A</b></span><br>
             <b>Localização:</b> Setor Industrial Sul - Fábrica de Processamento de Doces [CONFIDENCIAL]<br>
             <b>Status da Missão:</b> Concluída / Sucesso Parcial<br>
-            <b>Descrição:</b> Relatada flutuação gravitacional na ala de caldeiras e liquefação orgânica de matéria-prima. O Nicho Investidor acionou o jogo financeiro, derrubando as ações da companhia em 64% em menos de 24 horas. Uma equipe liderada por dois Agentes de Campo (AC) infiltrou-se no local sob o pretexto de auditoria estrutural. O foco da distorção paranormal foi localizado, neutralizado e os funcionários sobreviventes receberam amnésicos de Classe C. A recompra de ações já foi autorizada pela Diretora Carter.
+            <b>Descrição Básica:</b> Relatada flutuação gravitacional na ala de caldeiras e liquefação orgânica de matéria-prima. Uma equipe infiltrada localizou o foco paranormal. <span class="tarja-preta">OS AGENTES DETECTARAM QUE A ANOMALIA SE ALIMENTAVA DE</span>. Os funcionários sobreviventes receberam amnésicos de Classe C.
         </div>
+        """, unsafe_allow_html=True)
         
+        exp_1 = st.expander("🔑 DESCRIPTOGRAFAR ARQUIVO EXP-2026-04A")
+        with exp_1:
+            senha_log1 = st.text_input("Insira a chave de decodificação tática (Log 1):", type="password", key="pwd_log1")
+            if senha_log1 == "37\\18m-4X":
+                st.markdown("""
+                <div class="bloco-desbloqueado">
+                    <span class="tag-verde">✔ ACESSO AUTORIZADO — PATENTE DIRETORIA</span><br><br>
+                    <b>RELATÓRIO TÁTICO INTEGRAL:</b><br>
+                    <b>Equipe de Incursão:</b> Agente de Campo <i>Vanguard</i> (AC), Agente de Campo <i>Echo</i> (AC) e Agente Básico <i>Sledge</i> (AB).<br><br>
+                    <b>Entidade Identificada:</b> Vetor-09 ("A Massa Voraz"). Uma massa amorfa de glicose transmutada e tecido biológico fundido que gerava campos de microgravidade localizada.<br><br>
+                    <b>Resumo do Confronto:</b> Ao entrarem na zona de caldeiras, a equipe foi atacada por tentáculos de matéria orgânica fervente. O Agente <i>Sledge</i> foi suspenso no ar pela anomalia gravitacional e arremessado contra a estrutura metálica secundária.<br><br>
+                    <b>Desfecho:</b> O núcleo da Entidade foi destruído utilizando cargas de fragmentação térmica purificada. O espécime foi totalmente <b>ELIMINADO</b> no local, impossibilitando a captura de amostras limpas.<br><br>
+                    <b>Baixas/Danos:</b> <span class="tag-vermelha">ÓBITO CONFIRMADO</span> do Agente <i>Sledge</i> (traumatismo craniano severo e exposição térmica). Corpo incinerado no local seguindo o Protocolo III. Agentes <i>Vanguard</i> e <i>Echo</i> sofreram queimaduras leves mas permanecem ativos.
+                </div>
+                """, unsafe_allow_html=True)
+            elif senha_log1:
+                st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
+
+        st.write("") # Espaçamento entre blocos
+
+        # --- LOG 2 ---
+        st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-05D</b></span><br>
             <b>Localização:</b> Campus Universitário [CONFIDENCIAL] - Ala de Anatomia Médica<br>
             <b>Status da Missão:</b> Arquivada / Contida<br>
-            <b>Descrição:</b> Um dos corpos fornecidos pela comunidade tática apresentou atividade muscular pós-morte espontânea e vocalização em frequências subsônicas prejudicial à integridade dos alunos. Agentes do Grau AB agiram de forma rápida redirecionando os estudantes para uma 'palestra de extensão em Educação Física em área aberta'. O espécime foi incinerado conforme o Protocolo III.
+            <b>Descrição Básica:</b> Um dos corpos fornecidos apresentou atividade muscular pós-morte espontânea e vocalização em frequências prejudiciais. Agentes do Grau AB agiram redirecionando estudantes. <span class="tarja-preta">O CADÁVER MANIFESTOU EXPANSÃO DE</span>. O espécime foi tratado conforme o Protocolo III.
         </div>
+        """, unsafe_allow_html=True)
+        
+        exp_2 = st.expander("🔑 DESCRIPTOGRAFAR ARQUIVO EXP-2026-05D")
+        with exp_2:
+            senha_log2 = st.text_input("Insira a chave de decodificação tática (Log 2):", type="password", key="pwd_log2")
+            if senha_log2 == "37\\18m-4X":
+                st.markdown("""
+                <div class="bloco-desbloqueado">
+                    <span class="tag-verde">✔ ACESSO AUTORIZADO — PATENTE DIRETORIA</span><br><br>
+                    <b>RELATÓRIO TÁTICO INTEGRAL:</b><br>
+                    <b>Equipe de Incursão:</b> Agente Básico <i>Ghost</i> (AB), Agente Básico <i>Specter</i> (AB) e Caçador em Treinamento <i>Pharos</i> (CT).<br><br>
+                    <b>Entidade Identificada:</b> Sujeito Necrótico-04. Um cadáver humano modificado por resíduos de névoa de espectro inferior, capaz de projetar ondas sonoras que colapsavam o sistema nervoso periférico de alvos vivos.<br><br>
+                    <b>Resumo do Confronto:</b> A criatura ergueu-se da mesa de dissecção durante a madrugada. A equipe bloqueou as saídas acústicas da ala de medicina. O espécime tentou uma ruptura perfurando a parede de drywall utilizando garras ósseas recém-projetadas.<br><br>
+                    <b>Desfecho:</b> O Caçador <i>Pharos</i> utilizou o Protocolo de Fé I para estabilizar a barreira psíquica da equipe e conter os ataques sonoros. A criatura foi imobilizada com correntes de contenção estática e posteriormente <b>CAPTURADA</b> com sucesso para estudo de bio-anatomia na Base-04.<br><br>
+                    <b>Baixas/Danos:</b> Nenhuma baixa na equipe. Três estudantes que ouviram os sussurros iniciais através das frestas sofreram síncope e foram tratados com amnésicos Classe C.
+                </div>
+                """, unsafe_allow_html=True)
+            elif senha_log2:
+                st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
 
+        st.write("") # Espaçamento entre blocos
+
+        # --- LOG 3 ---
+        st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-06B</b></span><br>
             <b>Localização:</b> Perímetro das Montanhas de Cinzas - Posto de Observação Avançado<br>
             <b>Status da Missão:</b> Ativa / Monitoramento Crítico<br>
-            <b>Descrição:</b> Detectado aumento na pressão atmosférica e ruídos subterrâneos indicando movimentação de energia de espectro vermelho. Patrulhas de Caçadores de Área (CA) foram posicionadas ao longo da fronteira física para evitar infiltração civil. Risco iminente de exposição anômala de larga escala.
+            <b>Descrição Básica:</b> Detectado aumento na pressão atmosférica indicando movimentação de energia de espectro vermelho. Patrulhas de Caçadores foram posicionadas. <span class="tarja-preta">FOI VISUALIZADA UMA ESTRUTURA BIOLÓGICA DE CINZAS DE</span>. Risco iminente de exposição anômala.
         </div>
         """, unsafe_allow_html=True)
+        
+        exp_3 = st.expander("🔑 DESCRIPTOGRAFAR ARQUIVO EXP-2026-06B")
+        with exp_3:
+            senha_log3 = st.text_input("Insira a chave de decodificação tática (Log 3):", type="password", key="pwd_log3")
+            if senha_log3 == "37\\18m-4X":
+                st.markdown("""
+                <div class="bloco-desbloqueado">
+                    <span class="tag-verde">✔ ACESSO AUTORIZADO — PATENTE DIRETORIA</span><br><br>
+                    <b>RELATÓRIO TÁTICO INTEGRAL:</b><br>
+                    <b>Equipe de Incursão:</b> Caçador de Área <i>Paladin</i> (CA), Caçador de Área <i>Aegis</i> (CA) sob coordenação do Líder de Caça <i>Ironclad</i> (LC).<br><br>
+                    <b>Entidade Identificada:</b> Anomalia Territorial Classe 4 ("A Sentinela de Fuligem"). Uma entidade colossal semi-sólida composta por cinza inteligente e flutuações térmicas de espectro vermelho.<br><br>
+                    <b>Resumo do Confronto:</b> Uma patrulha de reconhecimento de três Agentes Aprendizes (AA) cruzou a linha de demarcação por falha de navegação. A Sentinela ergueu-se do solo gerando uma tempestade de vácuo calcinante. A equipe de Caça de elite interveio para criar uma barreira de supressão psíquica e extrair os sobreviventes.<br><br>
+                    <b>Desfecho:</b> A entidade não pôde ser morta nem capturada devido à sua escala geográfica. Missão classificada como <b>CONTIDA / MONITORAMENTO ATIVO</b>. O perímetro foi expandido em 5km de exclusão total.<br><br>
+                    <b>Baixas/Danos:</b> <span class="tag-vermelha">TRÊS ÓBITOS CONFIRMADOS</span> da equipe de triagem primária (Agentes Aprendizes desintegrados termicamente). O Caçador <i>Aegis</i> perdeu o braço direito devido à corrosão da fuligem espiritual. O Líder de Caça <i>Ironclad</i> assumiu o comando do setor.
+                </div>
+                """, unsafe_allow_html=True)
+            elif senha_log3:
+                st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
 
     # --- DIRETÓRIO 6: TRANSMISSÃO CAIM ---
     elif opcao == "Transmissão C.A.I.M.":
