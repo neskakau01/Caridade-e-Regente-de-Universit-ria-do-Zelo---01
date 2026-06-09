@@ -202,11 +202,12 @@ elif st.session_state['status_login'] == 'intranet_falsa':
         st.markdown("""
         <div class="painel-box">
             <h4>Alocação de Materiais Anatômicos (Ciências Médicas)</h4>
-            <p>Listagem de repasses efetuados para os laboratórios credenciados neste trimestre de 2026:</p>
+            <p>Listagem de repasses efetuados para os laboratórios credenciados neste trimestre de 2012:</p>
             <ul>
                 <li><b>Lote #884-A:</b> Modelos de resina e tecidos de treinamento cirúrgico (Entregue - Campus Central).</li>
                 <li><b>Lote #887-B:</b> Peças biológicas conservadas para dissecção patológica (Retido para conferência de notas fiscais).</li>
                 <li><b>Lote #890-C:</b> Lâminas histológicas e reagentes de fixação celular (Em trânsito).</li>
+                <li><b>Lote #892-D:</b> Instrumental cirúrgico de precisão (Aguardando liberação alfandegária).</li>    
             </ul>
         </div>
         <div class="painel-box">
@@ -215,6 +216,7 @@ elif st.session_state['status_login'] == 'intranet_falsa':
             <ul>
                 <li><b>Setor Sul:</b> Liberação de pista de atletismo e quadras poliesportivas para testes de fisiologia do esforço.</li>
                 <li><b>Setor Norte (Fluvial):</b> Agendamento de treinos de campo suspensos temporariamente devido a readequações ambientais da prefeitura.</li>
+                <li><b>Setor Leste (Centro de Performance):</b> Novos equipamentos de monitoramento cardíaco instalados e em fase de calibração técnica.</li>    
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -223,7 +225,7 @@ elif st.session_state['status_login'] == 'intranet_falsa':
         st.markdown("""
         <div class="painel-box">
             <h5>Ata Ordinária #104 - Conselho Administrativo</h5>
-            <p style="font-size:12px; color:#64748b !important;">Data: 14 de Março de 2026 | Presidência de Gestão</p>
+            <p style="font-size:12px; color:#64748b !important;">Data: 14 de Março de 2012 | Presidência de Gestão</p>
             <p><i>"Ficou deliberado por unanimidade que as auditorias financeiras nas subsidiárias de produção de alimentos (Setor de Manufatura de Doces e Derivados) passarão a ser coordenadas por escritórios terceirizados, visando a blindagem patrimonial da mantenedora principal contra as oscilações bruscas verificadas na Bolsa de Valores no último mês..."</i></p>
         </div>
         """, unsafe_allow_html=True)
