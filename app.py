@@ -79,7 +79,7 @@ if not st.session_state['autenticado']:
         </div>
         <div class="card-noticia" style="border-left-color: #10b981;">
             <h4 style='margin:0 0 5px 0; font-size:14px; font-weight:bold;'>Infraestrutura e Logística Espacial</h4>
-            <p style='margin:0; font-size:13px;'>Cessão e mapeamento de amplas áreas abertas e centers de treinamento para laboratórios e faculdades de Educação Física, garantindo espaço técnico seguro para atividades externas.</p>
+            <p style='margin:0; font-size:13px;'>Cessão e mapeamento de amplas áreas abertas e centros de treinamento para laboratórios e faculdades de Educação Física, garantindo espaço técnico seguro para atividades externas.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -117,7 +117,7 @@ if not st.session_state['autenticado']:
         <div class="card-noticia">
             <span class="data-noticia font-mono">ÍNDICE DE ATIVOS ATUALIZADO</span>
             <h4 style='margin:5px 0; font-size:14px; font-weight:bold;'>Ajuste de Portfólio: Setor Alimentício (Fábricas de Chocolate)</h4>
-            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais em uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
+            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais in uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
         </div>
         <div class="card-noticia">
             <span class="data-noticia font-mono">DIRETRIZ DE REAQUISIÇÃO</span>
@@ -174,12 +174,71 @@ else:
             color: #4caf50 !important;
             font-weight: bold;
         }
-        /* Tarja de censura atualizada para Branco (Fundo e texto ocultados) */
+        /* Tarja de censura atualizada para Branco */
         .tarja-censurada {
             background-color: #ffffff;
             color: #ffffff;
             padding: 0 4px;
         }
+        
+        /* NOVO ESTILO: Crachá de Agente com Fundo Branco */
+        .badge-container {
+            background-color: #ffffff; /* Fundo Branco puro para contraste */
+            border: 2px solid #8b0000; /* Borda Vermelho Escuro Tática */
+            border-left: 10px solid #8b0000;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 550px;
+            margin: 20px auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            color: #000000 !important; /* Força o texto para Preto */
+        }
+        
+        .badge-label {
+            color: #444444 !important; /* Cinza Escuro para os labels */
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+
+        .badge-value {
+            color: #000000 !important; /* Preto para os valores principais */
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+        
+        .badge-header {
+            text-align: center;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .badge-title-cn {
+            color: #8b0000 !important;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+        
+        .badge-subtitle-cn {
+            color: #666666 !important;
+            font-size: 10px;
+            letter-spacing: 1px;
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+        
+        .badge-footer {
+            margin-top: 20px;
+            border-top: 1px dashed #dddddd;
+            padding-top: 10px;
+            font-size: 9px;
+            color: #777777 !important;
+            text-align: justify;
+            line-height: 1.3;
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+        
         /* Ajuste tático para evitar quebra de ícones nativos */
         h1, h2, h3, h4, p, li {
             color: #c8c8c8 !important;
@@ -219,7 +278,7 @@ else:
         "Hierarquia e Níveis de Liberação",
         "Protocolos de Fé e Resiliência",
         "Relatórios de Expedição de Campo",
-        "Transmissão C.A.I.M."
+        "Gerador de Credencial Tática"
     ])
 
     # --- DIRETÓRIO 1: TERMINAL CENTRAL ---
@@ -228,14 +287,34 @@ else:
         st.write("Conexão estabelecida com o servidor Base-01. Sessão activa sob a identificação da Diretoria.")
         st.write("---")
         
+        st.markdown("""
+        <div class="bloco-desbloqueado" style="border-color: #8b0000; background-color: #160505;">
+            <h3 style='color: #ff3333 !important; margin-top:0; font-weight:bold; letter-spacing:1px;'>▲ RECONHECIMENTO DE ACESSO: SINAL CONFIRMADO</h3>
+            <p><b>Saudações, Agente.</b> Seu terminal foi criptografado com sucesso através dos nossos canais de supressão de rede. A partir deste momento, suas ações, consultas e históricos estão diretamente vinculados à sua assinatura neural.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
         st.markdown(f"""
         <div class="bloco-confidencial">
-            <p><b>Autoridade Máxima Atual:</b> Diretora Ana Carter</p>
+            <h4 style='color:#aa0000 !important; font-weight:bold; margin-top:0;'>ESTADO DA DIRETORIA</h4>
+            <p><b>Autoridade Máxima Ativa:</b> Diretora Ana Carter</p>
             <p><b>Status da Infraestrutura:</b> <span style='color:#00ff00;'>ESTÁVEL</span></p>
             <p><b>Índice de Dissipação de Névoa:</b> Controlado dentro dos parâmetros de segurança da comunidade.</p>
             <br>
             <p><i>"A ignorância civil não é uma falha do nosso sistema, é o nosso maior produto. Mantemos a escuridão contida para que o mundo possa continuar caminhando sob a luz de uma falsa normalidade."</i><br>
             — <b>Diretora Ana Carter</b>, Pronunciamento no Conselho Superior.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="bloco-confidencial" style="border-left: 4px solid #ff3333;">
+            <h4 style='color:#ff3333 !important; font-weight:bold; margin-top:0; letter-spacing:1px;'>⚠️ CÓDIGO DE CONDUTA E DIRETRIZES RÍGIDAS (DECRETO 0-14)</h4>
+            <p>Qualquer agente em posse destas credenciais deve seguir estritamente os três pilares de silenciamento estrutural. O não cumprimento acarretará em rebaixamento biológico imediato:</p>
+            <ol>
+                <li><b>Vedações de Compartilhamento:</b> É terminantemente proibida a replicação, transcrição ou menção visual das informações contidas neste diretório para civis ou agentes de Patente Inferior (Níveis 1 a 3).</li>
+                <li><b>Rastreamento Ativo:</b> Este sistema opera sob varredura contínua de IPs geolocalizados. Caso seja detectada uma tentativa de login externa por indivíduos não catalogados utilizando esta chave, o protocolo de quebra de sigilo será ativado.</li>
+                <li><b>A Diretriz de Caça:</b> <i>Invasores, interceptadores ou ex-colaboradores dissidentes que acessarem este portal sem autorização expressa da Diretoria serão ativamente caçados, neutralizados psicologicamente e capturados pelas equipes de elite de Nível 7 (Líderes de Caça). Seus registros civis serão completamente apagados e seus corpos destinados à análise bio-anatomia estrutural de laboratórios parceiros. Não há julgamento. Há saneamento.</i></li>
+            </ol>
         </div>
         """, unsafe_allow_html=True)
 
@@ -277,7 +356,7 @@ else:
             <span class="tag-vermelha"><b>DOCUMENTO REGISTRADO: PROTOCOLO-1974-NÉVOA</b></span><br>
             <b>Localização de Origem:</b> Fronteira de Isolamento Fluvial - Setor Norte<br>
             <b>Data do Evento:</b> 03 de Agosto de 1974<br><br>
-            <b>Descrição do Caso:</b> Um posto avançado militar de fronteira civil foi completamente silenciado após a manifestação de um fenômeno atmospheric anômalo classificado como 'Névoa de Supressão Cognitiva'. Patrulhas de reconhecimento enviadas pelo exército regular relataram que a estrutura física do posto permanecia intacta, porém todos os vinte e quatro soldados destacados haviam desaparecido, restando apenas seus uniformes, armamentos intocados e marcas de corrosão espiritual nas paredes.<br><br>
+            <b>Descrição do Caso:</b> Um posto avançado militar de fronteira civil foi completamente silenciado após a manifestação de um fenômeno atmosférico anômalo classificado como 'Névoa de Supressão Cognitiva'. Patrulhas de reconhecimento enviadas pelo exército regular relataram que a estrutura física do posto permanecia intacta, porém todos os vinte e quatro soldados destacados haviam desaparecido, restando apenas seus uniformes, armamentos intocados e marcas de corrosão espiritual nas paredes.<br><br>
             <b>Ação de Campo:</b> Agentes de Operações Especiais da Cruz Negra interceptaram as patrulhas civis antes do retorno à base principal. Foi aplicado o primeiro teste em larga escala do Composto Amnésico Classe B na região. O posto militar foi riscado dos mapas cartográficos oficiais através de manobras burocráticas no Ministério da Defesa, sendo transformado em uma Zona de Exclusão Permanente sob o disfarce de reserva ecológica restrita.
         </div>
         """, unsafe_allow_html=True)
@@ -333,7 +412,7 @@ else:
         </div>
         <div class="bloco-confidencial">
             <h4>Protocolo II — Saneamento de Vetores Econômicos</h4>
-            <p>Caso uma das propriedades ou empresas controladas pelo Nicho Investidor apresente quebra de barreira física (ex: events de infestação em cadeias produtivas), o protocolo de liquidação deve ser ativado imediatamente. O desinvestimento artificial derruba o valor das ações, justificando o esvaziamento do local antes do envio da equipe de Caça.</p>
+            <p>Caso uma das propriedades ou empresas controladas pelo Nicho Investidor apresente quebra de barreira física (ex: eventos de infestação em cadeias produtivas), o protocolo de liquidação deve ser ativado imediatamente. O desinvestimento artificial derruba o valor das ações, justificando o esvaziamento do local antes do envio da equipe de Caça.</p>
         </div>
         <div class="bloco-confidencial">
             <h4>Protocolo III — Contenção de Material Biológico Humano</h4>
@@ -435,11 +514,52 @@ else:
             elif senha_log3:
                 st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
 
-    # --- DIRETÓRIO 6: TRANSMISSÃO CAIM ---
-    elif opcao == "Transmissão C.A.I.M.":
-        st.subheader("ARQUIVO DE INTERCEPTAÇÃO DE SINAL COMUNICATIVO")
-        st.error("AVISO: Sinal corrompido por entidade externa não catalogada.")
+    # --- DIRETÓRIO 6: GERADOR DE CREDENCIAL TÁTICA (CONCLUÍDO E INTEGRADO) ---
+    elif opcao == "Gerador de Credencial Tática":
+        st.subheader("MÓDULO DE EMISSÃO DE IDENTIDADE FUNCIONAL")
+        st.write("Gere o cartão de acesso digital criptografado para os agentes em campo operando na comunidade.")
         st.write("---")
-        st.markdown("""
-        > **Caim:** *Olá agente, espero que você esteja pronto para uma aventura que é de arrancar seu coração. Estarei nos cantos das páginas explicando sobre o sistema e dando algumas dicas. Eu serei uma figura bastante familiar durante ao decorrer do jogo então, se acostume... não é de todo mal receber minha ajuda, é um bom acordo...*
-        """)
+        
+        # Inputs para a montagem dinâmica do Crachá
+        col_inp1, col_inp2 = st.columns(2)
+        with col_inp1:
+            nome_agente = st.text_input("Nome de Registro do Agente:", placeholder="Ex: Denis Amorim")
+            alocacao_base = st.text_input("Setor / Base de Operação:", placeholder="Ex: São Miguel dos Antares")
+        
+        with col_inp2:
+            grau_selecionado = st.selectbox("Nível de Liberação (Patente):", [
+                "Nível 1 - AT (Agente em Treinamento)",
+                "Nível 2 - AA (Agente Aprendiz)",
+                "Nível 3 - AB (Agente Básico)",
+                "Nível 4 - AC (Agente de Campo)",
+                "Nível 5 - CT (Caçador em Treinamento)",
+                "Nível 6 - CA (Caçador de Área)",
+                "Nível 7 - LC (Líder de Caça)"
+            ])
+            assinatura_digital = st.text_input("Código de Assinatura Funcional (Identificador):", placeholder="Ex: AC-908\\4F")
+
+        st.write("")
+        
+        # Renderização do Crachá se houver nome digitado
+        if nome_agente:
+            st.markdown(f"""
+            <div class="badge-container">
+                <div class="badge-header">
+                    <span class="badge-title-cn">COALIZÃO PARAMILITAR CRUZ NEGRA</span><br>
+                    <span class="badge-subtitle-cn">CREDENCIAL DE IDENTIFICAÇÃO DE CAMPO</span>
+                </div>
+                <div style="line-height: 1.8;">
+                    <p style="margin: 5px 0;"><span class="badge-label">IDENTIDADE:</span> <span class="badge-value">{nome_agente.upper()}</span></p>
+                    <p style="margin: 5px 0;"><span class="badge-label">PATENTE:</span> <span class="badge-value" style="color: #ff3333 !important;">{grau_selecionado}</span></p>
+                    <p style="margin: 5px 0;"><span class="badge-label">ALOCAÇÃO:</span> <span class="badge-value">{alocacao_base.upper() if alocacao_base else "NÃO ESPECIFICADA"}</span></p>
+                    <p style="margin: 5px 0;"><span class="badge-label">CÓDIGO ANÁLISE:</span> <span class="badge-value" style="font-family: monospace !important; font-weight: normal !important;">{assinatura_digital if assinatura_digital else "PENDENTE-VERIFICAÇÃO"}</span></p>
+                </div>
+                <div class="badge-footer">
+                    ESTE CARTÃO É DE USO EXCLUSIVO TÁTICO. EM CASO DE PERDA OU CAPTURA DO PORTADOR, ESTA CREDENCIAL É REMOTAMENTE INVIABILIZADA. O CONTATO DE CIVIS COM ESTE DOCUMENTO ACIONA O PROTOCOLO DE AMNÉSIA IMEDIATA. DECRETO MILITAR INTERNO 0-14.
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.success("💡 Documento de Identidade Funcional renderizado com sucesso no terminal. Pronto para consulta em operações de campo.")
+        else:
+            st.info("Insira o Nome de Registro do Agente acima para gerar e projetar a Credencial Tática Integrada.")
