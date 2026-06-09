@@ -278,6 +278,7 @@ else:
         "Hierarquia e Níveis de Liberação",
         "Protocolos de Fé e Resiliência",
         "Relatórios de Expedição de Campo",
+        "Especializações de Agentes", # Adicione esta linha aqui
         "Gerador de Credencial Tática"
     ])
 
@@ -513,6 +514,51 @@ else:
                 """, unsafe_allow_html=True)
             elif senha_log3:
                 st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
+
+# --- DIRETÓRIO: ESPECIALIZAÇÕES DE AGENTES ---
+    elif opcao == "Especializações de Agentes":
+        st.subheader("DIRETÓRIO DE ESPECIALIZAÇÕES OPERACIONAIS")
+        st.write("Consulta formal das classes e funções táticas dentro da estrutura da Fundação.")
+        st.write("---")
+
+        # Layout em duas colunas para organização
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown("""
+            <div class="bloco-confidencial">
+                <h4 style='color:#aa0000 !important;'>OCULTISTA</h4>
+                <p><b>Classificação:</b> Especialista em Manipulação de Energia Espiritual.</p>
+                <p>Agentes dotados de alta afinidade com o Sobrenatural. São responsáveis pela execução de rituais de estabilização e supressão de ameaças de nível Vetorial. Sua presença é fundamental para a preservação da barreira da realidade, sendo o elo mais próximo com as forças que tentamos conter.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown("""
+            <div class="bloco-confidencial">
+                <h4 style='color:#aa0000 !important;'>MÉDICO</h4>
+                <p><b>Classificação:</b> Pilar de Suporte e Salvaguarda Vital.</p>
+                <p>Peça fundamental em qualquer equipe de campo. O médico é o responsável pela manutenção da integridade biológica da unidade. Devido ao seu papel insubstituível na sobrevivência da equipe, este agente possui prioridade máxima de proteção em cenários de combate.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col2:
+            st.markdown("""
+            <div class="bloco-confidencial">
+                <h4 style='color:#aa0000 !important;'>COMBATENTE</h4>
+                <p><b>Classificação:</b> Unidade de Choque e Táticas de Contenção.</p>
+                <p>Agentes especializados em intervenção direta. Seja através da maestria com lâminas, combate corpo a corpo ou técnicas de impacto, o combatente é a força tática de elite. Responsáveis pela neutralização física de ameaças, operam como a linha de frente defensiva e ofensiva da organização.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown("""
+            <div class="bloco-confidencial">
+                <h4 style='color:#aa0000 !important;'>MECÂNICO</h4>
+                <p><b>Classificação:</b> Suporte Técnico e Engenharia de Campo.</p>
+                <p>Especialistas em logística, manutenção de equipamentos de alta complexidade e reparos de emergência. A habilidade motora e o conhecimento técnico do mecânico garantem que nossa infraestrutura tecnológica e armamentos especializados funcionem sob condições adversas de campo.</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        st.info("Nota: A designação de classe é permanente após a conclusão do treinamento básico. Alterações requerem autorização expressa da Diretoria.")
 
     # --- DIRETÓRIO 6: GERADOR DE CREDENCIAL TÁTICA (CONCLUÍDO E INTEGRADO) ---
     elif opcao == "Gerador de Credencial Tática":
