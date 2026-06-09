@@ -238,7 +238,7 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-   # --- DIRETÓRIO 2: ORIGEM DA ORGANIZAÇÃO (ESTILO CLASSIFICADO / SCP) ---
+   # --- DIRETÓRIO 2: ORIGEM DA ORGANIZAÇÃO (ESTILO CLASSIFICADO / SCP - SUPORTE PNG) ---
     elif opcao == "Tratado de Ocultamento Sobrenatural":
         st.subheader("ARQUIVO DE DIRETRIZ HISTÓRICA: A FUNDAÇÃO")
         st.write("Compilado de documentos históricos, registros de fundação e incidentes clássicos pré-século XXI.")
@@ -261,16 +261,16 @@ else:
             <b>Localização de Origem:</b> Região Central de Minas Gerais (Antigas Minas de Exploração)<br>
             <b>Data do Evento:</b> 14 de Novembro de 1889<br><br>
             <b>Descrição do Caso:</b> Durante uma escavação profunda em veios de mineração desativados, operários relataram a abertura de uma fenda subterrânea de onde emanava uma névoa densa de coloração escura que causava colapso psíquico imediato e manifestações físicas espasmódicas nos trabalhadores.<br><br>
-            <b>Intervenção Primordial:</b> Destacamentos precursores da organização (então operando sob a alcunha de <i>Ordem do Selo Escuro</i>) isolaram a boca da mina. Foi utilizado o método de selamento por detonação controlada e contenção química por reagentes à base de chumbo. Trinta e dois mineiros afetados foram retidos permanentemente para análise bio-anatômica estrutural. Nenhuma informação foi vazada para a imprensa imperial da época.
+            <b>Intervenção Primordial:</b> Destacamentos precursores da organização (então operando sob a alcunha de <i>Ordem do Selo Escuro</i>) isolaram a boca da mina. Foi utilizado o método de selamento por detonação controlada e contenção química por reagentes à base de chumbo. Trinta e dois mineiros afetados foram retidos permanentemente para análise bio-anatomia estrutural. Nenhuma informação foi vazada para a imprensa imperial da época.
         </div>
         """, unsafe_allow_html=True)
 
-        # Espaço para Imagem 1
-        nome_imagem_1 = "registro_historico_1889.jpeg"
+        # Espaço para Imagem 1 (PNG)
+        nome_imagem_1 = "registro_historico_1889.png"
         if os.path.exists(nome_imagem_1):
             st.image(nome_imagem_1, caption="[FOTO ARQUIVADA] Registro fotográfico da equipe de selamento primário no setor de mineração (1889)", width=500)
         else:
-            st.info(f"💡 [Espaço de Mídia] Para exibir a foto deste caso, salve o arquivo de imagem na pasta do código com o nome exato de: {nome_imagem_1}")
+            st.info(f"💡 [Espaço de Mídia] Salve a foto deste caso na pasta do código com o nome exato de: {nome_imagem_1}")
 
         st.write("") # Espaçamento
 
@@ -280,17 +280,17 @@ else:
             <span class="tag-vermelha"><b>DOCUMENTO REGISTRADO: PROTOCOLO-1974-NÉVOA</b></span><br>
             <b>Localização de Origem:</b> Fronteira de Isolamento Fluvial - Setor Norte<br>
             <b>Data do Evento:</b> 03 de Agosto de 1974<br><br>
-            <b>Descrição do Caso:</b> Um posto avançado militar de fronteira civil foi completamente silenciado após a manifestação de um fenômeno atmosférico anômalo classificado como 'Névoa de Supressão Cognitiva'. Patrulhas de reconhecimento enviadas pelo exército regular relataram que a estrutura física do posto permanecia intacta, porém todos os vinte e quatro soldados destacados haviam desaparecido, restando apenas seus uniformes, armamentos intocados e marcas de corrosão espiritual nas paredes.<br><br>
+            <b>Descrição do Caso:</b> Um posto avançado militar de fronteira civil foi completamente silenciado após a manifestação de um fenômeno atmospheric anômalo classificado como 'Névoa de Supressão Cognitiva'. Patrulhas de reconhecimento enviadas pelo exército regular relataram que a estrutura física do posto permanecia intacta, porém todos os vinte e quatro soldados destacados haviam desaparecido, restando apenas seus uniformes, armamentos intocados e marcas de corrosão espiritual nas paredes.<br><br>
             <b>Ação de Campo:</b> Agentes de Operações Especiais da Cruz Negra interceptaram as patrulhas civis antes do retorno à base principal. Foi aplicado o primeiro teste em larga escala do Composto Amnésico Classe B na região. O posto militar foi riscado dos mapas cartográficos oficiais através de manobras burocráticas no Ministério da Defesa, sendo transformado em uma Zona de Exclusão Permanente sob o disfarce de reserva ecológica restrita.
         </div>
         """, unsafe_allow_html=True)
 
-        # Espaço para Imagem 2
-        nome_imagem_2 = "zona_exclusao_1974.jpeg"
+        # Espaço para Imagem 2 (PNG)
+        nome_imagem_2 = "zona_exclusao_1974.png"
         if os.path.exists(nome_imagem_2):
             st.image(nome_imagem_2, caption="[FOTO ARQUIVADA] Perímetro de isolamento tático e monitoramento de névoa no setor fluvial (1974)", width=500)
         else:
-            st.info(f"💡 [Espaço de Mídia] Para exibir a foto deste caso, salve o arquivo de imagem na pasta do código com o nome exato de: {nome_imagem_2}")
+            st.info(f"💡 [Espaço de Mídia] Salve a foto deste caso na pasta do código com o nome exato de: {nome_imagem_2}")
 
         st.write("") # Espaçamento
 
@@ -300,7 +300,7 @@ else:
             <h4 style='color:#aa0000 !important; font-weight:bold;'>FILOSOFIA DE APAGAMENTO VETORIAL</h4>
             <p>A Cruz Negra não busca a compreensão pública ou a aclamação de seus atos. Desde o século XIX, nossa engrenagem opera baseada no tripé:</p>
             <ul>
-                <li><b>Contenção Física Imediata:</b> Neutralizar o foco da anomalia antes que a malha da realidade local seja permanentemente transmutada.</li>
+                <li><b>Contenção Física Imediata:</b> Neutralizar o foco da anomalia antes que a malha da realidade local seja permanentemente afetada.</li>
                 <li><b>Saneamento Informativo:</b> Criação de narrativas de fachada (fugas de gás, crises financeiras, acidentes estruturais) através de corporações parceiras ligadas ao Nicho Investidor.</li>
                 <li><b>Recrutamento de Resiliência:</b> Absorver indivíduos afetados por incidentes que demonstraram compatibilidade psíquica para atuar na linha de frente, descartando materiais biológicos excedentes de forma segura.</li>
             </ul>
