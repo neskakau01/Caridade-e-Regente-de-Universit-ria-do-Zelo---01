@@ -289,7 +289,7 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-    # --- DIRETÓRIO 5: RELATÓRIOS DE EXPEDIÇÃO (COM SISTEMA DE SENHA INTERNA) ---
+    # # --- DIRETÓRIO 5: RELATÓRIOS DE EXPEDIÇÃO (COM SISTEMA DE SENHA INTERNA E NOMES EM PT-BR) ---
     elif opcao == "Relatórios de Expedição de Campo":
         st.subheader("LOGS DE MISSÕES DE CAMPO INTERCEPTADOS [SECRETO]")
         st.write("Registros históricos de incursões táticas autorizadas pela administração central. Requer senha criptográfica para visualização total.")
@@ -313,11 +313,11 @@ else:
                 <div class="bloco-desbloqueado">
                     <span class="tag-verde">✔ ACESSO AUTORIZADO — PATENTE DIRETORIA</span><br><br>
                     <b>RELATÓRIO TÁTICO INTEGRAL:</b><br>
-                    <b>Equipe de Incursão:</b> Agente de Campo <i>Vanguard</i> (AC), Agente de Campo <i>Echo</i> (AC) e Agente Básico <i>Sledge</i> (AB).<br><br>
+                    <b>Equipe de Incursão:</b> Agente de Campo <i>Sargento Marcos Rocha</i> (AC), Agente de Campo <i>Tenente Cavalcanti</i> (AC) e Agente Básico <i>Rodrigo "Marreta" Silva</i> (AB).<br><br>
                     <b>Entidade Identificada:</b> Vetor-09 ("A Massa Voraz"). Uma massa amorfa de glicose transmutada e tecido biológico fundido que gerava campos de microgravidade localizada.<br><br>
-                    <b>Resumo do Confronto:</b> Ao entrarem na zona de caldeiras, a equipe foi atacada por tentáculos de matéria orgânica fervente. O Agente <i>Sledge</i> foi suspenso no ar pela anomalia gravitacional e arremessado contra a estrutura metálica secundária.<br><br>
+                    <b>Resumo do Confronto:</b> Ao entrarem na zona de caldeiras, a equipe foi atacada por tentáculos de matéria orgânica fervente. O Agente <i>Rodrigo</i> foi suspenso no ar pela anomalia gravitacional e arremessado contra a estrutura metálica secundária.<br><br>
                     <b>Desfecho:</b> O núcleo da Entidade foi destruído utilizando cargas de fragmentação térmica purificada. O espécime foi totalmente <b>ELIMINADO</b> no local, impossibilitando a captura de amostras limpas.<br><br>
-                    <b>Baixas/Danos:</b> <span class="tag-vermelha">ÓBITO CONFIRMADO</span> do Agente <i>Sledge</i> (traumatismo craniano severo e exposição térmica). Corpo incinerado no local seguindo o Protocolo III. Agentes <i>Vanguard</i> e <i>Echo</i> sofreram queimaduras leves mas permanecem ativos.
+                    <b>Baixas/Danos:</b> <span class="tag-vermelha"><b>ÓBITO CONFIRMADO</b></span> do Agente <i>Rodrigo Silva</i> (traumatismo craniano severo e exposição térmica). Corpo incinerado no local seguindo o Protocolo III. Os agentes <i>Rocha</i> e <i>Cavalcanti</i> sofreram queimaduras leves, mas permanecem ativos.
                 </div>
                 """, unsafe_allow_html=True)
             elif senha_log1:
@@ -343,10 +343,10 @@ else:
                 <div class="bloco-desbloqueado">
                     <span class="tag-verde">✔ ACESSO AUTORIZADO — PATENTE DIRETORIA</span><br><br>
                     <b>RELATÓRIO TÁTICO INTEGRAL:</b><br>
-                    <b>Equipe de Incursão:</b> Agente Básico <i>Ghost</i> (AB), Agente Básico <i>Specter</i> (AB) e Caçador em Treinamento <i>Pharos</i> (CT).<br><br>
+                    <b>Equipe de Incursão:</b> Agente Básico <i>Sandro Costa</i> (AB), Agente Básico <i>Felipe Azevedo</i> (AB) e Caçador em Treinamento <i>Guilherme "Farol" Souza</i> (CT).<br><br>
                     <b>Entidade Identificada:</b> Sujeito Necrótico-04. Um cadáver humano modificado por resíduos de névoa de espectro inferior, capaz de projetar ondas sonoras que colapsavam o sistema nervoso periférico de alvos vivos.<br><br>
                     <b>Resumo do Confronto:</b> A criatura ergueu-se da mesa de dissecção durante a madrugada. A equipe bloqueou as saídas acústicas da ala de medicina. O espécime tentou uma ruptura perfurando a parede de drywall utilizando garras ósseas recém-projetadas.<br><br>
-                    <b>Desfecho:</b> O Caçador <i>Pharos</i> utilizou o Protocolo de Fé I para estabilizar a barreira psíquica da equipe e conter os ataques sonoros. A criatura foi imobilizada com correntes de contenção estática e posteriormente <b>CAPTURADA</b> com sucesso para estudo de bio-anatomia na Base-04.<br><br>
+                    <b>Desfecho:</b> O Caçador <i>Guilherme</i> utilizou o Protocolo de Fé I para estabilizar a barreira psíquica da equipe e conter os ataques sonoros. A criatura foi imobilizada com correntes de contenção estática e posteriormente <b>CAPTURADA</b> com sucesso para estudo de bio-anatomia na Base-04.<br><br>
                     <b>Baixas/Danos:</b> Nenhuma baixa na equipe. Três estudantes que ouviram os sussurros iniciais através das frestas sofreram síncope e foram tratados com amnésicos Classe C.
                 </div>
                 """, unsafe_allow_html=True)
@@ -373,11 +373,11 @@ else:
                 <div class="bloco-desbloqueado">
                     <span class="tag-verde">✔ ACESSO AUTORIZADO — PATENTE DIRETORIA</span><br><br>
                     <b>RELATÓRIO TÁTICO INTEGRAL:</b><br>
-                    <b>Equipe de Incursão:</b> Caçador de Área <i>Paladin</i> (CA), Caçador de Área <i>Aegis</i> (CA) sob coordenação do Líder de Caça <i>Ironclad</i> (LC).<br><br>
+                    <b>Equipe de Incursão:</b> Caçador de Área <i>Carlos "Carcará" Mendes</i> (CA), Caçador de Área <i>Renato "Escudo" Borges</i> (CA) sob coordenação do Líder de Caça <i>Comandante Brandão</i> (LC).<br><br>
                     <b>Entidade Identificada:</b> Anomalia Territorial Classe 4 ("A Sentinela de Fuligem"). Uma entidade colossal semi-sólida composta por cinza inteligente e flutuações térmicas de espectro vermelho.<br><br>
                     <b>Resumo do Confronto:</b> Uma patrulha de reconhecimento de três Agentes Aprendizes (AA) cruzou a linha de demarcação por falha de navegação. A Sentinela ergueu-se do solo gerando uma tempestade de vácuo calcinante. A equipe de Caça de elite interveio para criar uma barreira de supressão psíquica e extrair os sobreviventes.<br><br>
                     <b>Desfecho:</b> A entidade não pôde ser morta nem capturada devido à sua escala geográfica. Missão classificada como <b>CONTIDA / MONITORAMENTO ATIVO</b>. O perímetro foi expandido em 5km de exclusão total.<br><br>
-                    <b>Baixas/Danos:</b> <span class="tag-vermelha">TRÊS ÓBITOS CONFIRMADOS</span> da equipe de triagem primária (Agentes Aprendizes desintegrados termicamente). O Caçador <i>Aegis</i> perdeu o braço direito devido à corrosão da fuligem espiritual. O Líder de Caça <i>Ironclad</i> assumiu o comando do setor.
+                    <b>Baixas/Danos:</b> <span class="tag-vermelha"><b>TRÊS ÓBITOS CONFIRMADOS</b></span> da equipe de triagem primária (Agentes Aprendizes desintegrados termicamente). O Caçador <i>Renato Borges</i> perdeu o braço direito devido à corrosão da fuligem espiritual. O Líder de Caça <i>Comandante Brandão</i> assumiu o comando do setor.
                 </div>
                 """, unsafe_allow_html=True)
             elif senha_log3:
