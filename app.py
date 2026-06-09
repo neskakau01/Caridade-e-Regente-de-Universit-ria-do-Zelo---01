@@ -79,7 +79,7 @@ if not st.session_state['autenticado']:
         </div>
         <div class="card-noticia" style="border-left-color: #10b981;">
             <h4 style='margin:0 0 5px 0; font-size:14px; font-weight:bold;'>Infraestrutura e Logística Espacial</h4>
-            <p style='margin:0; font-size:13px;'>Cessão e mapeamento de amplas áreas abertas e centros de treinamento para laboratórios e faculdades de Educação Física, garantindo espaço técnico seguro para atividades externas.</p>
+            <p style='margin:0; font-size:13px;'>Cessão e mapeamento de amplas áreas abertas e centers de treinamento para laboratórios e faculdades de Educação Física, garantindo espaço técnico seguro para atividades externas.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -117,7 +117,7 @@ if not st.session_state['autenticado']:
         <div class="card-noticia">
             <span class="data-noticia font-mono">ÍNDICE DE ATIVOS ATUALIZADO</span>
             <h4 style='margin:5px 0; font-size:14px; font-weight:bold;'>Ajuste de Portfólio: Setor Alimentício (Fábricas de Chocolate)</h4>
-            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais in em uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
+            <p style='margin:0; font-size:13px;'>Identificadas anomalias estruturais e operacionais em uma de nossas unidades de manufatura. Iniciado o protocolo padrão de retirada parcial de capital preventivo para contenção de danos e desvalorização estratégica controlada de ativos.</p>
         </div>
         <div class="card-noticia">
             <span class="data-noticia font-mono">DIRETRIZ DE REAQUISIÇÃO</span>
@@ -174,9 +174,10 @@ else:
             color: #4caf50 !important;
             font-weight: bold;
         }
-        .tarja-preta {
-            background-color: #000000;
-            color: #000000;
+        /* Tarja de censura atualizada para Branco (Fundo e texto ocultados) */
+        .tarja-censurada {
+            background-color: #ffffff;
+            color: #ffffff;
             padding: 0 4px;
         }
         /* Ajuste tático para evitar quebra de ícones nativos */
@@ -238,13 +239,12 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-   # --- DIRETÓRIO 2: ORIGEM DA ORGANIZAÇÃO (ESTILO CLASSIFICADO / SCP - SUPORTE PNG) ---
+    # --- DIRETÓRIO 2: ORIGEM DA ORGANIZAÇÃO ---
     elif opcao == "Tratado de Ocultamento Sobrenatural":
         st.subheader("ARQUIVO DE DIRETRIZ HISTÓRICA: A FUNDAÇÃO")
         st.write("Compilado de documentos históricos, registros de fundação e incidentes clássicos pré-século XXI.")
         st.write("---")
         
-        # Bloco Inicial - Visão Geral
         st.markdown("""
         <div class="bloco-confidencial">
             <h4 style='color:#aa0000 !important; font-weight:bold;'>VISÃO GERAL OPERACIONAL</h4>
@@ -254,7 +254,6 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-        # Caso Histórico 1 (Século XIX)
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>DOCUMENTO REGISTRADO: INCIDENTE-1889-OURO</b></span><br>
@@ -265,16 +264,14 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-        # Espaço para Imagem 1 (PNG)
         nome_imagem_1 = "registro_historico_1889.png"
         if os.path.exists(nome_imagem_1):
             st.image(nome_imagem_1, caption="[FOTO ARQUIVADA] Registro fotográfico da equipe de selamento primário no setor de mineração (1889)", width=500)
         else:
             st.info(f"💡 [Espaço de Mídia] Salve a foto deste caso na pasta do código com o nome exato de: {nome_imagem_1}")
 
-        st.write("") # Espaçamento
+        st.write("")
 
-        # Caso Histórico 2 (Anos 70)
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>DOCUMENTO REGISTRADO: PROTOCOLO-1974-NÉVOA</b></span><br>
@@ -285,16 +282,14 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-        # Espaço para Imagem 2 (PNG)
         nome_imagem_2 = "zona_exclusao_1974.png"
         if os.path.exists(nome_imagem_2):
             st.image(nome_imagem_2, caption="[FOTO ARQUIVADA] Perímetro de isolamento tático e monitoramento de névoa no setor fluvial (1974)", width=500)
         else:
             st.info(f"💡 [Espaço de Mídia] Salve a foto deste caso na pasta do código com o nome exato de: {nome_imagem_2}")
 
-        st.write("") # Espaçamento
+        st.write("")
 
-        # Doutrina de Ocultamento
         st.markdown("""
         <div class="bloco-confidencial">
             <h4 style='color:#aa0000 !important; font-weight:bold;'>FILOSOFIA DE APAGAMENTO VETORIAL</h4>
@@ -321,7 +316,7 @@ else:
             <p><b class="tag-vermelha">Nível 4 - AC (Agente de Campo):</b> Veteranos de combate anômalo. Responsáveis pela liderança de incursões urbanas e aplicação imediata de protocolos de sigilo na comunidade.</p>
             <p><b class="tag-vermelha">Nível 5 - CT (Caçador em Treinamento):</b> Selecionados para o programa avançado de erradicação. Iniciam os testes de exposição direta à energia espiritual purificada.</p>
             <p><b class="tag-vermelha">Nível 6 - CA (Caçador de Área):</b> Destinados à contenção de anomalias territoriais massivas. Possuem autonomia tática para decretar quarentenas econômicas e físicas.</p>
-            <p><b class="tag-vermelha">Nível 7 - LC (Líder de Caça):</b> O ápice operacional da Cruz Negra. Agentes modificados com alto grau de resiliência a distorções da reality, respondendo diretamente à Diretora Ana Carter.</p>
+            <p><b class="tag-vermelha">Nível 7 - LC (Líder de Caça):</b> O ápice operacional da Cruz Negra. Agentes modificados com alto grau de resiliência a distorções da realidade, respondendo diretamente à Diretora Ana Carter.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -338,7 +333,7 @@ else:
         </div>
         <div class="bloco-confidencial">
             <h4>Protocolo II — Saneamento de Vetores Econômicos</h4>
-            <p>Caso uma das propriedades ou empresas controladas pelo Nicho Investidor apresente quebra de barreira física (ex: eventos de infestação em cadeias produtivas), o protocolo de liquidação deve ser ativado imediatamente. O desinvestimento artificial derruba o valor das ações, justificando o esvaziamento do local antes do envio da equipe de Caça.</p>
+            <p>Caso uma das propriedades ou empresas controladas pelo Nicho Investidor apresente quebra de barreira física (ex: events de infestação em cadeias produtivas), o protocolo de liquidação deve ser ativado imediatamente. O desinvestimento artificial derruba o valor das ações, justificando o esvaziamento do local antes do envio da equipe de Caça.</p>
         </div>
         <div class="bloco-confidencial">
             <h4>Protocolo III — Contenção de Material Biológico Humano</h4>
@@ -346,7 +341,7 @@ else:
         </div>
         """, unsafe_allow_html=True)
 
-    # # --- DIRETÓRIO 5: RELATÓRIOS DE EXPEDIÇÃO (COM SISTEMA DE SENHA INTERNA E NOMES EM PT-BR) ---
+    # --- DIRETÓRIO 5: RELATÓRIOS DE EXPEDIÇÃO ---
     elif opcao == "Relatórios de Expedição de Campo":
         st.subheader("LOGS DE MISSÕES DE CAMPO INTERCEPTADOS [SECRETO]")
         st.write("Registros históricos de incursões táticas autorizadas pela administração central. Requer senha criptográfica para visualização total.")
@@ -358,7 +353,7 @@ else:
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-04A</b></span><br>
             <b>Localização:</b> Setor Industrial Sul - Fábrica de Processamento de Doces [CONFIDENCIAL]<br>
             <b>Status da Missão:</b> Concluída / Sucesso Parcial<br>
-            <b>Descrição Básica:</b> Relatada flutuação gravitacional na ala de caldeiras e liquefação orgânica de matéria-prima. Uma equipe infiltrada localizou o foco paranormal. <span class="tarja-preta">OS AGENTES DETECTARAM QUE A ANOMALIA SE ALIMENTAVA DE</span>. Os funcionários sobreviventes receberam amnésicos de Classe C.
+            <b>Descrição Básica:</b> Relatada flutuação gravitacional na ala de caldeiras e liquefação orgânica de matéria-prima. Uma equipe infiltrada localizou o foco paranormal. <span class="tarja-censurada">OS AGENTES DETECTARAM QUE A ANOMALIA SE ALIMENTAVA DE</span>. Os funcionários sobreviventes receberam amnésicos de Classe C.
         </div>
         """, unsafe_allow_html=True)
         
@@ -380,7 +375,7 @@ else:
             elif senha_log1:
                 st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
 
-        st.write("") # Espaçamento entre blocos
+        st.write("")
 
         # --- LOG 2 ---
         st.markdown("""
@@ -388,7 +383,7 @@ else:
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-05D</b></span><br>
             <b>Localização:</b> Campus Universitário [CONFIDENCIAL] - Ala de Anatomia Médica<br>
             <b>Status da Missão:</b> Arquivada / Contida<br>
-            <b>Descrição Básica:</b> Um dos corpos fornecidos apresentou atividade muscular pós-morte espontânea e vocalização em frequências prejudiciais. Agentes do Grau AB agiram redirecionando estudantes. <span class="tarja-preta">O CADÁVER MANIFESTOU EXPANSÃO DE</span>. O espécime foi tratado conforme o Protocolo III.
+            <b>Descrição Básica:</b> Um dos corpos fornecidos apresentou atividade muscular pós-morte espontânea e vocalização em frequências prejudiciais. Agentes do Grau AB agiram redirecionando estudantes. <span class="tarja-censurada">O CADÁVER MANIFESTOU EXPANSÃO DE</span>. O espécime foi tratado conforme o Protocolo III.
         </div>
         """, unsafe_allow_html=True)
         
@@ -410,15 +405,15 @@ else:
             elif senha_log2:
                 st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
 
-        st.write("") # Espaçamento entre blocos
+        st.write("")
 
         # --- LOG 3 ---
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-06B</b></span><br>
-            <b>Localização:</b> Perímetro das Montanhas de Cinzas - Posto de Observação Avançado<br>
+            <b>Localização:</b> Perímetro do Acidente [CONFIDENCIAL] - Posto de Observação Avançado<br>
             <b>Status da Missão:</b> Ativa / Monitoramento Crítico<br>
-            <b>Descrição Básica:</b> Detectado aumento na pressão atmosférica indicando movimentação de energia de espectro vermelho. Patrulhas de Caçadores foram posicionadas. <span class="tarja-preta">FOI VISUALIZADA UMA ESTRUTURA BIOLÓGICA DE CINZAS DE</span>. Risco iminente de exposição anômala.
+            <b>Descrição Básica:</b> Detectado aumento na pressão atmosférica indicando movimentação de energia de espectro vermelho. Patrulhas de Caçadores foram posicionadas. <span class="tarja-censurada">FOI VISUALIZADA UMA ESTRUTURA BIOLÓGICA DE DETRITOS DE</span>. Risco iminente de exposição anômala.
         </div>
         """, unsafe_allow_html=True)
         
