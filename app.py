@@ -438,6 +438,7 @@ else:
         "Relatórios de Expedição de Campo",
         "Especializações de Agentes",
         "Gerador de Credencial Tática",
+        "Gerenciador de Ficha Ativa",  # <-- NOVA ABA AQUI
         "Relatório de Falha Sistêmica: Marco 96"
     ])
 
@@ -758,6 +759,252 @@ else:
                 </div>
             </div>
             """, unsafe_allow_html=True)
+    # --- NOVO DIRETÓRIO: GERENCIADOR DE FICHA ATIVA ---
+    elif opcao == "Gerenciador de Ficha Ativa":
+        st.subheader("🗃️ PROTOCOLO DE MONITORAMENTO DE AGENTE")
+        st.write("Ficha tática operacional otimizada para campanhas com rolagens físicas de dados.")
+        st.write("---")
+
+        # Inicializando os estados de sessão de forma isolada
+        if 'hp_atual' not in st.session_state: st.session_state.hp_atual = 30
+        if 'energia_atual' not in st.session_state: st.session_state.energia_atual = 15
+        if 'sanidade_atual' not in st.session_state: st.session_state.sanidade_atual = 10
+
+        # Funções de Callback estritas para evitar interferência entre os botões
+        def mudar_hp(valor): st.session_state.hp_atual += valor
+        def mudar_pe(valor): st.session_state.energia_atual += valor
+        def mudar_san(valor): st.session_state.sanidade_atual += valor
+
+        # --- SEÇÃO DE IDENTIFICAÇÃO GERAL ---
+        st.markdown("<p style='color:#ef4444; font-weight:bold; margin-bottom:2px;'>IDENTIFICAÇÃO OPERACIONAL</p>", unsafe_allow_html=True)
+        col_id1, col_id2, col_id3 = st.columns([2, 1, 1])
+        with col_id1:
+            nome_personagem = st.text_input("Nome do Agente:", value="Abel", key="nome_pc")
+        with col_id2:
+            classe_selecionada = st.selectbox("Classe / Função:", ["Combatente", "Especialista / Suporte", "Médico", "Ocultista"])
+        with col_id3:
+            nivel_selecionado = st.selectbox("Nível / Patente:", ["Nível 1 (AT)", "Nível 2 (AA)", "Nível 3 (AB)", "Nível 4 (AC)", "Nível 5 (CT)", "Nível 6 (CA)", "Nível 7 (LC)"])
+
+        st.write("---")
+
+        # --- SEÇÃO VITAIS ESTILIZADA ---
+        st.markdown("<p style='color:#ef4444; font-weight:bold; text-align:center; margin-bottom:15px;'>STATUS VITAIS ATIVOS</p>", unsafe_allow_html=True)
+        
+        col_v1, col_v2, col_v3 = st.columns(3)
+        
+        with col_v1:
+            st.markdown(
+                f"""
+                <div style="background: linear-gradient(135deg, #2d1313, #1e0b0b); border: 2px solid #ef4444; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0px 4px 10px rgba(239, 68, 68, 0.2);">
+                    <span style="color: #f87171; font-weight: bold; font-size: 14px;">PONTOS DE VIDA (HP)</span>
+                    <h1 style="color: #ef4444; margin: 10px 0; font-size: 42px; font-family: 'Courier New', monospace;">{st.session_state.hp_atual}</h1>
+                </div>
+                """, unsafe_allow_html=True
+            )
+            st.write("")
+            cb1, cb2 = st.columns(2)
+            with cb1: st.button("➖ HP", key="btn_sub_hp", on_click=mudar_hp, args=(-1,), use_container_width=True)
+            with cb2: st.button("➕ HP", key="btn_add_hp", on_click=mudar_hp, args=(1,), use_container_width=True)
+                
+        with col_v2:
+            st.markdown(
+                f"""
+                <div style="background: linear-gradient(135deg, #0f2430, #0a1720); border: 2px solid #0ea5e9; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0px 4px 10px rgba(14, 165, 233, 0.2);">
+                    <span style="color: #7dd3fc; font-weight: bold; font-size: 14px;">ENERGIA COMPLEMENTAR (PE)</span>
+                    <h1 style="color: #0ea5e9; margin: 10px 0; font-size: 42px; font-family: 'Courier New', monospace;">{st.session_state.energia_atual}</h1>
+                </div>
+                """, unsafe_allow_html=True
+            )
+            st.write("")
+            cb3, cb4 = st.columns(2)
+            with cb3: st.button("➖ PE", key="btn_sub_pe", on_click=mudar_pe, args=(-1,), use_container_width=True)
+            with cb4: st.button("➕ PE", key="btn_add_pe", on_click=mudar_pe, args=(1,), use_container_width=True)
+
+        with col_v3:
+            st.markdown(
+                f"""
+                <div style="background: linear-gradient(135deg, #0d2219, #081610); border: 2px solid #10b981; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0px 4px 10px rgba(16, 185, 129, 0.2);">
+                    <span style="color: #6ee7b7; font-weight: bold; font-size: 14px;">SANIDADE OPERACIONAL (SAN)</span>
+                    <h1 style="color: #10b981; margin: 10px 0; font-size: 42px; font-family: 'Courier New', monospace;">{st.session_state.sanidade_atual}</h1>
+                </div>
+                """, unsafe_allow_html=True
+            )
+            st.write("")
+            cb5, cb6 = st.columns(2)
+            with cb5: st.button("➖ SAN", key="btn_sub_san", on_click=mudar_san, args=(-1,), use_container_width=True)
+            with cb6: st.button("➕ SAN", key="btn_add_san", on_click=mudar_san, args=(1,), use_container_width=True)
+
+        st.write("---")
+
+        # --- SEÇÃO MATRIZ DE ATRIBUTOS COM TETO EM 15 ---
+        st.markdown("<p style='color:#ef4444; font-weight:bold;'>MATRIZ DE CAPACIDADES E ATRIBUTOS</p>", unsafe_allow_html=True)
+        st.write("Insira os valores das ramificações (Máximo 15). A categoria calculará automaticamente o dado de teste.")
+
+        def determinar_dado_sistema(valor_total):
+            if valor_total <= 2: return "1d6"
+            elif valor_total <= 5: return "1d8"
+            elif valor_total <= 8: return "1d10"
+            else: return "1d12"
+
+        col_at1, col_at2 = st.columns(2)
+
+        with col_at1:
+            # Conjunto CORPO
+            st.markdown("<div style='background-color:#1e1e24; padding:5px; border-radius:3px; font-weight:bold; color:#f87171;'>💪 CATEGORIA: CORPO</div>", unsafe_allow_html=True)
+            f_forca = st.number_input("Força:", min_value=0, max_value=15, value=4, key="at_forca")
+            f_res = st.number_input("Resistência:", min_value=0, max_value=15, value=4, key="at_res")
+            f_vig = st.number_input("Vigor:", min_value=0, max_value=15, value=2, key="at_vig")
+            soma_corpo = f_forca + f_res + f_vig
+            dado_corpo = determinar_dado_sistema(soma_corpo)
+            st.markdown(f"<p style='color:#f87171; font-weight:bold; font-size:15px;'>Soma Total CORPO: {soma_corpo} <span style='color:#94a3b8;'>({dado_corpo})</span></p>", unsafe_allow_html=True)
+            st.write("")
+
+            # Conjunto AGILIDADE
+            st.markdown("<div style='background-color:#141f26; padding:5px; border-radius:3px; font-weight:bold; color:#38bdf8;'>⚡ CATEGORIA: AGILIDADE</div>", unsafe_allow_html=True)
+            f_ref = st.number_input("Reflexos:", min_value=0, max_value=15, value=1, key="at_ref")
+            f_fur = st.number_input("Furtividade:", min_value=0, max_value=15, value=2, key="at_fur")
+            f_pre = st.number_input("Precisão:", min_value=0, max_value=15, value=1, key="at_pre")
+            soma_agi = f_ref + f_fur + f_pre
+            dado_agi = determinar_dado_sistema(soma_agi)
+            st.markdown(f"<p style='color:#38bdf8; font-weight:bold; font-size:15px;'>Soma Total AGILIDADE: {soma_agi} <span style='color:#94a3b8;'>({dado_agi})</span></p>", unsafe_allow_html=True)
+
+        with col_at2:
+            # Conjunto MENTE
+            st.markdown("<div style='background-color:#1b1924; padding:5px; border-radius:3px; font-weight:bold; color:#c084fc;'>🧠 CATEGORIA: MENTE</div>", unsafe_allow_html=True)
+            f_int = st.number_input("Intelecto:", min_value=0, max_value=15, value=1, key="at_int")
+            f_log = st.number_input("Lógica:", min_value=0, max_value=15, value=2, key="at_log")
+            f_ocu = st.number_input("Ocultismo:", min_value=0, max_value=15, value=0, key="at_ocu")
+            soma_mente = f_int + f_log + f_ocu
+            dado_mente = determinar_dado_sistema(soma_mente)
+            st.markdown(f"<p style='color:#c084fc; font-weight:bold; font-size:15px;'>Soma Total MENTE: {soma_mente} <span style='color:#94a3b8;'>({dado_mente})</span></p>", unsafe_allow_html=True)
+            st.write("")
+
+            # Conjunto FÉ
+            st.markdown("<div style='background-color:#13201a; padding:5px; border-radius:3px; font-weight:bold; color:#34d399;'>⛪ CATEGORIA: FÉ</div>", unsafe_allow_html=True)
+            f_von = st.number_input("Vontade:", min_value=0, max_value=15, value=2, key="at_von")
+            f_san = st.number_input("Sanidade (Atrib):", min_value=0, max_value=15, value=1, key="at_f_san")
+            f_prs = st.number_input("Presença:", min_value=0, max_value=15, value=1, key="at_prs")
+            soma_fe = f_von + f_san + f_prs
+            dado_fe = determinar_dado_sistema(soma_fe)
+            st.markdown(f"<p style='color:#34d399; font-weight:bold; font-size:15px;'>Soma Total FÉ: {soma_fe} <span style='color:#94a3b8;'>({dado_fe})</span></p>", unsafe_allow_html=True)
+
+        st.write("---")
+
+        # --- SEÇÃO GRADE DE PERÍCIAS DETALHADAS ---
+        st.markdown("<p style='color:#ef4444; font-weight:bold;'>🗂️ GRADE DE PERÍCIAS OPERACIONAIS</p>", unsafe_allow_html=True)
+        
+        lista_pericias_oficiais = [
+            "ARMAS BRANCAS", "ROUBO", "ESQUIVA", "MECANICA", "PILOTAGEM", 
+            "ARMAS DE FOGO", "SOBREVIVENCIA", "MEDICINA", "VITALIDADE", 
+            "RITUAIS", "ARRUMAÇÃO"
+        ]
+
+        col_p1, col_p2 = st.columns(2)
+        pericias_treinadas_usuario = {}
+        
+        for idx, per in enumerate(lista_pericias_oficiais):
+            target_col = col_p1 if idx % 2 == 0 else col_p2
+            with target_col:
+                escolha = st.radio(f"**{per}**", ["Não Treinada (Nível 0)", "Nível I (1)", "Nível II (2)", "Nível III (3)"], index=0, key=f"per_{per.lower().replace(' ', '_')}", horizontal=True)
+                if escolha != "Não Treinada (Nível 0)":
+                    pericias_treinadas_usuario[per] = escolha.split(" (")[0]
+
+        st.write("---")
+
+        # --- SEÇÃO INVENTÁRIO, RITUAIS LIVRES E ANOTAÇÕES GERAIS ---
+        col_low1, col_low2 = st.columns(2)
+        
+        with col_low1:
+            st.markdown("<p style='color:#ef4444; font-weight:bold; margin-bottom:2px;'>📥 INVENTÁRIO TÁTICO & CARGA</p>", unsafe_allow_html=True)
+            inventario_texto = st.text_area("Slots e Equipamentos atuais:", placeholder="Itens e armas equipados...", height=120, key="inv_box")
+            
+            st.markdown("<p style='color:#ef4444; font-weight:bold; margin-bottom:2px; margin-top:15px;'>🔮 MANIFESTAÇÕES E RITUAIS CONHECIDOS</p>", unsafe_allow_html=True)
+            rituais_texto = st.text_area("Descreva livremente rituais conhecidos, efeitos e custos de PE:", placeholder="Rituais conhecidos...", height=120, key="rit_box")
+
+        with col_low2:
+            st.markdown("<p style='color:#ef4444; font-weight:bold; margin-bottom:2px;'>📝 DIÁRIO DE CAMPO (ANOTAÇÕES CONFIDENCIAIS)</p>", unsafe_allow_html=True)
+            anotacoes_texto = st.text_area("Registre pistas, nomes de sobreviventes e informações da campanha:", placeholder="Notas gerais da mesa...", height=292, key="anot_box")
+
+        st.write("---")
+
+        # --- SEÇÃO VISUAL: FOLHA DE FICHA TÁTICA ATUALIZADA (HTML SEGURO) ---
+        st.markdown("<p style='color:#ef4444; font-weight:bold;'>📇 FOLHA DE MONITORAMENTO TÁTICO (IMAGEM DA FICHA)</p>", unsafe_allow_html=True)
+        st.write("Abaixo está o documento oficial da sua ficha ativa estruturado dinamicamente para exibição limpa:")
+
+        # CÁLCULO DINÂMICO DE COMBATE BASEADO NAS REGRAS (Utilizando suas variáveis f_forca e f_res)
+        dano_base = f_forca + 2
+        resistencia_base = f_res + 2
+
+        # Construindo as perícias formatadas em HTML em uma estrutura de duas colunas (Grid) para economizar espaço
+        html_pericias = ""
+        if pericias_treinadas_usuario:
+            html_pericias += "<div style='display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding-left: 10px; color: #1e293b; font-size: 13px; font-family: sans-serif;'>"" "
+            for p_nome, p_nivel in pericias_treinadas_usuario.items():
+                html_pericias += f"<div>• <b>{p_nome}:</b> {p_nivel}</div>"
+            html_pericias += "</div>"
+        else:
+            html_pericias = "<p style='margin: 0; font-size: 13px; color: #64748b; font-style: italic; font-family: sans-serif;'>Nenhuma perícia treinada ativa.</p>"
+
+        # String HTML limpa com a inclusão de Dano, Resistência e a listagem em duas colunas
+        card_html = f"""
+        <div style="background-color: #ffffff; border: 3px solid #1e293b; border-radius: 6px; padding: 20px; font-family: Arial, sans-serif; color: #1e293b; box-sizing: border-box;">
+            
+            <div style="border-bottom: 2px solid #1e293b; padding-bottom: 10px; margin-bottom: 15px; text-align: center;">
+                <h2 style="color: #1e293b; margin: 0; font-size: 18px; font-weight: bold; letter-spacing: 1px;">ORGANIZAÇÃO CRUZ NEGRA</h2>
+                <p style="margin: 3px 0 0 0; font-size: 11px; color: #475569; font-weight: bold; letter-spacing: 3px;">PRONTUÁRIO DE IDENTIFICAÇÃO DE AGENTE</p>
+            </div>
+            
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 14px; color: #1e293b;">
+                <tr>
+                    <td style="padding: 6px 0; border-bottom: 1px dashed #cbd5e1; width: 50%;"><b>AGENTE COGNODOMINADO:</b> <span style="text-transform: uppercase;">{nome_personagem if nome_personagem else 'NÃO DECLARADO'}</span></td>
+                    <td style="padding: 6px 0; border-bottom: 1px dashed #cbd5e1;"><b>STATUS DE CAPACIDADE VITAL (HP):</b> <span style="color: #dc2626; font-weight: bold;">{st.session_state.hp_atual}</span></td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px 0; border-bottom: 1px dashed #cbd5e1;"><b>FUNÇÃO OPERACIONAL:</b> {classe_selecionada}</td>
+                    <td style="padding: 6px 0; border-bottom: 1px dashed #cbd5e1;"><b>RESERVA ENERGÉTICA (PE):</b> <span style="color: #0284c7; font-weight: bold;">{st.session_state.energia_atual}</span></td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px 0; border-bottom: 1px dashed #cbd5e1;"><b>PATENTE DE CAMPO:</b> {nivel_selecionado}</td>
+                    <td style="padding: 6px 0; border-bottom: 1px dashed #cbd5e1;"><b>INTEGRIDADE COGNITIVA (SAN):</b> <span style="color: #16a34a; font-weight: bold;">{st.session_state.sanidade_atual}</span></td>
+                </tr>
+            </table>
+            
+            <div style="background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                <p style="margin: 0; font-size: 11px; font-weight: bold; color: #475569; text-align: center; letter-spacing: 1px;">
+                    MATRIZ DE DADOS ATIVOS SINDICALIZADOS
+                </p>
+                <p style="margin: 5px 0 0 0; font-size: 13px; color: #0f172a; text-align: center; font-weight: bold;">
+                    CORPO: {soma_corpo} ({dado_corpo}) | AGILIDADE: {soma_agi} ({dado_agi}) | MENTE: {soma_mente} ({dado_mente}) | FÉ: {soma_fe} ({dado_fe})
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                <div style="background-color: #fef2f2; border: 1px solid #fee2e2; padding: 8px; border-radius: 4px; text-align: center;">
+                    <span style="font-size: 11px; font-weight: bold; color: #991b1b; letter-spacing: 0.5px;">⚔️ MODIFICADOR DE DANO</span>
+                    <p style="margin: 3px 0 0 0; font-size: 15px; font-weight: bold; color: #dc2626;">+{dano_base} (Força + 2)</p>
+                </div>
+                <div style="background-color: #f0fdf4; border: 1px solid #dcfce7; padding: 8px; border-radius: 4px; text-align: center;">
+                    <span style="font-size: 11px; font-weight: bold; color: #166534; letter-spacing: 0.5px;">🛡️ RESISTÊNCIA A DANO</span>
+                    <p style="margin: 3px 0 0 0; font-size: 15px; font-weight: bold; color: #16a34a;">{resistencia_base} (Resistência + 2)</p>
+                </div>
+            </div>
+            
+            <div style="border: 1px solid #cbd5e1; padding: 12px; border-radius: 4px; background-color: #f8fafc; margin-bottom: 15px;">
+                <p style="margin: 0 0 10px 0; font-size: 12px; font-weight: bold; color: #475569; border-bottom: 1px solid #cbd5e1; padding-bottom: 3px; letter-spacing: 0.5px;">
+                    📜 CAPACITAÇÕES TÉCNICAS HOMOLOGADAS (PERÍCIAS TREINADAS)
+                </p>
+                {html_pericias}
+            </div>
+            
+            <div style="margin-top: 15px; border-top: 1px solid #1e293b; padding-top: 5px; text-align: right;">
+                <p style="margin: 0; font-size: 9px; color: #64748b; font-style: italic;">Autenticação Interface C.A.I.M. — Documento de Uso Estrito Institucional.</p>
+            </div>
+        </div>
+        """
+        
+        # Mantendo o height em 600 e renderizando com segurança
+        st.components.v1.html(card_html, height=600, scrolling=False)
+        st.write("")
 
     # --- NOVO DIRETÓRIO SECRETO: MARCO 96 (CORREÇÃO DE PARSING) ---
     elif opcao == "Relatório de Falha Sistêmica: Marco 96":
