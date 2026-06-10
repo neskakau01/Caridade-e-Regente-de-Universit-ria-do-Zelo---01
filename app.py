@@ -893,10 +893,11 @@ else:
         # --- SEÇÃO GRADE DE PERÍCIAS DETALHADAS ---
         st.markdown("<p style='color:#ef4444; font-weight:bold;'>🗂️ GRADE DE PERÍCIAS OPERACIONAIS</p>", unsafe_allow_html=True)
         
+        # ARCANISMO adicionada na lista oficial abaixo
         lista_pericias_oficiais = [
             "ARMAS BRANCAS", "ROUBO", "ESQUIVA", "MECANICA", "PILOTAGEM", 
             "ARMAS DE FOGO", "SOBREVIVENCIA", "MEDICINA", "VITALIDADE", 
-            "RITUAIS", "ARRUMAÇÃO"
+            "RITUAIS", "ARCANISMO", "ARRUMAÇÃO"
         ]
 
         col_p1, col_p2 = st.columns(2)
