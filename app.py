@@ -202,12 +202,11 @@ elif st.session_state['status_login'] == 'intranet_falsa':
         st.markdown("""
         <div class="painel-box">
             <h4>Alocação de Materiais Anatômicos (Ciências Médicas)</h4>
-            <p>Listagem de repasses efetuados para os laboratórios credenciados neste trimestre de 2012:</p>
+            <p>Listagem de repasses efetuados para os laboratórios credenciados neste trimestre de 2026:</p>
             <ul>
                 <li><b>Lote #884-A:</b> Modelos de resina e tecidos de treinamento cirúrgico (Entregue - Campus Central).</li>
                 <li><b>Lote #887-B:</b> Peças biológicas conservadas para dissecção patológica (Retido para conferência de notas fiscais).</li>
                 <li><b>Lote #890-C:</b> Lâminas histológicas e reagentes de fixação celular (Em trânsito).</li>
-                <li><b>Lote #892-D:</b> Instrumental cirúrgico de precisão (Aguardando liberação alfandegária).</li>    
             </ul>
         </div>
         <div class="painel-box">
@@ -216,7 +215,6 @@ elif st.session_state['status_login'] == 'intranet_falsa':
             <ul>
                 <li><b>Setor Sul:</b> Liberação de pista de atletismo e quadras poliesportivas para testes de fisiologia do esforço.</li>
                 <li><b>Setor Norte (Fluvial):</b> Agendamento de treinos de campo suspensos temporariamente devido a readequações ambientais da prefeitura.</li>
-                <li><b>Setor Leste (Centro de Performance):</b> Novos equipamentos de monitoramento cardíaco instalados e em fase de calibração técnica.</li>    
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -225,7 +223,7 @@ elif st.session_state['status_login'] == 'intranet_falsa':
         st.markdown("""
         <div class="painel-box">
             <h5>Ata Ordinária #104 - Conselho Administrativo</h5>
-            <p style="font-size:12px; color:#64748b !important;">Data: 14 de Março de 2012 | Presidência de Gestão</p>
+            <p style="font-size:12px; color:#64748b !important;">Data: 14 de Março de 2026 | Presidência de Gestão</p>
             <p><i>"Ficou deliberado por unanimidade que as auditorias financeiras nas subsidiárias de produção de alimentos (Setor de Manufatura de Doces e Derivados) passarão a ser coordenadas por escritórios terceirizados, visando a blindagem patrimonial da mantenedora principal contra as oscilações bruscas verificadas na Bolsa de Valores no último mês..."</i></p>
         </div>
         """, unsafe_allow_html=True)
@@ -431,14 +429,16 @@ else:
 
     st.sidebar.markdown("<p style='color:#aa0000; font-weight:bold; text-align:center; letter-spacing:1px; margin-bottom:5px;'>DIRETÓRIOS CRÍTICOS</p>", unsafe_allow_html=True)
     
+    # Menu lateral atualizado com o nome profissional e sem emoji
     opcao = st.sidebar.radio("Selecionar Arquivo:", [
         "Terminal Central / Diretoria",
         "Tratado de Ocultamento Sobrenatural",
         "Hierarquia e Níveis de Liberação",
         "Protocolos de Fé e Resiliência",
         "Relatórios de Expedição de Campo",
-        "Especializações de Agentes", # Adicione esta linha aqui
-        "Gerador de Credencial Tática"
+        "Especializações de Agentes",
+        "Gerador de Credencial Tática",
+        "Relatório de Falha Sistêmica: Marco 96"
     ])
 
     # --- DIRETÓRIO 1: TERMINAL CENTRAL ---
@@ -461,7 +461,7 @@ else:
             <p><b>Status da Infraestrutura:</b> <span style='color:#00ff00;'>ESTÁVEL</span></p>
             <p><b>Índice de Dissipação de Névoa:</b> Controlado dentro dos parâmetros de segurança da comunidade.</p>
             <br>
-            <p><i>"A ignorância civil não é uma falha do nosso sistema, é o nosso maior produto. Mantemos a escuridão contida para que o mundo possa continuar caminhando sob a luz de uma falsa normalidade."</i><br>
+            <p><i>"A ignorância civil não é uma falha do nosso sistema, é o nosso maior produto. Mantemos a escuridão contida para que o mundo possa continue caminhando sob a luz de uma falsa normalidade."</i><br>
             — <b>Diretora Ana Carter</b>, Pronunciamento no Conselho Superior.</p>
         </div>
         """, unsafe_allow_html=True)
@@ -550,7 +550,7 @@ else:
         st.markdown("""
         <div class="bloco-confidencial">
             <p><b class="tag-vermelha">Nível 1 - AT (Agente em Treinamento):</b> Alocados na triagem e suporte periférico. Não possuem autorização para contato direto com anomalias de Classe Vetorial Ativa sem supervisão.</p>
-            <p><b class="tag-vermelha">Nível 2 - AA (Agente Aprendiz):</b> Treinados em protocolos básicos de supressão psíquica. Autorizados a participar de perímetros de isolamento secundários.</p>
+            <p><b class="tag-vermelha">Nível 2 - AA (Agente Aprendiz):</b> Treinados em protocols básicos de supressão psíquica. Autorizados a participar de perímetros de isolamento secundários.</p>
             <p><b class="tag-vermelha">Nível 3 - AB (Agente Básico):</b> Espinha dorsal tática da organização. Possuem estabilização psicológica comprovada e armamento adaptado para interferência de espectro leve.</p>
             <p><b class="tag-vermelha">Nível 4 - AC (Agente de Campo):</b> Veteranos de combate anômalo. Responsáveis pela liderança de incursões urbanas e aplicação imediata de protocolos de sigilo na comunidade.</p>
             <p><b class="tag-vermelha">Nível 5 - CT (Caçador em Treinamento):</b> Selecionados para o programa avançado de erradicação. Iniciam os testes de exposição direta à energia espiritual purificada.</p>
@@ -572,7 +572,7 @@ else:
         </div>
         <div class="bloco-confidencial">
             <h4>Protocolo II — Saneamento de Vetores Econômicos</h4>
-            <p>Caso uma das propriedades ou empresas controladas pelo Nicho Investidor apresente quebra de barreira física (ex: eventos de infestação em cadeias produtivas), o protocolo de liquidação deve ser ativado imediatamente. O desinvestimento artificial derruba o valor das ações, justificando o esvaziamento do local antes do envio da equipe de Caça.</p>
+            <p>Caso uma das propriedades ou empresas controladas pelo Nicho Investidor apresente quebra de barreira física (ex: events de infestação em cadeias produtivas), o protocolo de liquidação deve ser ativado imediatamente. O desinvestimento artificial derruba o valor das ações, justificando o esvaziamento do local antes do envio da equipe de Caça.</p>
         </div>
         <div class="bloco-confidencial">
             <h4>Protocolo III — Contenção de Material Biológico Humano</h4>
@@ -586,7 +586,6 @@ else:
         st.write("Registros históricos de incursões táticas autorizadas pela administração central. Requer senha criptográfica para visualização total.")
         st.write("---")
         
-        # --- LOG 1 ---
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-04A</b></span><br>
@@ -616,7 +615,6 @@ else:
 
         st.write("")
 
-        # --- LOG 2 ---
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-05D</b></span><br>
@@ -646,7 +644,6 @@ else:
 
         st.write("")
 
-        # --- LOG 3 ---
         st.markdown("""
         <div class="bloco-confidencial">
             <span class="tag-vermelha"><b>ARQUIVO: EXP-2026-06B</b></span><br>
@@ -674,15 +671,13 @@ else:
             elif senha_log3:
                 st.error("Chave incorreta. Tentativa de violação registrada no Terminal Central.")
 
-# --- DIRETÓRIO: ESPECIALIZAÇÕES DE AGENTES ---
+    # --- DIRETÓRIO 6: ESPECIALIZAÇÕES DE AGENTES ---
     elif opcao == "Especializações de Agentes":
         st.subheader("DIRETÓRIO DE ESPECIALIZAÇÕES OPERACIONAIS")
         st.write("Consulta formal das classes e funções táticas dentro da estrutura da Fundação.")
         st.write("---")
 
-        # Layout em duas colunas para organização
         col1, col2 = st.columns(2)
-
         with col1:
             st.markdown("""
             <div class="bloco-confidencial">
@@ -719,13 +714,12 @@ else:
             
         st.info("Nota: A designação de classe é permanente após a conclusão do treinamento básico. Alterações requerem autorização expressa da Diretoria.")
 
-    # --- DIRETÓRIO 6: GERADOR DE CREDENCIAL TÁTICA (CONCLUÍDO E INTEGRADO) ---
+    # --- DIRETÓRIO 7: GERADOR DE CREDENCIAL TÁTICA ---
     elif opcao == "Gerador de Credencial Tática":
         st.subheader("MÓDULO DE EMISSÃO DE IDENTIDADE FUNCIONAL")
         st.write("Gere o cartão de acesso digital criptografado para os agentes em campo operando na comunidade.")
         st.write("---")
         
-        # Inputs para a montagem dinâmica do Crachá
         col_inp1, col_inp2 = st.columns(2)
         with col_inp1:
             nome_agente = st.text_input("Nome de Registro do Agente:", placeholder="Ex: Denis Amorim")
@@ -745,7 +739,6 @@ else:
 
         st.write("")
         
-        # Renderização do Crachá se houver nome digitado
         if nome_agente:
             st.markdown(f"""
             <div class="badge-container">
@@ -753,18 +746,85 @@ else:
                     <span class="badge-title-cn">COALIZÃO PARAMILITAR CRUZ NEGRA</span><br>
                     <span class="badge-subtitle-cn">CREDENCIAL DE IDENTIFICAÇÃO DE CAMPO</span>
                 </div>
-                <div style="line-height: 1.8;">
-                    <p style="margin: 5px 0;"><span class="badge-label">IDENTIDADE:</span> <span class="badge-value">{nome_agente.upper()}</span></p>
-                    <p style="margin: 5px 0;"><span class="badge-label">PATENTE:</span> <span class="badge-value" style="color: #ff3333 !important;">{grau_selecionado}</span></p>
-                    <p style="margin: 5px 0;"><span class="badge-label">ALOCAÇÃO:</span> <span class="badge-value">{alocacao_base.upper() if alocacao_base else "NÃO ESPECIFICADA"}</span></p>
-                    <p style="margin: 5px 0;"><span class="badge-label">CÓDIGO ANÁLISE:</span> <span class="badge-value" style="font-family: monospace !important; font-weight: normal !important;">{assinatura_digital if assinatura_digital else "PENDENTE-VERIFICAÇÃO"}</span></p>
-                </div>
+                <p class="badge-label">NOME OPERACIONAL: <span class="badge-value">{nome_agente.upper()}</span></p>
+                <p class="badge-label">PATENTE / GRAU: <span class="badge-value">{grau_selecionado}</span></p>
+                <p class="badge-label">BASE DE SUPORTE: <span class="badge-value">{alocacao_base.upper() if alocacao_base else 'NÃO CATALOGADA'}</span></p>
+                <p class="badge-label">LOGISTICA VETORIAL: <span class="badge-value" style="color:#8b0000 !important;">ATIVADA (2012)</span></p>
+                
                 <div class="badge-footer">
-                    ESTE CARTÃO É DE USO EXCLUSIVO TÁTICO. EM CASO DE PERDA OU CAPTURA DO PORTADOR, ESTA CREDENCIAL É REMOTAMENTE INVIABILIZADA. O CONTATO DE CIVIS COM ESTE DOCUMENTO ACIONA O PROTOCOLO DE AMNÉSIA IMEDIATA. DECRETO MILITAR INTERNO 0-14.
+                    ESTE DOCUMENTO É PROPRIEDADE INALIENÁVEL DA CRUZ NEGRA. O PORTADOR ESTÁ AUTORIZADO A REQUISITAR SUPRIMENTOS, ALOCAÇÃO DE EQUIPES DE INFRAESTRUTURA E COMANDO DE OPERAÇÕES DE APAGAMENTO LOCAL. EM CASO DE QUEBRA DE SANIDADE, ESTA CREDENCIAL DEVE SER COLETADA E O MATERIAL ORGÂNICO DO AGENTE PROCESSADO.
+                    <br><br>
+                    <span style="font-weight:bold; color:#000000;">ASSINATURA ELETRÔNICA: {assinatura_digital if assinatura_digital else 'AUTENTICADA'}</span>
                 </div>
             </div>
             """, unsafe_allow_html=True)
-            
-            st.success("💡 Documento de Identidade Funcional renderizado com sucesso no terminal. Pronto para consulta em operações de campo.")
-        else:
-            st.info("Insira o Nome de Registro do Agente acima para gerar e projetar a Credencial Tática Integrada.")
+
+    # --- NOVO DIRETÓRIO SECRETO: MARCO 96 (CORREÇÃO DE PARSING) ---
+    elif opcao == "Relatório de Falha Sistêmica: Marco 96":
+        st.markdown("""
+        <div style='background-color: #020617; padding: 25px; border-radius: 8px; border: 2px solid #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);'>
+            <h3 style='color: #ef4444 !important; font-family: "Courier New", Courier, monospace; margin: 0;'>⚠️ SINAL DE ALERTA: PROTOCOLO RESTRITO DE ARQUIVAMENTO</h3>
+            <p style='color: #94a3b8 !important; font-family: "Courier New", Courier, monospace; font-size: 13px;'>
+                Você está tentando acessar uma partição redundante e expurgada da Controladoria Central (Index: 1996). 
+                Esta documentação detalha a maior quebra de sigilo operacional registrada na história desta instituição. Entrada não autorizada disparará o Protocolo de Saneamento.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.write("")
+        senha_arquivo = st.text_input("Insira o Código de Quebra de Protocolo (Assinatura Entidade):", type="password", key="senha_secreta_1996")
+        
+        if senha_arquivo:
+            if senha_arquivo == "C.A.I.M." or senha_arquivo.upper() == "CAIM":
+                
+                container_log = st.empty()
+                with container_log.container():
+                    st.markdown("<p style='color:#10b981; font-family:monospace;'>[SISTEMA] Injetando assinatura espiritual C.A.I.M. no bypass...</p>", unsafe_allow_html=True)
+                    time.sleep(0.7)
+                    st.markdown("<p style='color:#10b981; font-family:monospace;'>[SISTEMA] Quebrando barreiras de proteção de São Miguel...</p>", unsafe_allow_html=True)
+                    time.sleep(0.9)
+                    st.markdown("<p style='color:#ef4444; font-family:monospace;'>[ALERTA] Rastreamento de retina temporariamente obscurecido.</p>", unsafe_allow_html=True)
+                    time.sleep(0.5)
+                    st.markdown("<p style='color:#10b981; font-family:monospace;'>[SISTEMA] Recuperando registros de falha catastrófica de 1996...</p>", unsafe_allow_html=True)
+                    time.sleep(1.2)
+                
+                container_log.empty()
+                
+                # HTML totalmente alinhado à esquerda para evitar que o Streamlit interprete como bloco de código
+                st.markdown("""<style>
+.log-text { font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.6; color: #e2e8f0 !important; }
+.sub-titulo-log { color: #f87171 !important; font-family: 'Courier New', monospace; font-weight: bold; margin-top: 20px; border-bottom: 1px dashed #ef4444; padding-bottom: 5px; }
+.tarja-preta { background-color: #ffffff; color: #ffffff; padding: 0 4px; border-radius: 2px; }
+</style>
+<div style='background-color: #0f172a; padding: 25px; border-radius: 8px; border-left: 5px solid #ef4444;'>
+<h2 style='color: #ef4444 !important; font-family: "Courier New", monospace; text-align: center;'>ARQUIVOS DE INCIDENTE: O ARREBATAMENTO (MARCO 96)</h2>
+<p style='text-align: center; color: #64748b !important; font-family: monospace; font-size: 11px;'>STATUS: RECONSTRUÇÃO ILEGAL // GRAU DE SEGREDO: IMPERIAL (MUNDO REVELADO)</p>
+<hr style='border-color: #334155;'>
+<div class="log-text">
+<p><b>DATA DO REGISTRO ORIGINAL:</b> Novembro de 1996<br>
+<b>CLASSIFICAÇÃO DO EVENTO:</b> Quebra de Realidade Escala-5 (Global)<br>
+<b>DIRETRIZ CRUCIAL:</b> Apagamento total de menções públicas no ano corrente de 2012.</p>
+<h4 class="sub-titulo-log">1. O MARCO ZERO: O CLARÃO E O PARADOXO CRONOLÓGICO</h4>
+<p>O evento global denominado <b>"Arrebatamento"</b> teve início operacional após o desaparecimento do espécime <span class="tarja-preta">BILLY</span>, herdeiro dinástico de alta relevância financeira. Investigações de campo confirmaram a interceptação de uma correspondência anacrônica enviada de um vetor temporal futuro, gerando um colapso de causalidade na linha temporal padrão. No zênite do evento, o espécime flutuou espontaneamente, atuando como chave de ignição que expôs o sobrenatural em escala mundial.</p>
+<h4 class="sub-titulo-log">2. A SÍNDROME NEURAL DOS OLHOS BRANCOS</h4>
+<p>Após o clarão do Arrebatamento, registrou-se uma mutação ocular síncrona em massa por toda a população global. Os indivíduos afetados desenvolviam despigmentação total da íris e da esclera (<b>Olhos Brancos</b>). Relatórios analíticos posteriores confirmaram que esta condition transformava os hospedeiros em terminais de transmissão biológica para a entidade albina conhecida como <b>"O Sete Olhos"</b>. Cada par de olhos brancos permitia à criatura observar o mundo exterior de forma irrestrita.
+<br><i>Nota de Prontuário:</i> O agente de campo <span class="tarja-preta">ABEL</span> exibia a reação de olhos brancos reflexivamente ao acessar memórias do Arrebatamento, tornando-se um vetor de espionagem passiva do inimigo.</p>
+<h4 class="sub-titulo-log">3. AS CALAMIDADES AMBIENTAIS DE BELZEBU</h4>
+<p>A manifestation física da Entidade Vermelha (Belzebu) em solo sagrado quebrou permanentemente a capacidade de contenção velada da Cruz Negra devido aos seus efeitos macroecológicos globais:</p>
+<ul>
+<li><b>Vetor Botânico (Flora de Espinhos):</b> Crescimento exponencial de bio-redomas espinhosas por todo o planeta. A vegetação anômala utilizava hemoglobina como combustível principal; qualquer contato com sangue humano multiplicava a massa vegetal em progressão geométrica imediata.</li>
+<li><b>Vetor Climático (Chuva de Sangue e Nevoeiro):</b> Precipitação hemática seguida por uma névoa densa permanente. O fenômeno meteorológico trouxe consigo entidades mímicas (<b>Doppelgangers</b>), especializadas em emular perfeitamente a biologia, voz e memórias dos agentes para fins de infiltração e eliminação tática.</li>
+</ul>
+<h4 class="sub-titulo-log">4. DOSSIÊ DE INFECTADOS E BAIXAS DE CAMPANHA</h4>
+<p><b>SUJEITO: ANTÔNIO (Médico Operacional)</b><br>
+Status: Falha Crítica / Transmutação Classe-Diptera. Após ceder à coação e apertar a mão de Belzebu, o indivíduo sofreu degeneração celular severa, transmutando-se em uma entidade híbrida insectoide (Mosca Humanoide). Sob controle sináptico da entidade, recebeu ordens diretas de executar todos os membros remanescentes de sua unidade de apoio.</p>
+<p><b>SUJEITO: ABEL (Linhagem Híbrida / Lilith)</b><br>
+Status: Eliminado por Trauma Físico. Detentor de herança genética ligada à entidade Lilith. Teve sua fração de alma demoníaca extraída e manipulada em contrato firmado com a entidade Caim. No clímax do Incidente, operou como uma marionete de combate direta de Caim em um teste probabilístico absoluto de 1d100 contra o transmutado Antônio. Sobreviveu ao confronto direto, mas foi sumariamente executado pelo espécime <span class="tarja-preta">BILLY</span> ao fim do colapso.</p>
+<h4 class="sub-titulo-log">5. O PROJETO ASMODEUS</h4>
+<p>Registros recuperados do útero tático da combatente <span class="tarja-preta">TAKIMO</span> revelaram uma inseminação induzida pela criatura de Sete Olhos. O feto gerado continha o sequenciamento bio-espiritual de Asmodeus, arquitetado como uma arma biológica com o único propósito de rivalizar, combater e neutralizar o avanço de Belzebu na Terra.</p>
+<p style='color: #ef4444 !important; font-weight: bold; margin-top: 15px;'>[ALERTA CENTRAL 2012]: O Incidente de 1996 causou a revelação pública do Sobrenatural e o pânico civilizatório subsequente. Qualquer vazamento destes dados da nossa Intranet Administrativa resultará em execução sumária por quebra de sigilo institutional.</p>
+</div>
+</div>""", unsafe_allow_html=True)
+                
+            else:
+                st.error("❌ Código de Acesso Inválido. Tentativa de infiltração reportada à Diretora Carter.")
