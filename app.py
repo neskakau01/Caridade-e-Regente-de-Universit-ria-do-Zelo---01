@@ -456,6 +456,7 @@ else:
         "Especializações de Agentes",
         "Gerador de Credencial Tática",
         "Mural de Transmissões Civis",  
+        "Dossiê Histórico: Incidentes de 1996",
         "Central de Monitoramento Global",
         "Gerenciador de Ficha Ativa",  
         "Relatório de Falha Sistêmica: Marco 96"
@@ -1576,7 +1577,7 @@ else:
         st.components.v1.html(card_html, height=600, scrolling=False)
         st.write("")
 
-    # --- NOVO DIRETÓRIO SECRETO: MARCO 96 (CORREÇÃO DE PARSING) ---
+# --- NOVO DIRETÓRIO SECRETO: MARCO 96 (CORREÇÃO DE PARSING) ---
     elif opcao == "Relatório de Falha Sistêmica: Marco 96":
         st.markdown("""
         <div style='background-color: #020617; padding: 25px; border-radius: 8px; border: 2px solid #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);'>
@@ -1642,6 +1643,179 @@ Status: Eliminado por Trauma Físico. Detentor de herança genética ligada à e
 <p style='color: #ef4444 !important; font-weight: bold; margin-top: 15px;'>[ALERTA CENTRAL 2012]: O Incidente de 1996 causou a revelação pública do Sobrenatural e o pânico civilizatório subsequente. Qualquer vazamento destes dados da nossa Intranet Administrativa resultará em execução sumária por quebra de sigilo institutional.</p>
 </div>
 </div>""", unsafe_allow_html=True)
-                
+            
             else:
                 st.error("❌ Código de Acesso Inválido. Tentativa de infiltração reportada à Diretora Carter.")
+
+
+    # =====================================================================
+    # --- DIRETÓRIO: DOSSIÊ HISTÓRICO DE 1996 (BESTIÁRIO SEM NOMES) -------
+    # =====================================================================
+    elif opcao == "Dossiê Histórico: Incidentes de 1996":
+        st.subheader("📁 DOSSIÊ HISTÓRICO: ARQUIVO DE ESPÉCIMES RECOBRADOS (1996)")
+        st.write("⚠️ **ACESSO RESTRITO:** Dados brutos recuperados dos servidores sobreviventes à Quebra Sistêmica de 1996. Nenhuma destas entidades foi avistada ou catalogada oficialmente na atual temporada de 2012. Identificações baseadas estritamente em relatórios de campo descritivos.")
+        st.write("---")
+
+        dados_bestiario = {
+            "ESPÉCIME-01: Humanoide Quadrúpede (Sessão 0)": {
+                "arquivo": "bicho_01.jpeg",
+                "classe": "Classe 2 (Ameaça Espiritual / Possessão)",
+                "dimensoes": "Aprox. 1,80m (Postura Quadrúpede)",
+                "local": "Perímetro Desconhecido (Registro Inicial)",
+                "vulnerabilidade": "Ancoragem física do hospedeiro",
+                "descricao": "Humano careca de pele cinza com a língua severamente alongada e garras proeminentes nas mãos e nos pés, assumindo uma postura quadrúpede. Relatórios indicam que o hospedeiro original conseguia projetar sua própria alma para fora do corpo em direção ao mundo espiritual, agindo de forma hostil para tentar arrancar violentamente a alma dos agentes de campo para possuir seus corpos físicos, deixando as vítimas vagando perdidas pelo plano espiritual."
+            },
+            "ESPÉCIME-02: Humanoide Gestante Modificado (Fazenda)": {
+                "arquivo": "bicho_02.jpeg",
+                "classe": "Classe 2 (Anomalia de Ritual Coletivo)",
+                "dimensoes": "Aprox. 1,90m de altura",
+                "local": "Setor Agrícola // Antiga Fazenda do Billy",
+                "vulnerabilidade": "Destruição do Núcleo Abdominal / Fogo",
+                "descricao": "Registro de uma mulher grávida que trabalhava na fazenda local e serviu como sacrifício para o ritual biológico da área. O corpo foi severamente transformado em uma entidade de 1,90m, com pele cinza, ausência de pelos e braços excessivamente alongados terminando em garras. A cavidade abdominal encontra-se aberta e exposta, de onde se projeta o antigo feto transmutado — uma criatura de coloração vermelha com uma bocarra massiva repleta de dentes e membros com garras."
+            },
+            "ESPÉCIME-03: Quadrúpede de Caixa Craniana Invertida": {
+                "arquivo": "bicho_03.jpeg",
+                "classe": "Classe 2 (Mutação Anatômica Traumática)",
+                "dimensoes": "Aprox. 2,00m de altura/comprimento",
+                "local": "Setor Agrícola // Antiga Fazenda do Billy",
+                "vulnerabilidade": "Armamento de Alto Calibre / Rompimento de Articulações",
+                "descricao": "Indivíduo do sexo masculino residente da mesma propriedade agrícola, submetido ao mesmo ritual de sacrifício. Transformado em uma massiva criatura quadrúpede de 2 metros de altura. Apresenta cabelos pretos e longos, mandíbula modificada com múltiplas camadas sobrepostas de dentes e a estrutura da cabeça completamente virada ao contrário. Apêndices que mimetizam patas de aranha brotam diretamente de suas costas."
+            },
+            "ESPÉCIME-04: Bípede Acéfalo com Ancoragem de Madeira": {
+                "arquivo": "bicho_04.jpeg",
+                "classe": "Classe 3 (Vetor Biológico de Médio Impacto)",
+                "dimensoes": "Aprox. 2,00m (Postura Curvada)",
+                "local": "Setor Agrícola // Antiga Fazenda do Billy",
+                "vulnerabilidade": "Impacto na intersecção do tórax / Perfuração",
+                "descricao": "Mais um dos homens da fazenda local absorvido pelo ritual. Entidade bípede de 2 metros de altura que se locomove de forma curvada. Possui três caudas longas e um pescoço severamente alongado, porém completamente desprovido de cabeça. Uma grande cruz de madeira rústica atravessa transversalmente o centro do seu peito. Membros superiores alongados terminando em garras cortantes."
+            },
+            "ESPÉCIME-05: Entidade de Chifres e Lampião de Espinhos": {
+                "arquivo": "bicho_05.jpeg",
+                "classe": "Classe 1 (Alta Linhagem / Sentinela Hostil)",
+                "dimensoes": "Superior a 2,00m de altura",
+                "local": "Setor Religioso // Entrada do Templo Central (1996)",
+                "vulnerabilidade": "Ataques táticos coordenados à distância",
+                "descricao": "Identificado como um dos servos diretos da entidade regente Belzebu, posicionado especificamente para impedir a entrada de qualquer sobrevivente ou agente no perímetro do templo. Possui uma força física grotesca e destrutiva, cauda alongada e chifres de grande porte na cabeça. Não apresenta globos oculares ou órbitas visíveis. Traja um manto branco severamente sujo e carrega constantemente uma corrente pesada conectada a um lampião coberto de espinhos na ponta."
+            },
+            "ESPÉCIME-06: Amálgama de Plasma Sanguíneo": {
+                "arquivo": "bicho_06.jpeg",
+                "classe": "Classe 2 (Manifestação Fluida de Calamidade)",
+                "dimensoes": "Superior a 2,00m de altura",
+                "local": "Zonas de Precipitação // Evento Chuva de Sangue",
+                "vulnerabilidade": "Agentes Dessecantes / Calor Direto",
+                "descricao": "Criatura gerada a partir do acúmulo de fluidos biológicos originados durante o fenômeno meteorológico da 'Chuva de Sangue'. Passa dos 2 metros de altura e apresenta um corpo robusto formado por plasma e sangue em estado gelatinoso/semi-sólido. O tórax é aberto, projetando múltiplas línguas maleáveis feitas de sangue. Um dos braços opera de forma viscosa e aderente, enquanto o outro terminou modificado em uma garra rígida similar à de um caranguejo."
+            },
+            "ESPÉCIME-07: Inseto Mutacionado de Pequeno Porte": {
+                "arquivo": "bicho_07.jpeg",
+                "classe": "Classe 5 (Infestação Ambiental / Praga)",
+                "dimensoes": "Aprox. 15 centímetros de comprimento",
+                "local": "Zonas Botânicas Expandidas // Floresta de Belzebu",
+                "vulnerabilidade": "Esmagamento / Vulnerabilidade Térmica Comum",
+                "descricao": "Forma larval (lagarta) que sofreu mutação biológica acelerada decorrente da expansão da flora após a precipitação de sangue. Apresenta coloração roxa, múltiplas camadas de dentes serrilhados no aparelho bucal e corpo inteiramente coberto por espinhos urticantes. Apesar de não passar de 15 centímetros, age com agressividade territorial."
+            },
+            "ESPÉCIME-08: Espírito Coletor de Receptáculos Ósseos": {
+                "arquivo": "bicho_08.jpeg",
+                "classe": "Classe 2 (Vetor de Extração Metafísica)",
+                "dimensoes": "Superior a 1,90m de envergadura",
+                "local": "Sectores Urbanos Afetados",
+                "vulnerabilidade": "Destruição das amarras ósseas secundárias",
+                "descricao": "Entidade humanoide de compleição física superior desenvolvida, porém desprovida de membros inferiores (morfologia fluida/gasosa na base). Epiderme de coloração extremamente pálida. Atua diretamente na coleta e aprisionamento de essências vitais. Carrega pesadas correntes atadas aos braços, contendo crânios humanos reais fixados nas extremidades que funcionam como unidades de armazenamento para as almas capturadas."
+            },
+            "ESPÉCIME-09: Quimerização de Rocha e Asa Rígida": {
+                "arquivo": "bicho_09.jpeg",
+                "classe": "Classe 3 (Predador de Cobertura Aérea)",
+                "dimensoes": "Dados de Envergadura Incompletos",
+                "local": "Fenômenos Climáticos // Névoa do Eclipse",
+                "vulnerabilidade": "Supressão de solo / Alta luminosidade focal",
+                "descricao": "Estrutura ornamental de gárgula que manifestou propriedades biológicas e atividade motora total sob o efeito da Névoa do Eclipse. Modificada em uma criatura voadora de grande porte semelhante a um réptil pré-histórico (pterodáctilo) com pele escura de alta densidade. Utiliza a visibilidade zero da névoa para caça furtiva de alvos em deslocamento."
+            },
+            "ESPÉCIME-10: Réptil Terrestre com Chifres Orbitais": {
+                "arquivo": "bicho_10.jpeg",
+                "classe": "Classe 2 (Predador Terrestre Veloz)",
+                "dimensoes": "Aprox. 2,00m de comprimento / 1,60m de altura",
+                "local": "Fenômenos Climáticos // Névoa do Eclipse",
+                "vulnerabilidade": "Sensibilidade Auditiva / Disparos de Grosso Calibre",
+                "descricao": "Organismo predador terrestre com estrutura esquelética e movimentação idênticas às de um velociraptor. A criatura não possui olhos; no lugar das órbitas oculares projetam-se chifres afiados. Possui pele inteiramente preta, uma fileira de espinhos defensivos ao longo de toda a coluna vertebral e uma cauda alongada para estabilização de arrancadas táticas."
+            },
+            "ESPÉCIME-11: Artrópode Multípede Gigante": {
+                "arquivo": "bicho_11.jpeg",
+                "classe": "Classe 1 (Destruidor de Perímetro / Titã)",
+                "dimensoes": "Superior a 4,00m de altura e largura",
+                "local": "Fenômenos Climáticos // Névoa do Eclipse",
+                "vulnerabilidade": "Exposição Abdominal / Cargas Explosivas Organizadas",
+                "descricao": "Anomalia biológica massiva de proporções titânicas, apresentando características mistas de barata e centopeia. Dotada de um sistema massivo de pernas articuladas de alta tração e um ferrão caudal extremamente fino e pontiagudo. Facilmente ultrapassa os 4 metros em todas as dimensões, sendo capaz de romper barreiras físicas e colapsar estruturas civis com facilidade."
+            },
+            "ESPÉCIME-12: Canino Acéfalo de Matilha": {
+                "arquivo": "bicho_12.jpeg",
+                "classe": "Classe 4 (Predador de Matilha Periférico)",
+                "dimensoes": "Porte Canino Médio / Grande",
+                "local": "Limites da Névoa // Periferias Urbanas",
+                "vulnerabilidade": "Munição balística padrão / Fogo focado",
+                "descricao": "Organismos quadrúpedes semelhantes a cães de grande porte, com pelos e pele pretos e cauda estendida. As criaturas não possuem nenhuma feição ou órgão sensorial no rosto (sem olhos, ouvidos ou nariz), cuja anatomia frontal é totalmente ocupada por uma bocarra dilacerante. Apresentam perigo moderado individualmente, mas operam estritamente em bandos coordenados."
+            },
+            "ESPÉCIME-13: Carcaça Exposta com Controle de Arame": {
+                "arquivo": "bicho_13.jpeg",
+                "classe": "Classe 2 (Simbiose Biomecânica Hostil)",
+                "dimensoes": "Superior a 2,00m de altura",
+                "local": "Subestruturas Industriais Abandonadas (1996)",
+                "vulnerabilidade": "Corte das conexões de arame / Neutralização do núcleo humano",
+                "descricao": "Entidade bípede com mais de 2 metros de altura, apresentando musculatura e carne expostas, membros longos e uma face com aspecto de caveira óssea. A cavidade do estômago está completamente aberta, abrigando um ser humano vivo em seu interior. O monstro é inteiramente entrelaçado por cabos e arames farpados, e o indivíduo interno controla os movimentos da carcaça puxando essas conexões diretamente."
+            },
+            "ESPÉCIME-14: Vetor Humanoide de Infeção Diptera": {
+                "arquivo": "bicho_14.jpeg",
+                "classe": "Classe 3 (Hospedeiro Transmissor / Vetor)",
+                "dimensoes": "Aprox. 1,80m de altura",
+                "local": "Focos de Insurgência Sanitária de Belzebu",
+                "vulnerabilidade": "Agentes Químicos Concentrados / Trauma Craniano",
+                "descricao": "Organismo originalmente humano que sofreu colapso genético completo induzido pela exposição a uma mosca parasita sob a influência de Belzebu. Transformado em uma mosca humanoide de 1,80m. A estrutura anatômica final apresenta duas pernas longas insetoides de alta tração combinadas com duas patas humanas remanescentes. Altamente repulsivo e transmissor de patógenos."
+            },
+            "ESPÉCIME-15: Humanoide de Supressão com Marreta Corrente": {
+                "arquivo": "bicho_15.jpeg",
+                "classe": "Classe 2 (Ameaça Física / Força Bruta)",
+                "dimensoes": "Superior a 1,90m de altura",
+                "local": "Quadrantes Urbanos de Conflito",
+                "vulnerabilidade": "Tempo de recuperação pós-arremesso da arma",
+                "descricao": "Indivíduo humanoide de grande porte (mais de 1,90m), sem vestimentas no torso e com pele em tom cinza opaco. Apresenta capacidades físicas e resistência a impactos ampliadas. Carrega como ferramenta de ataque uma marreta pesada com cabo alongado quase do tamanho do seu próprio corpo, conectada ao seu pulso por uma corrente de ferro usada para arremessar o bloco metálico e puxá-lo de volta."
+            },
+            "ESPÉCIME-16: A Entidade Carmesim de Aura Imensurável": {
+                "arquivo": "bicho_16.jpeg",
+                "classe": "🚨 CLASSIFICAÇÃO INDETERMINÁVEL (ALERTA MÁXIMO)",
+                "dimensoes": "Dados Insuficientes // Estatura Humana Padrão",
+                "local": "Localização Desconhecida // Aparição Única Registrada",
+                "vulnerabilidade": "NENHUMA REGISTRADA // ORDEM DE EVACUAÇÃO",
+                "descricao": "Entidade de aparência feminina vestindo um traje elegante e longo. Toda a estrutura corporal e roupas parecem ser constituídas por sangue escuro em estado sólido estável. Possui quatro braços funcionais e utiliza uma máscara rígida de mesma coloração para cobrir inteiramente a metade superior do rosto. Apresentou uma assinatura de opressão psíquica e aura de energia mensurada como imensurável pelas equipes da época. Nenhuma informação sobre suas intenções ou fraquezas foi obtida. Diretriz permanente: Fugir imediatamente do quadrante se avistada."
+            }
+        }
+
+        lista_criaturas = ["Selecione um registro numérico..."] + list(dados_bestiario.keys())
+        bicho_selecionado = st.selectbox("Especificação do Registro de 1996:", lista_criaturas)
+
+        st.write("")
+
+        if bicho_selecionado != "Selecione um registro numérico...":
+            dados = dados_bestiario[bicho_selecionado]
+            col_foto, col_dados = st.columns([1, 1.2])
+            
+            with col_foto:
+                import os
+                if os.path.exists(dados["arquivo"]):
+                    st.image(dados["arquivo"], caption=f"Captura de Arquivo // Ano: 1996", use_container_width=True)
+                else:
+                    st.error(f"⚠️ IMAGEM REQUERIDA '{dados['arquivo']}' NÃO ENCONTRADA NA PASTA.")
+                    st.info(f"Salve a foto correspondente com o nome de arquivo '{dados['arquivo']}' na raiz do projeto.")
+                    
+            with col_dados:
+                st.markdown(f"""
+                <div class="bloco-confidencial" style="border-left: 5px solid #551a1a; padding: 20px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                    <h4 style="color: #ff4d4d !important; margin-top:0; margin-bottom:15px; font-family: monospace; font-weight: bold; letter-spacing: 1px;">📋 REGISTRO TÁTICO RETROATIVO</h4>
+                    <p><span class="badge-label" style="color:#475569; font-weight: bold;">🧬 CATEGORIA OPERACIONAL:</span> <span class="tag-vermelha" style="color:#b91c1c; font-weight: bold;">{dados['classe']}</span></p>
+                    <p><span class="badge-label" style="color:#475569; font-weight: bold;">📐 ESCALA ESTIMADA:</span> <span class="badge-value" style="color:#000000;">{dados['dimensoes']}</span></p>
+                    <p><span class="badge-label" style="color:#475569; font-weight: bold;">📍 ÚLTIMO REGISTRO EM:</span> <span class="badge-value" style="color:#000000;">{dados['local']}</span></p>
+                    <p><span class="badge-label" style="color:#475569; font-weight: bold;">⚡ VULNERABILIDADE HISTÓRICA:</span> <span class="tag-verde" style="color:#15803d; font-weight: bold;">{dados['vulnerabilidade']}</span></p>
+                    <hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 15px 0;">
+                    <p style="text-align: justify; font-size: 13px; line-height: 1.5; margin: 0;">
+                        <span class="badge-label" style="display:block; margin-bottom:5px; color:#ff4d4d; font-weight: bold;">📝 DETALHAMENTO DE ARQUIVO DA ÉPOCA:</span>
+                        <span style="color: #000000 !important; display: block;">{dados['descricao']}</span>
+                    </p>
+                </div>
+                """, unsafe_allow_html=True)
