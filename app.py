@@ -761,6 +761,8 @@ else:
             """, unsafe_allow_html=True)
     # --- NOVO DIRETÓRIO: GERENCIADOR DE FICHA ATIVA ---
     elif opcao == "Gerenciador de Ficha Ativa":
+        import json # Garante que a biblioteca JSON está importada para o save
+
         st.subheader("🗃️ PROTOCOLO DE MONITORAMENTO DE AGENTE")
         st.write("Ficha tática operacional otimizada para campanhas com rolagens físicas de dados.")
         st.write("---")
@@ -775,15 +777,72 @@ else:
         def mudar_pe(valor): st.session_state.energia_atual += valor
         def mudar_san(valor): st.session_state.sanidade_atual += valor
 
+        # --- SISTEMA DE CARREGAMENTO DE FICHA (UPLOAD) ---
+        # Fica no topo para capturar o arquivo antes de renderizar os inputs
+        st.markdown("<p style='color:#ef4444; font-weight:bold; margin-bottom:2px;'>💾 ARQUIVAMENTO EXTERNO</p>", unsafe_allow_html=True)
+        arquivo_carregado = st.file_uploader("Para continuar de onde parou, arraste o arquivo .json da sua ficha aqui:", type=["json"], key="uploader_ficha")
+        
+        if arquivo_carregado is not None:
+            try:
+                dados_carregados = json.load(arquivo_carregado)
+                
+                # Injetando os dados carregados de volta no session_state do Streamlit
+                st.session_state.hp_atual = dados_carregados.get("hp_atual", 30)
+                st.session_state.energia_atual = dados_carregados.get("energia_atual", 15)
+                st.session_state.sanidade_atual = dados_carregados.get("sanidade_atual", 10)
+                
+                # Injetando os valores dos inputs e caixas de texto usando suas chaves (keys)
+                st.session_state["nome_pc"] = dados_carregados.get("nome", "Abel")
+                st.session_state["inv_box"] = dados_carregados.get("inventario", "")
+                st.session_state["rit_box"] = dados_carregados.get("rituais", "")
+                st.session_state["anot_box"] = dados_carregados.get("anotacoes", "")
+                
+                # Injetando Atributos
+                st.session_state["at_forca"] = dados_carregados.get("at_forca", 4)
+                st.session_state["at_res"] = dados_carregados.get("at_res", 4)
+                st.session_state["at_vig"] = dados_carregados.get("at_vig", 2)
+                st.session_state["at_ref"] = dados_carregados.get("at_ref", 1)
+                st.session_state["at_fur"] = dados_carregados.get("at_fur", 2)
+                st.session_state["at_pre"] = dados_carregados.get("at_pre", 1)
+                st.session_state["at_int"] = dados_carregados.get("at_int", 1)
+                st.session_state["at_log"] = dados_carregados.get("at_log", 2)
+                st.session_state["at_ocu"] = dados_carregados.get("at_ocu", 0)
+                st.session_state["at_von"] = dados_carregados.get("at_von", 2)
+                st.session_state["at_f_san"] = dados_carregados.get("at_f_san", 1)
+                st.session_state["at_prs"] = dados_carregados.get("at_prs", 1)
+                
+                # Injetando Perícias Salvas
+                pericias_salvas = dados_carregados.get("pericias", {})
+                lista_pericias_oficiais = ["ARMAS BRANCAS", "ROUBO", "ESQUIVA", "MECANICA", "PILOTAGEM", "ARMAS DE FOGO", "SOBREVIVENCIA", "MEDICINA", "VITALIDADE", "RITUAIS", "ARCANISMO", "ARRUMAÇÃO"]
+                
+                for pericia in lista_pericias_oficiais:
+                    chave_pericia = f"per_{pericia.lower().replace(' ', '_')}"
+                    nivel_salvo = pericias_salvas.get(pericia, "Não Treinada")
+                    
+                    # Converte o nome limpo de volta para a string exata do st.radio
+                    if nivel_salvo == "Nível I": mapa_nivel = "Nível I (1)"
+                    elif nivel_salvo == "Nível II": mapa_nivel = "Nível II (2)"
+                    elif nivel_salvo == "Nível III": mapa_nivel = "Nível III (3)"
+                    else: mapa_nivel = "Não Treinada (Nível 0)"
+                    
+                    st.session_state[chave_pericia] = mapa_nivel
+                    
+                st.success("📂 Prontuário sincronizado com sucesso! Dados restaurados.")
+            except Exception as e:
+                st.error(f"❌ Erro ao ler o arquivo de Prontuário: {e}")
+
+        st.write("---")
+
         # --- SEÇÃO DE IDENTIFICAÇÃO GERAL ---
         st.markdown("<p style='color:#ef4444; font-weight:bold; margin-bottom:2px;'>IDENTIFICAÇÃO OPERACIONAL</p>", unsafe_allow_html=True)
         col_id1, col_id2, col_id3 = st.columns([2, 1, 1])
         with col_id1:
-            nome_personagem = st.text_input("Nome do Agente:", value="Abel", key="nome_pc")
+            nome_personagem = st.text_input("Nome do Agente:", key="nome_pc")
         with col_id2:
-            classe_selecionada = st.selectbox("Classe / Função:", ["Combatente", "Especialista / Suporte", "Médico", "Ocultista"])
+            # Vinculamos as chaves para salvar o estado delas também de tabela
+            classe_selecionada = st.selectbox("Classe / Função:", ["Combatente", "Especialista / Suporte", "Médico", "Ocultista"], key="classe_sel")
         with col_id3:
-            nivel_selecionado = st.selectbox("Nível / Patente:", ["Nível 1 (AT)", "Nível 2 (AA)", "Nível 3 (AB)", "Nível 4 (AC)", "Nível 5 (CT)", "Nível 6 (CA)", "Nível 7 (LC)"])
+            nivel_selecionado = st.selectbox("Nível / Patente:", ["Nível 1 (AT)", "Nível 2 (AA)", "Nível 3 (AB)", "Nível 4 (AC)", "Nível 5 (CT)", "Nível 6 (CA)", "Nível 7 (LC)"], key="nivel_sel")
 
         st.write("---")
 
@@ -851,9 +910,9 @@ else:
         with col_at1:
             # Conjunto CORPO
             st.markdown("<div style='background-color:#1e1e24; padding:5px; border-radius:3px; font-weight:bold; color:#f87171;'>💪 CATEGORIA: CORPO</div>", unsafe_allow_html=True)
-            f_forca = st.number_input("Força:", min_value=0, max_value=15, value=4, key="at_forca")
-            f_res = st.number_input("Resistência:", min_value=0, max_value=15, value=4, key="at_res")
-            f_vig = st.number_input("Vigor:", min_value=0, max_value=15, value=2, key="at_vig")
+            f_forca = st.number_input("Força:", min_value=0, max_value=15, key="at_forca")
+            f_res = st.number_input("Resistência:", min_value=0, max_value=15, key="at_res")
+            f_vig = st.number_input("Vigor:", min_value=0, max_value=15, key="at_vig")
             soma_corpo = f_forca + f_res + f_vig
             dado_corpo = determinar_dado_sistema(soma_corpo)
             st.markdown(f"<p style='color:#f87171; font-weight:bold; font-size:15px;'>Soma Total CORPO: {soma_corpo} <span style='color:#94a3b8;'>({dado_corpo})</span></p>", unsafe_allow_html=True)
@@ -861,9 +920,9 @@ else:
 
             # Conjunto AGILIDADE
             st.markdown("<div style='background-color:#141f26; padding:5px; border-radius:3px; font-weight:bold; color:#38bdf8;'>⚡ CATEGORIA: AGILIDADE</div>", unsafe_allow_html=True)
-            f_ref = st.number_input("Reflexos:", min_value=0, max_value=15, value=1, key="at_ref")
-            f_fur = st.number_input("Furtividade:", min_value=0, max_value=15, value=2, key="at_fur")
-            f_pre = st.number_input("Precisão:", min_value=0, max_value=15, value=1, key="at_pre")
+            f_ref = st.number_input("Reflexos:", min_value=0, max_value=15, key="at_ref")
+            f_fur = st.number_input("Furtividade:", min_value=0, max_value=15, key="at_fur")
+            f_pre = st.number_input("Precisão:", min_value=0, max_value=15, key="at_pre")
             soma_agi = f_ref + f_fur + f_pre
             dado_agi = determinar_dado_sistema(soma_agi)
             st.markdown(f"<p style='color:#38bdf8; font-weight:bold; font-size:15px;'>Soma Total AGILIDADE: {soma_agi} <span style='color:#94a3b8;'>({dado_agi})</span></p>", unsafe_allow_html=True)
@@ -871,9 +930,9 @@ else:
         with col_at2:
             # Conjunto MENTE
             st.markdown("<div style='background-color:#1b1924; padding:5px; border-radius:3px; font-weight:bold; color:#c084fc;'>🧠 CATEGORIA: MENTE</div>", unsafe_allow_html=True)
-            f_int = st.number_input("Intelecto:", min_value=0, max_value=15, value=1, key="at_int")
-            f_log = st.number_input("Lógica:", min_value=0, max_value=15, value=2, key="at_log")
-            f_ocu = st.number_input("Ocultismo:", min_value=0, max_value=15, value=0, key="at_ocu")
+            f_int = st.number_input("Intelecto:", min_value=0, max_value=15, key="at_int")
+            f_log = st.number_input("Lógica:", min_value=0, max_value=15, key="at_log")
+            f_ocu = st.number_input("Ocultismo:", min_value=0, max_value=15, key="at_ocu")
             soma_mente = f_int + f_log + f_ocu
             dado_mente = determinar_dado_sistema(soma_mente)
             st.markdown(f"<p style='color:#c084fc; font-weight:bold; font-size:15px;'>Soma Total MENTE: {soma_mente} <span style='color:#94a3b8;'>({dado_mente})</span></p>", unsafe_allow_html=True)
@@ -881,9 +940,9 @@ else:
 
             # Conjunto FÉ
             st.markdown("<div style='background-color:#13201a; padding:5px; border-radius:3px; font-weight:bold; color:#34d399;'>⛪ CATEGORIA: FÉ</div>", unsafe_allow_html=True)
-            f_von = st.number_input("Vontade:", min_value=0, max_value=15, value=2, key="at_von")
-            f_san = st.number_input("Sanidade (Atrib):", min_value=0, max_value=15, value=1, key="at_f_san")
-            f_prs = st.number_input("Presença:", min_value=0, max_value=15, value=1, key="at_prs")
+            f_von = st.number_input("Vontade:", min_value=0, max_value=15, key="at_von")
+            f_san = st.number_input("Sanidade (Atrib):", min_value=0, max_value=15, key="at_f_san")
+            f_prs = st.number_input("Presença:", min_value=0, max_value=15, key="at_prs")
             soma_fe = f_von + f_san + f_prs
             dado_fe = determinar_dado_sistema(soma_fe)
             st.markdown(f"<p style='color:#34d399; font-weight:bold; font-size:15px;'>Soma Total FÉ: {soma_fe} <span style='color:#94a3b8;'>({dado_fe})</span></p>", unsafe_allow_html=True)
@@ -893,7 +952,6 @@ else:
         # --- SEÇÃO GRADE DE PERÍCIAS DETALHADAS ---
         st.markdown("<p style='color:#ef4444; font-weight:bold;'>🗂️ GRADE DE PERÍCIAS OPERACIONAIS</p>", unsafe_allow_html=True)
         
-        # ARCANISMO adicionada na lista oficial abaixo
         lista_pericias_oficiais = [
             "ARMAS BRANCAS", "ROUBO", "ESQUIVA", "MECANICA", "PILOTAGEM", 
             "ARMAS DE FOGO", "SOBREVIVENCIA", "MEDICINA", "VITALIDADE", 
@@ -906,7 +964,7 @@ else:
         for idx, per in enumerate(lista_pericias_oficiais):
             target_col = col_p1 if idx % 2 == 0 else col_p2
             with target_col:
-                escolha = st.radio(f"**{per}**", ["Não Treinada (Nível 0)", "Nível I (1)", "Nível II (2)", "Nível III (3)"], index=0, key=f"per_{per.lower().replace(' ', '_')}", horizontal=True)
+                escolha = st.radio(f"**{per}**", ["Não Treinada (Nível 0)", "Nível I (1)", "Nível II (2)", "Nível III (3)"], key=f"per_{per.lower().replace(' ', '_')}", horizontal=True)
                 if escolha != "Não Treinada (Nível 0)":
                     pericias_treinadas_usuario[per] = escolha.split(" (")[0]
 
@@ -928,25 +986,70 @@ else:
 
         st.write("---")
 
+        # --- NOVO BLOCO: EXPORTADOR DE FICHA (BOTÃO DE SALVAR) ---
+        st.markdown("<p style='color:#ef4444; font-weight:bold;'>💾 EXPORTAR PRONTUÁRIO DE CAMPO</p>", unsafe_allow_html=True)
+        st.write("Clique abaixo para fazer o download do arquivo de backup. Salve-o no seu computador e use o campo no topo da página para carregá-lo na próxima sessão.")
+        
+        # Estrutura JSON compacta com tudo o que está na tela no exato momento
+        dados_exportar = {
+            "nome": nome_personagem,
+            "classe": classe_selecionada,
+            "nivel": nivel_selecionado,
+            "hp_atual": st.session_state.hp_atual,
+            "energia_atual": st.session_state.energia_atual,
+            "sanidade_atual": st.session_state.sanidade_atual,
+            "at_forca": f_forca,
+            "at_res": f_res,
+            "at_vig": f_vig,
+            "at_ref": f_ref,
+            "at_fur": f_fur,
+            "at_pre": f_pre,
+            "at_int": f_int,
+            "at_log": f_log,
+            "at_ocu": f_ocu,
+            "at_von": f_von,
+            "at_f_san": f_san,
+            "at_prs": f_prs,
+            "pericias": pericias_treinadas_usuario,
+            "inventario": inventario_texto,
+            "rituais": rituais_texto,
+            "anotacoes": anotacoes_texto
+        }
+        
+        json_string = json.dumps(dados_exportar, indent=4, ensure_ascii=False)
+        nome_arquivo_slug = nome_personagem.lower().replace(" ", "_") if nome_personagem else "agente"
+        
+        # Cria o botão de download oficial do Streamlit
+        st.download_button(
+            label="💾 Baixar Arquivo da Ficha (.json)",
+            data=json_string,
+            file_name=f"prontuario_{nome_arquivo_slug}.json",
+            mime="application/json",
+            use_container_width=True
+            # O layout fica elegante cobrindo a largura do container
+        )
+
+        st.write("---")
+
         # --- SEÇÃO VISUAL: FOLHA DE FICHA TÁTICA ATUALIZADA (HTML SEGURO) ---
         st.markdown("<p style='color:#ef4444; font-weight:bold;'>📇 FOLHA DE MONITORAMENTO TÁTICO (IMAGEM DA FICHA)</p>", unsafe_allow_html=True)
         st.write("Abaixo está o documento oficial da sua ficha ativa estruturado dinamicamente para exibição limpa:")
 
-        # CÁLCULO DINÂMICO DE COMBATE BASEADO NAS REGRAS (Utilizando suas variáveis f_forca e f_res)
+        # CÁLCULO DINÂMICO DE COMBATE BASEADO NAS REGRAS
         dano_base = f_forca + 2
         resistencia_base = f_res + 2
 
-        # Construindo as perícias formatadas em HTML em uma estrutura de duas colunas (Grid) para economizar espaço
+        # Construindo as perícias formatadas em HTML
         html_pericias = ""
         if pericias_treinadas_usuario:
-            html_pericias += "<div style='display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding-left: 10px; color: #1e293b; font-size: 13px; font-family: sans-serif;'>"" "
+            html_pericias += "<div style='display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding-left: 10px; color: #1e293b; font-size: 13px; font-family: sans-serif;'>"
             for p_nome, p_nivel in pericias_treinadas_usuario.items():
                 html_pericias += f"<div>• <b>{p_nome}:</b> {p_nivel}</div>"
             html_pericias += "</div>"
         else:
             html_pericias = "<p style='margin: 0; font-size: 13px; color: #64748b; font-style: italic; font-family: sans-serif;'>Nenhuma perícia treinada ativa.</p>"
 
-        # String HTML limpa com a inclusão de Dano, Resistência e a listagem em duas colunas
+        # String HTML limpa
         card_html = f"""
         <div style="background-color: #ffffff; border: 3px solid #1e293b; border-radius: 6px; padding: 20px; font-family: Arial, sans-serif; color: #1e293b; box-sizing: border-box;">
             
@@ -1003,7 +1106,6 @@ else:
         </div>
         """
         
-        # Mantendo o height em 600 e renderizando com segurança
         st.components.v1.html(card_html, height=600, scrolling=False)
         st.write("")
 
