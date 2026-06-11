@@ -21,6 +21,8 @@ if "alerta_1_fechado" not in st.session_state:
     st.session_state.alerta_1_fechado = False
 if "alerta_2_fechado" not in st.session_state:
     st.session_state.alerta_2_fechado = False
+if "alerta_3_fechado" not in st.session_state:
+    st.session_state.alerta_3_fechado = False    
 # =====================================================================
 
 
@@ -465,7 +467,7 @@ else:
     
     # 1. Lógica do Relógio Tático para Rotatividade Semanal/Minutada
     # Usamos o tempo atual para definir qual alerta "está no ar" neste minuto
-    minuto_atual = int(time.time() // 60) 
+    minuto_atual = int(time.time() // 15) 
     
     # Isso vai alternar o "ID do Alerta Ativo" entre 1, 2 e 3 a cada minuto que passa
     alerta_da_vez = (minuto_atual % 3) + 1 
