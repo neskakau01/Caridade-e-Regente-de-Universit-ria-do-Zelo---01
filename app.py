@@ -832,14 +832,27 @@ else:
 </style>
 """, unsafe_allow_html=True)
 
-        # --- ARRANJO EM MOSAICO (UM EM PÉ, DOIS QUADRADOS DO LADO, UM DEITADO EMBAIXO) ---
+        # --- ARRANJO EM MOSAICO ---
         
         if categoria_jornal == "Todos os Registros":
-            # LINHA 1: Mosaico Assimétrico
+            
+            # --- NOVA NOTÍCIA URGENTE: ALERTA ADMINISTRATIVO (BANNER DE TOPO) ---
+            st.markdown("""
+<div class="mural-card" style="border-top-color: #b91c1c; margin-bottom: 20px;">
+    <span class="mural-tag-urgente">⚠️ ALERTA INTERNO URGENTE</span>
+    <div class="mural-titulo">REFORMA NA FIAÇÃO ELÉTRICA: RISCO DE PICOS DE ENERGIA E ORIENTAÇÃO AO SETOR ADMINISTRATIVO</div>
+    <div class="mural-meta">Fonte: Departamento de Infraestrutura e Manutenção // Logística Central</div>
+    <div class="mural-corpo">
+        Solicitamos a <b>todos os funcionários e agentes do setor administrativo</b> que salvem e façam backup imediato de suas pastas, relatórios e documentos nos servidores locais. A equipe de engenharia iniciará uma manutenção emergencial e reforma na fiação elétrica central da Base-01 nas próximas horas. Devido à natureza da reinstalação, <b>são esperados picos de energia e quedas momentâneas no sistema</b>. Evitem a perda de dados operacionais críticos. Os terminais C.A.I.M. operam em geradores isolados, mas as estações de trabalho comuns não.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            # LINHA 1: Mosaico Assimétrico (Esquerda comprido, Direita dois blocos)
             col_esquerda, col_direita = st.columns([1, 1.2])
             
             with col_esquerda:
-                # 1. BLOCO EM PÉ (VERTICAL)
+                # DISCURSO DA DIRETORA
                 st.markdown("""
 <div class="mural-card" style="border-top-color: #b91c1c; min-height: 380px;">
     <span class="mural-tag-urgente">📢 DISCURSO OFICIAL</span>
@@ -852,7 +865,7 @@ else:
 """, unsafe_allow_html=True)
 
             with col_direita:
-                # Dois blocos menores/quadrados empilhados ao lado do bloco em pé
+                # PROMOÇÕES
                 st.markdown("""
 <div class="mural-card" style="border-top-color: #16a34a; margin-bottom: 15px;">
     <span class="mural-tag-interno">🎖️ QUADRO DE HONRA</span>
@@ -864,9 +877,10 @@ else:
 </div>
 """, unsafe_allow_html=True)
 
+                # CONFRATERNIZAÇÃO
                 st.markdown("""
 <div class="mural-card" style="border-top-color: #292524;">
-    <span class="mural-tag-noticia">☕ INTEGRAÇÃO Civíl</span>
+    <span class="mural-tag-noticia">☕ INTEGRAÇÃO CIVIL</span>
     <div class="mural-titulo">CONFRATERNIZAÇÃO ANUAL DO DIA DA RETOMADA</div>
     <div class="mural-meta">Grêmio Interno de Agentes // Setor Recreativo</div>
     <div class="mural-corpo">
@@ -877,7 +891,21 @@ else:
 
             st.write("") # Espaçador
 
-            # LINHA 2: BLOCO RETANGULAR DEITADO (ABAIXO DO MOSAICO)
+            # EXPANSÃO DE LOGÍSTICA E SUPRIMENTOS (DEITADO COMPRIDO)
+            st.markdown("""
+<div class="mural-card" style="border-top-color: #16a34a;">
+    <span class="mural-tag-interno">📦 EXPANSÃO DE LOGÍSTICA</span>
+    <div class="mural-titulo">DIRETORIA AUTORIZA LIBERAÇÃO DE NOVAS BASES, VEÍCULOS TÁTICOS E ARMAMENTO DE PONTA PARA AS EQUIPES</div>
+    <div class="mural-meta">Fonte: Departamento de Infraestrutura e Armas // Logística Central</div>
+    <div class="mural-corpo">
+        Com o objetivo de aumentar o tempo de resposta a surtos sobrenaturais na comunidade, a Cruz Negra inicia este mês um plano de descentralização massivo. Está oficialmente autorizada a abertura e o fornecimento de novas sub-bases operacionais em setores críticos. Além disso, as equipes de campo receberão um incremento imediato na frota de transporte, incluindo <b>motos de reconhecimento rápido, carros blindados e vans de contenção e transporte de material</b>. Os arsenais das bases também serão reabastecidos com armamento avançado e munições adaptadas de alto impacto. Consultem os vossos Mecânicos de setor para a requisição dos novos ativos.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            st.write("")
+
+            # LINHA RECTANGULAR INFERIOR (NICHO INVESTIDOR)
             st.markdown("""
 <div class="mural-card" style="border-top-color: #44403c;">
     <span class="mural-tag-noticia">📊 LOGÍSTICA & PARCERIAS</span>
@@ -891,50 +919,67 @@ else:
 
             st.write("")
 
-            # MAIS NOTÍCIAS ABAIXO PARA ENRIQUECER O SITE
+            # COORDENAÇÃO DE DUAS COLUNAS INFERIORES
             col_inf1, col_inf2 = st.columns(2)
             with col_inf1:
+                # EVOLUÇÃO INSTITUCIONAL
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #292524;">
+    <span class="mural-tag-noticia">📈 EVOLUÇÃO INSTITUCIONAL</span>
+    <div class="mural-titulo">BALANÇO HISTÓRICO: O CRESCIMENTO DA CRUZ NEGRA COMO ESCUDO E EMPRESA</div>
+    <div class="mural-meta">Fonte: Conselho Executivo // Relatório de Desempenho Anual</div>
+    <div class="mural-corpo">
+        Os números do último relatório interno comprovam: a eficiência da Cruz Negra teve uma melhora drástica ao longo dos anos. Não só a taxa de sucesso e contenção em missões táticas disparou desde o desastre de 1996, como a nossa estrutura corporativa se consolidou. Hoje, operamos com a estabilidade de uma grande empresa de segurança, o que nos permite oferecer um suporte muito mais robusto aos nossos colaboradores, incluindo planos de assistência psicológica pós-exposição, suporte habitacional seguro e amparo às famílias dos agentes. Cuidar de quem está na linha de frente é o nosso melhor investimento.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+                
+            with col_inf2:
+                # MANUTENÇÃO TERMINAIS
                 st.markdown("""
 <div class="mural-card">
     <span class="mural-tag-interno">📢 COMUNICADO TÉCNICO</span>
     <div class="mural-titulo">MANUTENÇÃO DE TERMINAIS C.A.I.M.</div>
     <div class="mural-meta">Setor de Engenharia e Mecânica // TI Central</div>
     <div class="mural-corpo">
-        Todos os terminais locais que rodam a interface de IA assistente C.A.I.M. passarão por uma varredura de integridade neural preventiva nesta madrugada. Caso note flutuações de comportamento no assistente ou respostas fora do protocolo operacional padrão, reporte imediatamente ao Mecânico chefe do seu setor.
-    </div>
-</div>
-""", unsafe_allow_html=True)
-            with col_inf2:
-                st.markdown("""
-<div class="mural-card">
-    <span class="mural-tag-noticia">💡 CURIOSIDADES ARQUIVADAS</span>
-    <div class="mural-titulo">A ORIGEM DO TERMO "CRUZ NEGRA"</div>
-    <div class="mural-meta">Arquivo Histórico // Curiosidades da Base</div>
-    <div class="mural-corpo">
-        Você sabia? O nome original da nossa coalizão paramilitar, registrado em manuscritos do século XIX, era <i>Ordem do Selo Escuro</i>. A transição para "Cruz Negra" ocorreu logo após o Incidente de 1889 na Região Central de Minas Gerais, como uma metáfora visual ao método químico de contenção por reagentes pesados à base de chumbo que os pioneiros utilizavam para selar as fendas.
+        Todos os terminals locais que rodam a interface de IA assistente C.A.I.M. passarão por uma varredura de integridade neural preventiva nesta madrugada. Caso note flutuações de comportamento no assistente ou respostas fora do protocolo operacional padrão, reporte imediatamente ao Mecânico chefe do seu setor.
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-        # --- SE O USUÁRIO FILTRAR UMA CATEGORIA ESPECÍFICA (EXIBIÇÃO EM LISTA LIMPA) ---
+        # --- SE O USUÁRIO FILTRAR UMA CATEGORIA ESPECÍFICA ---
         else:
             if categoria_jornal == "Urgente / Discursos":
                 st.markdown("""
 <div class="mural-card" style="border-top-color: #b91c1c;">
+    <span class="mural-tag-urgente">⚠️ ALERTA INTERNO URGENTE</span>
+    <div class="mural-titulo">REFORMA NA FIAÇÃO ELÉTRICA: RISCO DE PICOS DE ENERGIA E ORIENTAÇÃO AO SETOR ADMINISTRATIVO</div>
+    <div class="mural-meta">Fonte: Departamento de Infraestrutura e Manutenção // Logística Central</div>
+    <div class="mural-corpo">Solicitamos a <b>todos os funcionários e agentes do setor administrativo</b> que salvem e façam backup imediato de suas pastas, relatórios e documentos nos servidores locais. A equipe de engenharia iniciará uma manutenção emergencial e reforma na fiação elétrica central da Base-01 nas próximas horas. Devido à natureza da reinstalação, são esperados picos de energia e quedas momentâneas no sistema. Evitem a perda de dados operacionais críticos. Os terminais C.A.I.M. operam em geradores isolados, mas as estações de trabalho comuns não.</div>
+</div>
+<br>
+<div class="mural-card" style="border-top-color: #b91c1c;">
     <span class="mural-tag-urgente">📢 DISCURSO OFICIAL</span>
-    <div class="mural-titulo">PALAVRA DA DIRETORIA: A ILUSÃO DA NORMALIDADE EM 2012</div>
+    <div class="mural-titulo">PALAVRA DA DIRETORIA: O PESO DO MEDO EM 2012</div>
     <div class="mural-meta">Por: Diretora Ana Carter // Circular Geral</div>
-    <div class="mural-corpo">"Agentes, dezesseis anos se passaram desde a quebra sistêmica de 1996. As Calamidades de Belzebu duraram menos de uma semana, mas o eco daquela falha serve para nos lembrar do peso do nosso fardo. O mundo civil acredita que o sustento da virada do milênio foi obra do acaso econômico. Eles não sabem, e nunca devem saber, sobre as barreiras que reerguemos em tempo recorde. Nossa função em 2012 permanece idêntica: neutralizar o sobrenatural de forma cirúrgica e imediata. Mantenham suas mentes ancoradas nos axiomas da fundação. O silêncio é a nossa maior vitória."</div>
+    <div class="mural-corpo">"Agentes, dezesseis anos se passaram desde a quebra sistêmica de 1996. As Calamidades de Belzebu duraram menos de uma semana, mas mudaram a história para sempre. Hoje, a população civil conhece a existência do sobrenatural, mas o conhecimento não trouxe aceitação trouxe o pânico. O mundo lá fora vive aterrorizado, temendo a próxima manifestação a cada sombra que se move. Nossa função em 2012 não é apagar o que eles já sabem, mas sim erguer a barreira tática que impede o caos absoluto. Neutralizamos as ameaças de forma cirúrgica para que o medo deles não paralise as engrenagens da sociedade. Sejam o escudo que contem o horror."</div>
 </div>
 """, unsafe_allow_html=True)
 
             elif categoria_jornal == "Notícias & Eventos":
                 st.markdown("""
 <div class="mural-card" style="border-top-color: #292524;">
-    <span class="mural-tag-noticia">☕ INTEGRAÇÃO CIVÍL</span>
+    <span class="mural-tag-noticia">☕ INTEGRAÇÃO CIVIL</span>
     <div class="mural-titulo">CONFRATERNIZAÇÃO ANUAL DO DIA DA RETOMADA</div>
     <div class="mural-meta">Grêmio Interno de Agentes // Setor Recreativo</div>
     <div class="mural-corpo">Informamos que no próximo sábado, o Setor Recreativo da Base-01 sediará o nosso jantar de confraternização. Um momento de descontração voltado para os agentes de todas as patentes (de AT a LC) e suas famílias registradas sob o protocolo de ocultamento. Teremos música ao vivo e distribuição de rações táticas premium selecionadas pelo Nicho Investidor. Compareçam!</div>
+</div>
+<br>
+<div class="mural-card" style="border-top-color: #292524;">
+    <span class="mural-tag-noticia">📈 EVOLUÇÃO INSTITUCIONAL</span>
+    <div class="mural-titulo">BALANÇO HISTÓRICO: O CRESCIMENTO DA CRUZ NEGRA COMO ESCUDO E EMPRESA</div>
+    <div class="mural-meta">Fonte: Conselho Executivo // Relatório de Desempenho Anual</div>
+    <div class="mural-corpo">Os números do último relatório interno comprovam: a eficiência da Cruz Negra teve uma melhora drástica ao longo dos anos. Não só a taxa de sucesso e contenção em missões táticas disparou desde o desastre de 1996, como a nossa estrutura corporativa se consolidou. Hoje, operamos com a estabilidade de uma grande empresa de segurança, o que nos permite oferecer um suporte muito mais robusto aos nossos colaboradores, incluindo planos de assistência psicológica pós-exposição, suporte habitacional seguro e amparo às famílias dos agentes. Cuidar de quem está na linha de frente é o nosso melhor investmento.</div>
 </div>
 <br>
 <div class="mural-card" style="border-top-color: #44403c;">
@@ -947,16 +992,30 @@ else:
 
             elif categoria_jornal == "Promoções & Interno":
                 st.markdown("""
-<div class="mural-card" style="border-top-color: #b91c1c;">
-    <span class="mural-tag-urgente">📢 DISCURSO OFICIAL</span>
-    <div class="mural-titulo">PALAVRA DA DIRETORIA: O PESO DO MEDO EM 2012</div>
-    <div class="mural-meta">Por: Diretora Ana Carter // Circular Geral</div>
-    <div class="mural-corpo">"Agentes, dezesseis anos se passaram desde a quebra sistêmica de 1996. As Calamidades de Belzebu duraram menos de uma semana, mas mudaram a história para sempre. Hoje, a população civil conhece a existência do sobrenatural, mas o conhecimento não trouxe aceitação trouxe o pânico. O mundo lá fora vive aterrorizado, temendo a próxima manifestação a cada sombra que se move. Nossa função in 2012 não é apagar o que eles já sabem, mas sim erguer a barreira tática que impede o caos absoluto. Neutralizamos as ameaças de forma cirúrgica para que o medo deles não paralise as engrenagens da sociedade. Sejam o escudo que contem o horror."</div>
+<div class="mural-card" style="border-top-color: #16a34a;">
+    <span class="mural-tag-interno">📦 EXPANSÃO DE LOGÍSTICA</span>
+    <div class="mural-titulo">DIRETORIA AUTORIZA LIBERAÇÃO DE NOVAS BASES, VEÍCULOS TÁTICOS E ARMAMENTO DE PONTA PARA AS EQUIPES</div>
+    <div class="mural-meta">Fonte: Departamento de Infraestrutura e Armas // Logística Central</div>
+    <div class="mural-corpo">Com o objetivo de aumentar o tempo de resposta a surtos sobrenaturais na comunidade, a Cruz Negra inicia este mês um plano de descentralização massivo. Está oficialmente autorizada a abertura e o fornecimento de novas sub-bases operacionais em setores críticos. Além disso, as equipes de campo receberão um incremento imediato na frota de transporte, incluindo motos de reconhecimento rápido, carros blindados e vans de contenção e transporte de material. Os arsenais das bases também serão reabastecidos com armamento avançado e munições adaptadas de alto impacto. Consultem os vossos Mecânicos de setor para a requisição dos novos ativos.</div>
+</div>
+br>
+<div class="mural-card" style="border-top-color: #16a34a;">
+    <span class="mural-tag-interno">🎖️ QUADRO DE HONRA</span>
+    <div class="mural-titulo">PROMOÇÕES DA TEMPORADA OPERACIONAL</div>
+    <div class="mural-meta">Departamento de Gestão de Pessoal // Base-01</div>
+    <div class="mural-corpo">A Diretoria parabeniza o agora <b>Agente de Campo (AC) Marcos Rocha</b> por sua excepcional resiliência psíquica demonstrada no último trimestre. Da mesma forma, o colega <b>Felipe Azevedo</b> foi oficialmente elevado à patente de <b>Agente Básico (AB)</b>, tendo concluído com louvor os testes de isolamento de espectro leve. As novas credenciais táticas atualizadas já estão disponíveis no terminal.</div>
+</div>
+<br>
+<div class="mural-card" style="border-top-color: #16a34a;">
+    <span class="mural-tag-interno">📢 COMUNICADO TÉCNICO</span>
+    <div class="mural-titulo">MANUTENÇÃO DE TERMINAIS C.A.I.M.</div>
+    <div class="mural-meta">Setor de Engenharia e Mecânica // TI Central</div>
+    <div class="mural-corpo">Todos os terminais locais que rodam a interface de IA assistente C.A.I.M. passarão por uma varredura de integridade neural preventiva nesta madrugada. Caso note flutuações de comportamento no assistente ou respostas fora do protocolo operacional padrão, reporte imediatamente ao Mecânico chefe do seu setor.</div>
 </div>
 """, unsafe_allow_html=True)
 
         st.write("---")
-        st.markdown("<p style='text-align: center; color: #64748b; font-size: 11px; font-family: monospace;'>Boletins internos atualizados pela Diretoria Geral da Cruz Negra // Ano Base: 2012.</p>", unsafe_allow_html=True)       
+        st.markdown("<p style='text-align: center; color: #64748b; font-size: 11px; font-family: monospace;'>Boletins internos atualizados pela Diretoria Geral da Cruz Negra // Ano Base: 2012.</p>", unsafe_allow_html=True)
 
     # --- NOVO DIRETÓRIO: GERENCIADOR DE FICHA ATIVA ---
     elif opcao == "Gerenciador de Ficha Ativa":
