@@ -741,24 +741,20 @@ else:
         st.write("")
         
         if nome_agente:
+            # Puxamos as tags HTML totalmente para a esquerda para evitar o bug do bloco cinza
             st.markdown(f"""
-            <div class="badge-container">
-                <div class="badge-header">
-                    <span class="badge-title-cn">COALIZÃO PARAMILITAR CRUZ NEGRA</span><br>
-                    <span class="badge-subtitle-cn">CREDENCIAL DE IDENTIFICAÇÃO DE CAMPO</span>
-                </div>
-                <p class="badge-label">NOME OPERACIONAL: <span class="badge-value">{nome_agente.upper()}</span></p>
-                <p class="badge-label">PATENTE / GRAU: <span class="badge-value">{grau_selecionado}</span></p>
-                <p class="badge-label">BASE DE SUPORTE: <span class="badge-value">{alocacao_base.upper() if alocacao_base else 'NÃO CATALOGADA'}</span></p>
-                <p class="badge-label">LOGISTICA VETORIAL: <span class="badge-value" style="color:#8b0000 !important;">ATIVADA (2012)</span></p>
-                
-                <div class="badge-footer">
-                    ESTE DOCUMENTO É PROPRIEDADE INALIENÁVEL DA CRUZ NEGRA. O PORTADOR ESTÁ AUTORIZADO A REQUISITAR SUPRIMENTOS, ALOCAÇÃO DE EQUIPES DE INFRAESTRUTURA E COMANDO DE OPERAÇÕES DE APAGAMENTO LOCAL. EM CASO DE QUEBRA DE SANIDADE, ESTA CREDENCIAL DEVE SER COLETADA E O MATERIAL ORGÂNICO DO AGENTE PROCESSADO.
-                    <br><br>
-                    <span style="font-weight:bold; color:#000000;">ASSINATURA ELETRÔNICA: {assinatura_digital if assinatura_digital else 'AUTENTICADA'}</span>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+<div class="badge-container">
+<div class="badge-header">
+<span class="badge-title-cn">COALIZÃO PARAMILITAR CRUZ NEGRA</span><br>
+<span class="badge-subtitle-cn">CREDENCIAL DE IDENTIFICAÇÃO DE CAMPO</span>
+</div>
+<p class="badge-label">NOME OPERACIONAL: <span class="badge-value">{nome_agente.upper()}</span></p>
+<p class="badge-label">PATENTE / GRAU: <span class="badge-value">{grau_selecionado}</span></p>
+<p class="badge-label">BASE DE SUPORTE: <span class="badge-value">{alocacao_base.upper() if alocacao_base else 'NÃO CATALOGADA'}</span></p>
+<p class="badge-label">LOGISTICA VETORIAL: <span class="badge-value" style="color:#8b0000 !important;">ATIVADA (2012)</span></p>
+<div class="badge-footer">ESTE DOCUMENTO É PROPRIEDADE INALIENÁVEL DA CRUZ NEGRA. O PORTADOR ESTÁ AUTORIZADO A REQUISITAR SUPRIMENTOS, ALOCAÇÃO DE EQUIPES DE INFRAESTRUTURA E COMANDO DE OPERAÇÕES DE APAGAMENTO LOCAL. EM CASO DE QUEBRA DE SANIDADE, ESTA CREDENCIAL DEVE SER COLETADA E O MATERIAL ORGÂNICO DO AGENTE PROCESSADO.<br><br><span style="font-weight:bold; color:#000000;">ASSINATURA ELETRÔNICA: {assinatura_digital if assinatura_digital else 'AUTENTICADA'}</span></div>
+</div>
+""", unsafe_allow_html=True)
     # --- NOVO DIRETÓRIO: GERENCIADOR DE FICHA ATIVA ---
     elif opcao == "Gerenciador de Ficha Ativa":
         import json # Garante que a biblioteca JSON está importada para o save
