@@ -438,7 +438,8 @@ else:
         "Relatórios de Expedição de Campo",
         "Especializações de Agentes",
         "Gerador de Credencial Tática",
-        "Gerenciador de Ficha Ativa",  # <-- NOVA ABA AQUI
+        "Mural de Transmissões Civis",  # <-- ADICIONADO AQUI PARA RECONHECER A NOVA ABA
+        "Gerenciador de Ficha Ativa",  
         "Relatório de Falha Sistêmica: Marco 96"
     ])
 
@@ -755,6 +756,208 @@ else:
 <div class="badge-footer">ESTE DOCUMENTO É PROPRIEDADE INALIENÁVEL DA CRUZ NEGRA. O PORTADOR ESTÁ AUTORIZADO A REQUISITAR SUPRIMENTOS, ALOCAÇÃO DE EQUIPES DE INFRAESTRUTURA E COMANDO DE OPERAÇÕES DE APAGAMENTO LOCAL. EM CASO DE QUEBRA DE SANIDADE, ESTA CREDENCIAL DEVE SER COLETADA E O MATERIAL ORGÂNICO DO AGENTE PROCESSADO.<br><br><span style="font-weight:bold; color:#000000;">ASSINATURA ELETRÔNICA: {assinatura_digital if assinatura_digital else 'AUTENTICADA'}</span></div>
 </div>
 """, unsafe_allow_html=True)
+# --- DIRETÓRIO 8: MURAL DE INFORMAÇÕES E BOLETINS ---
+    elif opcao == "Mural de Transmissões Civis":
+        st.subheader("📰 QUADRO DE AVISOS E INFORMAÇÕES INTERNAS")
+        st.write("Boletins informativos, promoções de patentes, discursos da Diretoria e notas de integração da Cruz Negra.")
+        st.write("---")
+
+        # Filtro de categorias
+        col_filtro1, col_filtro2 = st.columns([1, 2])
+        with col_filtro1:
+            categoria_jornal = st.selectbox("Filtrar Categoria:", ["Todos os Registros", "Urgente / Discursos", "Notícias & Eventos", "Promoções & Interno"])
+        
+        st.write("")
+
+        # --- ESTILIZAÇÃO CSS DOS BLOQUINHOS ESTILO JORNAL/MURAL ---
+        st.markdown("""
+<style>
+.mural-card {
+    background-color: #fcfbf7;
+    color: #1c1917 !important;
+    border-top: 4px solid #44403c;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+    font-family: 'Georgia', serif;
+    height: 100%;
+}
+.mural-tag-urgente {
+    background-color: #b91c1c;
+    color: #ffffff !important;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.mural-tag-noticia {
+    background-color: #292524;
+    color: #f5f5f4 !important;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.mural-tag-interno {
+    background-color: #16a34a;
+    color: #ffffff !important;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.mural-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    color: #1c1917 !important;
+    line-height: 1.2;
+}
+.mural-meta {
+    font-size: 11px;
+    color: #78716c;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+.mural-corpo {
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: justify;
+}
+</style>
+""", unsafe_allow_html=True)
+
+        # --- ARRANJO EM MOSAICO (UM EM PÉ, DOIS QUADRADOS DO LADO, UM DEITADO EMBAIXO) ---
+        
+        if categoria_jornal == "Todos os Registros":
+            # LINHA 1: Mosaico Assimétrico
+            col_esquerda, col_direita = st.columns([1, 1.2])
+            
+            with col_esquerda:
+                # 1. BLOCO EM PÉ (VERTICAL)
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #b91c1c; min-height: 380px;">
+    <span class="mural-tag-urgente">📢 DISCURSO OFICIAL</span>
+    <div class="mural-titulo">PALAVRA DA DIRETORIA: O PESO DO MEDO EM 2012</div>
+    <div class="mural-meta">Por: Diretora Ana Carter // Circular Geral</div>
+    <div class="mural-corpo">
+        "Agentes, dezesseis anos se passaram desde a quebra sistêmica de 1996. As Calamidades de Belzebu duraram menos de uma semana, mas mudaram a história para sempre. Hoje, a população civil conhece a existência do sobrenatural, mas o conhecimento não trouxe aceitação trouxe o pânico. O mundo lá fora vive aterrorizado, temendo a próxima manifestação a cada sombra que se move. Nossa função em 2012 não é apagar o que eles já sabem, mas sim erguer a barreira tática que impede o caos absoluto. Neutralizamos as ameaças de forma cirúrgica para que o medo deles não paralise as engrenagens da sociedade. Sejam o escudo que contem o horror."
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            with col_direita:
+                # Dois blocos menores/quadrados empilhados ao lado do bloco em pé
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #16a34a; margin-bottom: 15px;">
+    <span class="mural-tag-interno">🎖️ QUADRO DE HONRA</span>
+    <div class="mural-titulo">PROMOÇÕES DA TEMPORADA OPERACIONAL</div>
+    <div class="mural-meta">Departamento de Gestão de Pessoal // Base-01</div>
+    <div class="mural-corpo">
+        A Diretoria parabeniza o agora <b>Agente de Campo (AC) Marcos Rocha</b> por sua excepcional resiliência psíquica demonstrada no último trimestre. Da mesma forma, o colega <b>Felipe Azevedo</b> foi oficialmente elevado à patente de <b>Agente Básico (AB)</b>, tendo concluído com louvor os testes de isolamento de espectro leve. As novas credenciais táticas atualizadas já estão disponíveis no terminal.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #292524;">
+    <span class="mural-tag-noticia">☕ INTEGRAÇÃO Civíl</span>
+    <div class="mural-titulo">CONFRATERNIZAÇÃO ANUAL DO DIA DA RETOMADA</div>
+    <div class="mural-meta">Grêmio Interno de Agentes // Setor Recreativo</div>
+    <div class="mural-corpo">
+        Informamos que no próximo sábado, o Setor Recreativo da Base-01 sediará o nosso jantar de confraternização. Um momento de descontração voltado para os agentes de todas as patentes (de AT a LC) e suas famílias registradas sob o protocolo de ocultamento. Teremos música ao vivo e distribuição de rações táticas premium selecionadas pelo Nicho Investidor. Compareçam!
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            st.write("") # Espaçador
+
+            # LINHA 2: BLOCO RETANGULAR DEITADO (ABAIXO DO MOSAICO)
+            st.markdown("""
+<div class="mural-card" style="border-top-color: #44403c;">
+    <span class="mural-tag-noticia">📊 LOGÍSTICA & PARCERIAS</span>
+    <div class="mural-titulo">NICHO INVESTIDOR RENOVA APORTES FINANCEIROS PARA A INFRAESTRUTURA TÁTICA DA BASE-01</div>
+    <div class="mural-meta">Fonte: Departamento de Auditoria Governamental Oculta // Boletim Financeiro 12/02</div>
+    <div class="mural-corpo">
+        Foi formalizado o novo repasse orçamentário vindo das corporações de fachada coordenadas pelo Nicho Investidor. O capital será integralmente destinado à modernização dos laboratórios de bio-anatomia estrutural e à aquisição de novos lotes do Composto Amnésico Classe B e Classe C. O fluxo econômico das indústrias parceiras segue blindado contra rastreamento civil, garantindo a autossuficiência de nossas frentes de contenção urbana para os próximos cinco anos.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            st.write("")
+
+            # MAIS NOTÍCIAS ABAIXO PARA ENRIQUECER O SITE
+            col_inf1, col_inf2 = st.columns(2)
+            with col_inf1:
+                st.markdown("""
+<div class="mural-card">
+    <span class="mural-tag-interno">📢 COMUNICADO TÉCNICO</span>
+    <div class="mural-titulo">MANUTENÇÃO DE TERMINAIS C.A.I.M.</div>
+    <div class="mural-meta">Setor de Engenharia e Mecânica // TI Central</div>
+    <div class="mural-corpo">
+        Todos os terminais locais que rodam a interface de IA assistente C.A.I.M. passarão por uma varredura de integridade neural preventiva nesta madrugada. Caso note flutuações de comportamento no assistente ou respostas fora do protocolo operacional padrão, reporte imediatamente ao Mecânico chefe do seu setor.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+            with col_inf2:
+                st.markdown("""
+<div class="mural-card">
+    <span class="mural-tag-noticia">💡 CURIOSIDADES ARQUIVADAS</span>
+    <div class="mural-titulo">A ORIGEM DO TERMO "CRUZ NEGRA"</div>
+    <div class="mural-meta">Arquivo Histórico // Curiosidades da Base</div>
+    <div class="mural-corpo">
+        Você sabia? O nome original da nossa coalizão paramilitar, registrado em manuscritos do século XIX, era <i>Ordem do Selo Escuro</i>. A transição para "Cruz Negra" ocorreu logo após o Incidente de 1889 na Região Central de Minas Gerais, como uma metáfora visual ao método químico de contenção por reagentes pesados à base de chumbo que os pioneiros utilizavam para selar as fendas.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        # --- SE O USUÁRIO FILTRAR UMA CATEGORIA ESPECÍFICA (EXIBIÇÃO EM LISTA LIMPA) ---
+        else:
+            if categoria_jornal == "Urgente / Discursos":
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #b91c1c;">
+    <span class="mural-tag-urgente">📢 DISCURSO OFICIAL</span>
+    <div class="mural-titulo">PALAVRA DA DIRETORIA: A ILUSÃO DA NORMALIDADE EM 2012</div>
+    <div class="mural-meta">Por: Diretora Ana Carter // Circular Geral</div>
+    <div class="mural-corpo">"Agentes, dezesseis anos se passaram desde a quebra sistêmica de 1996. As Calamidades de Belzebu duraram menos de uma semana, mas o eco daquela falha serve para nos lembrar do peso do nosso fardo. O mundo civil acredita que o sustento da virada do milênio foi obra do acaso econômico. Eles não sabem, e nunca devem saber, sobre as barreiras que reerguemos em tempo recorde. Nossa função em 2012 permanece idêntica: neutralizar o sobrenatural de forma cirúrgica e imediata. Mantenham suas mentes ancoradas nos axiomas da fundação. O silêncio é a nossa maior vitória."</div>
+</div>
+""", unsafe_allow_html=True)
+
+            elif categoria_jornal == "Notícias & Eventos":
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #292524;">
+    <span class="mural-tag-noticia">☕ INTEGRAÇÃO CIVÍL</span>
+    <div class="mural-titulo">CONFRATERNIZAÇÃO ANUAL DO DIA DA RETOMADA</div>
+    <div class="mural-meta">Grêmio Interno de Agentes // Setor Recreativo</div>
+    <div class="mural-corpo">Informamos que no próximo sábado, o Setor Recreativo da Base-01 sediará o nosso jantar de confraternização. Um momento de descontração voltado para os agentes de todas as patentes (de AT a LC) e suas famílias registradas sob o protocolo de ocultamento. Teremos música ao vivo e distribuição de rações táticas premium selecionadas pelo Nicho Investidor. Compareçam!</div>
+</div>
+<br>
+<div class="mural-card" style="border-top-color: #44403c;">
+    <span class="mural-tag-noticia">📊 LOGÍSTICA & PARCERIAS</span>
+    <div class="mural-titulo">NICHO INVESTIDOR RENOVA APORTES FINANCEIROS PARA A INFRAESTRUTURA TÁTICA DA BASE-01</div>
+    <div class="mural-meta">Fonte: Departamento de Auditoria Governamental Oculta // Boletim Financeiro 12/02</div>
+    <div class="mural-corpo">Foi formalizado o novo repasse orçamentário vindo das corporações de fachada coordenadas pelo Nicho Investidor. O capital será integralmente destinado à modernização dos laboratórios de bio-anatomia estrutural e à aquisição de novos lotes do Composto Amnésico Classe B e Classe C. O fluxo econômico das indústrias parceiras segue blindado contra rastreamento civil, garantindo a autossuficiência de nossas frentes de contenção urbana para os próximos cinco anos.</div>
+</div>
+""", unsafe_allow_html=True)
+
+            elif categoria_jornal == "Promoções & Interno":
+                st.markdown("""
+<div class="mural-card" style="border-top-color: #b91c1c;">
+    <span class="mural-tag-urgente">📢 DISCURSO OFICIAL</span>
+    <div class="mural-titulo">PALAVRA DA DIRETORIA: O PESO DO MEDO EM 2012</div>
+    <div class="mural-meta">Por: Diretora Ana Carter // Circular Geral</div>
+    <div class="mural-corpo">"Agentes, dezesseis anos se passaram desde a quebra sistêmica de 1996. As Calamidades de Belzebu duraram menos de uma semana, mas mudaram a história para sempre. Hoje, a população civil conhece a existência do sobrenatural, mas o conhecimento não trouxe aceitação trouxe o pânico. O mundo lá fora vive aterrorizado, temendo a próxima manifestação a cada sombra que se move. Nossa função in 2012 não é apagar o que eles já sabem, mas sim erguer a barreira tática que impede o caos absoluto. Neutralizamos as ameaças de forma cirúrgica para que o medo deles não paralise as engrenagens da sociedade. Sejam o escudo que contem o horror."</div>
+</div>
+""", unsafe_allow_html=True)
+
+        st.write("---")
+        st.markdown("<p style='text-align: center; color: #64748b; font-size: 11px; font-family: monospace;'>Boletins internos atualizados pela Diretoria Geral da Cruz Negra // Ano Base: 2012.</p>", unsafe_allow_html=True)       
+
     # --- NOVO DIRETÓRIO: GERENCIADOR DE FICHA ATIVA ---
     elif opcao == "Gerenciador de Ficha Ativa":
         import json # Garante que a biblioteca JSON está importada para o save
