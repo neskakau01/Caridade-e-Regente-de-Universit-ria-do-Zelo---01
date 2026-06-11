@@ -932,12 +932,14 @@ else:
             
             # --- NOVA NOTÍCIA URGENTE: ALERTA ADMINISTRATIVO (BANNER DE TOPO) ---
             st.markdown("""
-<div class="mural-card" style="border-top-color: #b91c1c; margin-bottom: 20px;">
-    <span class="mural-tag-urgente">⚠️ ALERTA INTERNO URGENTE</span>
-    <div class="mural-titulo">REFORMA NA FIAÇÃO ELÉTRICA: RISCO DE PICOS DE ENERGIA E ORIENTAÇÃO AO SETOR ADMINISTRATIVO</div>
-    <div class="mural-meta">Fonte: Departamento de Infraestrutura e Manutenção // Logística Central</div>
+<div class="mural-card" style="border-top-color: #ec4899;">
+    <span class="mural-tag-noticia" style="background-color: #ec4899; color: #ffffff !important;">🦊 FALHA DE SEGURANÇA SINALIZADA</span>
+    <div class="mural-titulo">LOG DE ERRO #404: INTERCEPTAÇÃO DE REQUISIÇÃO EM LOOP CONTÍNUO [ATUALIZADO]</div>
+    <div class="mural-meta">Fonte: Departamento de TI e Engenharia de Software // Base-01</div>
     <div class="mural-corpo">
-        Solicitamos a <b>todos os funcionários e agentes do setor administrativo</b> que salvem e façam backup imediato de suas pastas, relatórios e documentos nos servidores locais. A equipe de engenharia iniciará uma manutenção emergencial e reforma na fiação elétrica central da Base-01 nas próximas horas. Devido à natureza da reinstalação, <b>são esperados picos de energia e quedas momentâneas no sistema</b>. Evitem a perda de dados operacionais críticos. Os terminais C.A.I.M. operam em geradores isolados, mas as estações de trabalho comuns não.
+        O Setor de TI emite este comunicado de alerta informando que a sobrecarga nos servidores da intranet persistirá devido a um novo pacote massivo de dados redundantes interceptados na rede. A mensagem fantasma, transmitida pelo usuário antigo <b>Peashooter02</b>, sofreu uma mutação de tamanho e agora replica em loop contínuo o seguinte relatório descritivo de alvo:<br><br>
+        <i>"Uma jovem portadora de uma beleza tão deslumbrante que torna difícil descrevê-la sem parecer exagero, quase como se molécula por molécula de seu ser tivesse sido feita detalhe por detalhe por Afrodite em pessoa. Seus cabelos longos, sedosos, volumosos, brilhantes e com cuidados impecáveis parecem desafiar a realidade, quase como um rio de cobre líquido, sem nenhum único fio ressecado ou desalinhado, cada fio reflete a luz em tons quentes de cobre e ouro avermelhados, como se tivessem sido cuidadosamente polidos para chegarem a tal nível de beleza. Seu rosto com traços delicados e harmoniosos realçados por uma pele clara impecavelmente bem cuidada. Seus olhos verde-esmeralda são capazes de mesmo sem proferir qualquer palavra refletirem sua alma doce e gentil, é como se cada íris fosse uma pintura feita por Da Vinci, Van Gogh e Picasso. Sua voz doce, gentil e delicada é mais perfeita que as canções de Beethoven, Mozart e Orfeu. Sua postura transmite uma graça natural indescritível, uma confiança e tranquilidade que não precisa de anúncio prévio para se destacar."</i><br><br>
+        A Diretoria Geral e o corpo de Técnicos de TI informam que continuam trabalhando ativamente na implementação de firewalls para tentar desligar o spam crônico dessa transmissão de 'procura-se', que <b>assombra os sistemas operacionais sem interrupção desde 1996</b>. Até o presente momento, nenhuma equipe de programação encontrou uma solução técnica ou a localização física da máquina de onde partem os pacotes. Caso o terminal apresente lentidão por excesso de lirismo na tela, reinicie o painel.
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -1013,6 +1015,24 @@ else:
 
             st.write("")
 
+            # =====================================================================
+            # --- EASTER EGG: REQUISIÇÃO DA ABIGAIL (ADICIONADO AQUI) -------------
+            # =====================================================================
+            st.markdown("""
+<div class="mural-card" style="border-top-color: #ec4899;">
+    <span class="mural-tag-noticia" style="background-color: #ec4899; color: #ffffff !important;">🦊 FALHA DE SEGURANÇA SINALIZADA</span>
+    <div class="mural-titulo">LOG DE ERRO #404: INTERCEPTAÇÃO DE REQUISIÇÃO EM LOOP CONTÍNUO [ATUALIZADO]</div>
+    <div class="mural-meta">Fonte: Departamento de TI e Engenharia de Software // Base-01</div>
+    <div class="mural-corpo">
+        O Setor de TI emite este comunicado de alerta informando que a sobrecarga nos servidores da intranet persistirá devido a um novo pacote massivo de dados redundantes interceptados na rede. A mensagem fantasma, transmitida pelo usuário antigo <b>Peashooter02</b>, sofreu uma mutação de tamanho e agora replica em loop contínuo o seguinte relatório descritivo de alvo:<br><br>
+        <i>"Uma jovem portadora de uma beleza tão deslumbrante que torna difícil descrevê-la sem parecer exagero, quase como se molécula por molécula de seu ser tivesse sido feita detalhe por detalhe por Afrodite em pessoa. Seus cabelos longos, sedosos, volumosos, brilhantes e com cuidados impecáveis parecem desafiar a realidade, quase como um rio de cobre líquido, sem nenhum único fio ressecado ou desalinhado, cada fio reflete a luz em tons quentes de cobre e ouro avermelhados, como se tivessem sido cuidadosamente polidos para chegarem a tal nível de beleza. Seu rosto com traços delicados e harmoniosos realçados por uma pele clara impecavelmente bem cuidada. Seus olhos verde-esmeralda são capazes de mesmo sem proferir qualquer palavra refletirem sua alma doce e gentil, é como se cada íris fosse uma pintura feita por Da Vinci, Van Gogh e Picasso. Sua voz doce, gentil e delicada é mais perfeita que as canções de Beethoven, Mozart e Orfeu. Sua postura transmite uma graça natural indescritível, uma confiança e tranquilidade que não precisa de anúncio prévio para se destacar."</i><br><br>
+        A Diretoria Geral e o corpo de Técnicos de TI informam que continuam trabalhando ativamente na implementação de firewalls para tentar desligar o spam crônico dessa transmissão de 'procura-se', que <b>assombra os sistemas operacionais sem interrupção desde 1996</b>. Até o presente momento, nenhuma equipe de programação encontrou uma solução técnica ou a localização física da máquina de onde partem os pacotes. Caso o terminal apresente lentidão por excesso de lirismo na tela, reinicie o painel.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            st.write("")
+
             # COORDENAÇÃO DE DUAS COLUNAS INFERIORES
             col_inf1, col_inf2 = st.columns(2)
             with col_inf1:
@@ -1073,7 +1093,7 @@ else:
     <span class="mural-tag-noticia">📈 EVOLUÇÃO INSTITUCIONAL</span>
     <div class="mural-titulo">BALANÇO HISTÓRICO: O CRESCIMENTO DA CRUZ NEGRA COMO ESCUDO E EMPRESA</div>
     <div class="mural-meta">Fonte: Conselho Executivo // Relatório de Desempenho Anual</div>
-    <div class="mural-corpo">Os números do último relatório interno comprovam: a eficiência da Cruz Negra teve uma melhora drástica ao longo dos anos. Não só a taxa de sucesso e contenção em missões táticas disparou desde o desastre de 1996, como a nossa estrutura corporativa se consolidou. Hoje, operamos com a estabilidade de uma grande empresa de segurança, o que nos permite oferecer um suporte muito mais robusto aos nossos colaboradores, incluindo planos de assistência psicológica pós-exposição, suporte habitacional seguro e amparo às famílias dos agentes. Cuidar de quem está na linha de frente é o nosso melhor investmento.</div>
+    <div class="mural-corpo">Os números do original relatório interno comprovam: a eficiência da Cruz Negra teve uma melhora drástica ao longo dos anos. Não só a taxa de sucesso e contenção em missões táticas disparou desde o desastre de 1996, como a nossa estrutura corporativa se consolidou. Hoje, operamos com a estabilidade de uma grande empresa de segurança, o que nos permite oferecer um suporte muito mais robusto aos nossos colaboradores, incluindo planos de assistência psicológica pós-exposição, suporte habitacional seguro e amparo às famílias dos agentes. Cuidar de quem está na linha de frente é o nosso melhor investimento.</div>
 </div>
 <br>
 <div class="mural-card" style="border-top-color: #44403c;">
@@ -1082,29 +1102,15 @@ else:
     <div class="mural-meta">Fonte: Departamento de Auditoria Governamental Oculta // Boletim Financeiro 12/02</div>
     <div class="mural-corpo">Foi formalizado o novo repasse orçamentário vindo das corporações de fachada coordenadas pelo Nicho Investidor. O capital será integralmente destinado à modernização dos laboratórios de bio-anatomia estrutural e à aquisição de novos lotes do Composto Amnésico Classe B e Classe C. O fluxo econômico das indústrias parceiras segue blindado contra rastreamento civil, garantindo a autossuficiência de nossas frentes de contenção urbana para os próximos cinco anos.</div>
 </div>
-""", unsafe_allow_html=True)
-
-            elif categoria_jornal == "Promoções & Interno":
-                st.markdown("""
-<div class="mural-card" style="border-top-color: #16a34a;">
-    <span class="mural-tag-interno">📦 EXPANSÃO DE LOGÍSTICA</span>
-    <div class="mural-titulo">DIRETORIA AUTORIZA LIBERAÇÃO DE NOVAS BASES, VEÍCULOS TÁTICOS E ARMAMENTO DE PONTA PARA AS EQUIPES</div>
-    <div class="mural-meta">Fonte: Departamento de Infraestrutura e Armas // Logística Central</div>
-    <div class="mural-corpo">Com o objetivo de aumentar o tempo de resposta a surtos sobrenaturais na comunidade, a Cruz Negra inicia este mês um plano de descentralização massivo. Está oficialmente autorizada a abertura e o fornecimento de novas sub-bases operacionais em setores críticos. Além disso, as equipes de campo receberão um incremento imediato na frota de transporte, incluindo motos de reconhecimento rápido, carros blindados e vans de contenção e transporte de material. Os arsenais das bases também serão reabastecidos com armamento avançado e munições adaptadas de alto impacto. Consultem os vossos Mecânicos de setor para a requisição dos novos ativos.</div>
-</div>
-br>
-<div class="mural-card" style="border-top-color: #16a34a;">
-    <span class="mural-tag-interno">🎖️ QUADRO DE HONRA</span>
-    <div class="mural-titulo">PROMOÇÕES DA TEMPORADA OPERACIONAL</div>
-    <div class="mural-meta">Departamento de Gestão de Pessoal // Base-01</div>
-    <div class="mural-corpo">A Diretoria parabeniza o agora <b>Agente de Campo (AC) Marcos Rocha</b> por sua excepcional resiliência psíquica demonstrada no último trimestre. Da mesma forma, o colega <b>Felipe Azevedo</b> foi oficialmente elevado à patente de <b>Agente Básico (AB)</b>, tendo concluído com louvor os testes de isolamento de espectro leve. As novas credenciais táticas atualizadas já estão disponíveis no terminal.</div>
-</div>
 <br>
-<div class="mural-card" style="border-top-color: #16a34a;">
-    <span class="mural-tag-interno">📢 COMUNICADO TÉCNICO</span>
-    <div class="mural-titulo">MANUTENÇÃO DE TERMINAIS C.A.I.M.</div>
-    <div class="mural-meta">Setor de Engenharia e Mecânica // TI Central</div>
-    <div class="mural-corpo">Todos os terminais locais que rodam a interface de IA assistente C.A.I.M. passarão por uma varredura de integridade neural preventiva nesta madrugada. Caso note flutuações de comportamento no assistente ou respostas fora do protocolo operacional padrão, reporte imediatamente ao Mecânico chefe do seu setor.</div>
+<div class="mural-card" style="border-top-color: #ec4899;">
+    <span class="mural-tag-noticia" style="background-color: #ec4899; color: #ffffff !important;">🦊 FALHA DE SEGURANÇA SINALIZADA</span>
+    <div class="mural-titulo">LOG DE ERRO #404: INTERCEPTAÇÃO DE REQUISIÇÃO EM LOOP CONTÍNUO</div>
+    <div class="mural-meta">Fonte: Departamento de TI e Engenharia de Software // Base-01</div>
+    <div class="mural-corpo">
+        O Setor de TI emite este comunicado técnico informando que os servidores da intranet estão sofrendo com um spam massivo de pacotes de dados corrompidos. A mensagem, de autoria de um usuário registrado na rede antiga sob o codinome de <b>Peashooter02</b>, vem sendo replicada de forma ininterrupta nos terminais táticos. O arquivo anexado ao loop contém a seguinte descrição de prioridade alfa: <i>"Ela é linda maravilhosa cheirosa ruiva, o motivo do meu viver, meu raio de Sol, meu alecrim dourado, a rainha de todos, a governante do meu coração, o unico motivo pelo qual eu respiro nesse mundo cheio de pessoas podres"</i>.<br><br>
+        A Diretoria Geral e o corpo de Técnicos de TI informam que estão trabalhando ativamente em protocolos de varredura para tentar desligar o spam dessa mensagem de 'procura-se', que misteriosamente <b>está sendo enviada de forma fantasma desde a quebra sistêmica de 1996</b>. Até o presente momento, nenhuma equipe de programação encontrou uma solução definitiva ou a origem real da máquina transmissora. Caso a sua tela pisque em tons de rosa, ignore e prossiga com a leitura dos manuais.
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
