@@ -9,6 +9,21 @@ st.set_page_config(page_title="Portal de Acesso Integrado", page_icon="🏢", la
 if 'status_login' not in st.session_state:
     st.session_state['status_login'] = 'fachada_inicial'
 
+
+# =====================================================================
+# --- INICIALIZAÇÃO DA MEMÓRIA DE NOTIFICAÇÕES (ADICIONADO AQUI) -----
+# =====================================================================
+if "notificacoes_ativas" not in st.session_state:
+    st.session_state.notificacoes_ativas = True
+
+# Trava para que as notificações fechadas no "X" não fiquem reaparecendo
+if "alerta_1_fechado" not in st.session_state:
+    st.session_state.alerta_1_fechado = False
+if "alerta_2_fechado" not in st.session_state:
+    st.session_state.alerta_2_fechado = False
+# =====================================================================
+
+
 # Funções para checar as imagens com extensão dupla .jpeg.jpeg
 def carregar_logo_fachada():
     possiveis_nomes = ["logo_fachada.jpeg.jpeg", "logo_fachada.png.jpeg", "logo_fachada.jpeg", "logo_fachada.png"]
@@ -438,10 +453,87 @@ else:
         "Relatórios de Expedição de Campo",
         "Especializações de Agentes",
         "Gerador de Credencial Tática",
-        "Mural de Transmissões Civis",  # <-- ADICIONADO AQUI PARA RECONHECER A NOVA ABA
+        "Mural de Transmissões Civis",  
+        "Central de Monitoramento Global",
         "Gerenciador de Ficha Ativa",  
         "Relatório de Falha Sistêmica: Marco 96"
     ])
+
+    # =====================================================================
+    # --- PASSO 2: INJEÇÃO DE NOTIFICAÇÕES EM TEMPO REAL ROTATIVAS -------
+    # =====================================================================
+    
+    # 1. Lógica do Relógio Tático para Rotatividade Semanal/Minutada
+    # Usamos o tempo atual para definir qual alerta "está no ar" neste minuto
+    minuto_atual = int(time.time() // 60) 
+    
+    # Isso vai alternar o "ID do Alerta Ativo" entre 1, 2 e 3 a cada minuto que passa
+    alerta_da_vez = (minuto_atual % 3) + 1 
+
+    # Se o minuto mudou, nós resetamos os botões de fechar automaticamente para o novo alerta aparecer!
+    if "ultimo_minuto_rastreado" not in st.session_state:
+        st.session_state.ultimo_minuto_rastreado = minuto_atual
+
+    if minuto_atual != st.session_state.ultimo_minuto_rastreado:
+        st.session_state.ultimo_minuto_rastreado = minuto_atual
+        st.session_state.alerta_1_fechado = False
+        st.session_state.alerta_2_fechado = False
+        st.session_state.alerta_3_fechado = False
+
+    # 2. Renderização condicional na tela
+    if st.session_state.notificacoes_ativas and opcao != "Gerenciador de Ficha Ativa":
+        
+        # --- ALERTA ALEATÓRIO TIPO 1 ---
+        if alerta_da_vez == 1 and not st.session_state.alerta_1_fechado:
+            col_txt, col_btn = st.columns([8.5, 1.5])
+            with col_txt:
+                st.markdown("""
+                <div style="background-color: #111111; border-left: 4px solid #ef4444; padding: 10px; border-radius: 4px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">
+                    <div style="color: #ef4444; font-weight: bold; font-family: monospace; font-size: 11px;">🚨 DESPACHO #8821 URGENTE</div>
+                    <div style="color: #e5e7eb; font-family: monospace; font-size: 11px; margin-top: 3px; line-height: 1.3;">
+                    Anomalia Gravitacional em Nova Alvorada. Unidades táticas convergir para a Zona Industrial.
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_btn:
+                if st.button("❌", key="btn_close_1", help="Dispensar alerta"):
+                    st.session_state.alerta_1_fechado = True
+                    st.rerun()
+
+        # --- ALERTA ALEATÓRIO TIPO 2 ---
+        elif alerta_da_vez == 2 and not st.session_state.alerta_2_fechado:
+            col_txt2, col_btn2 = st.columns([8.5, 1.5])
+            with col_txt2:
+                st.markdown("""
+                <div style="background-color: #111111; border-left: 4px solid #f59e0b; padding: 10px; border-radius: 4px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">
+                    <div style="color: #f59e0b; font-weight: bold; font-family: monospace; font-size: 11px;">🚑 EMERGÊNCIA MÉDICA #1092</div>
+                    <div style="color: #e5e7eb; font-family: monospace; font-size: 11px; margin-top: 3px; line-height: 1.3;">
+                    Equipe Sigma-4 implantar em Montes Claros do Norte. Civil Augusto V. contaminado por Entidade Classe 2.
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_btn2:
+                if st.button("❌", key="btn_close_2", help="Dispensar alerta"):
+                    st.session_state.alerta_2_fechado = True
+                    st.rerun()
+
+        # --- ALERTA ALEATÓRIO TIPO 3 (NOVO ALERTA ADICIONADO PARA VARIAR) ---
+        elif alerta_da_vez == 3 and not st.session_state.alerta_3_fechado:
+            col_txt3, col_btn3 = st.columns([8.5, 1.5])
+            with col_txt3:
+                st.markdown("""
+                <div style="background-color: #111111; border-left: 4px solid #38bdf8; padding: 10px; border-radius: 4px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">
+                    <div style="color: #38bdf8; font-weight: bold; font-family: monospace; font-size: 11px;">📡 CONTROLE DE DANOS #4401</div>
+                    <div style="color: #e5e7eb; font-family: monospace; font-size: 11px; margin-top: 3px; line-height: 1.3;">
+                    Pânico civil detectado em Porto Real Velho. Unidades de contenção informativa mover com Composto Classe B.
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_btn3:
+                if st.button("❌", key="btn_close_3", help="Dispensar alerta"):
+                    st.session_state.alerta_3_fechado = True
+                    st.rerun()
+    # =====================================================================
 
     # --- DIRETÓRIO 1: TERMINAL CENTRAL ---
     if opcao == "Terminal Central / Diretoria":
@@ -1016,6 +1108,125 @@ br>
 
         st.write("---")
         st.markdown("<p style='text-align: center; color: #64748b; font-size: 11px; font-family: monospace;'>Boletins internos atualizados pela Diretoria Geral da Cruz Negra // Ano Base: 2012.</p>", unsafe_allow_html=True)
+
+    # --- DIRETÓRIO 9: CENTRAL DE MONITORAMENTO GLOBAL ---
+    elif opcao == "Central de Monitoramento Global":
+        st.subheader("📡 SISTEMA DE MONITORAMENTO DE OCORRÊNCIAS EM TEMPO REAL")
+        st.write("Feed global de transmissões táticas interceptadas e ordens de despacho automático da Cruz Negra.")
+        st.write("---")
+
+        # Botão para simular a atualização dos logs de rádio/satélite
+        if st.button("🔄 Atualizar Frequência de Satélite"):
+            st.toast("Escaneando setores globais...", icon="🛰️")
+
+        st.write("")
+
+        # Estilização CSS para os Logs de Campo (Estilo Monitor Hacker)
+        st.markdown("""
+<style>
+.log-box {
+    background-color: #111111;
+    color: #38bdf8;
+    font-family: 'Courier New', monospace;
+    padding: 14px;
+    border-radius: 4px;
+    border-left: 5px solid #38bdf8;
+    margin-bottom: 15px;
+    font-size: 13px;
+    box-shadow: inset 0px 0px 10px rgba(56,189,248,0.05);
+}
+.log-box-urgente {
+    border-left-color: #ef4444;
+    color: #f87171;
+}
+.log-box-suporte {
+    border-left-color: #f59e0b;
+    color: #fbbf24;
+}
+.log-header {
+    font-weight: bold;
+    font-size: 12px;
+    color: #6b7280;
+    border-bottom: 1px dashed #2d3139;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.log-alerta-texto {
+    line-height: 1.5;
+    text-align: justify;
+}
+</style>
+""", unsafe_allow_html=True)
+
+        # 1. Chamado de Intercepção (Urgente)
+        st.markdown("""
+<div class="log-box log-box-urgente">
+    <div class="log-header">
+        <span>🚨 TRANSMISSÃO DE ÁUDIO RECONVERTIDA // ID: #8821</span>
+        <span>⏱️ 10:14 AM</span>
+    </div>
+    <div class="log-alerta-texto">
+        <b>[DESPACHO CENTRAL]:</b> Chamando em caráter de urgência todos os agentes disponíveis no <b>Setor de Nova Alvorada</b>. Unidades táticas próximas devem convergir imediatamente para a Zona Industrial para impedir a <b>Anomalia Gravitacional Residual</b> detectada nos galpões da malharia civil. O perímetro está instável. Preparem os supressores químicos.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        # 2. Chamado de Controle de Pânico Civil
+        st.markdown("""
+<div class="log-box">
+    <div class="log-header">
+        <span>📡 ORDEM DE ENVIADOS INTERNOS // ID: #3340</span>
+        <span>⏱️ 09:42 AM</span>
+    </div>
+    <div class="log-alerta-texto">
+        <b>[LOGÍSTICA URBANA]:</b> Atenção, contingente da Base-03. Precisamos de pelo menos <b>06 agentes com treinamento em contenção informativa</b> para acalmar a população civil na cidade de <b>Porto Real Velho</b>. O incidente de colapso de espectro que aconteceu há poucos minutos na praça central gerou pânico massivo. Distribuição secundária de Composto Amnésico Classe B autorizada para o Setor de Triagem.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        # 3. Chamado Médico / Suporte
+        st.markdown("""
+<div class="log-box log-box-suporte">
+    <div class="log-header">
+        <span>🚑 CANAL DE EMERGÊNCIA MÉDICA // ID: #1092</span>
+        <span>⏱️ 08:15 AM</span>
+    </div>
+    <div class="log-alerta-texto">
+        <b>[DIVISÃO MÉDICA]:</b> Acionando a <b>Equipe de Amparo Sigma-4</b> para deslocamento imediato até o Distrito de <b>Montes Claros do Norte</b>. Objetivo: dar tratamento médico avançado de isolamento e estabilização psíquica ao civil <b>Augusto Veríssimo</b>, ferido gravemente nas pernas e contaminado pela toxina da <b>Entidade Sombria de Classe 2</b> capturada no local. Limpem os rastros biológicos antes da chegada da polícia civil.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        # 4. Movimentação de veículos e reforço
+        st.markdown("""
+<div class="log-box">
+    <div class="log-header">
+        <span>🚚 DIRETÓRIO DE TRANSPORTE E APOIO // ID: #0042</span>
+        <span>⏱️ Envio: Há 1 hora</span>
+    </div>
+    <div class="log-alerta-texto">
+        <b>[CONTROLE DE FROTA]:</b> Despachando <b>02 Vans Táticas e 01 Carro Blindado</b> de reforço para a <b>Força-Tarefa Fox</b> estacionada na periferia de <b>Vila da Névoa</b>. O comandante da operação solicitou armamento pesado de alto impacto após falha no confinamento primário da <b>Anomalia Eco-Anatômica</b> na área florestal do município fictício. Mecânicos de plantão já registraram a liberação dos ativos.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        # 5. Varredura e Conclusão de Varredura
+        st.markdown("""
+<div class="log-box" style="border-left-color: #10b981; color: #34d399;">
+    <div class="log-header" style="color: #6b7280;">
+        <span>✅ RELATÓRIO PÓS-MISSÃO ARQUIVADO // ID: #0911</span>
+        <span>⏱️ Envio: Há 3 horas</span>
+    </div>
+    <div class="log-alerta-texto">
+        <b>[DEPARTAMENTO DE LIMPEZA]:</b> Operação concluída no vilarejo de <b>Pedra Branca do Sul</b>. A <b>Manifestação de Rádio-Frequência Parasita</b> foi neutralizada com sucesso pela equipe local. Nenhum civil ferido, protocolos de ocultamento aplicados nas mídias regionais. Equipes retornando para as sub-bases em motos de reconhecimento. Frequência limpa.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        st.write("---")
+        st.markdown("<p style='text-align: center; color: #64748b; font-size: 11px; font-family: monospace;'>Transmissão criptografada via Rede de Satélites Cruz Negra // Terminal Central 2012.</p>", unsafe_allow_html=True)
 
     # --- NOVO DIRETÓRIO: GERENCIADOR DE FICHA ATIVA ---
     elif opcao == "Gerenciador de Ficha Ativa":
