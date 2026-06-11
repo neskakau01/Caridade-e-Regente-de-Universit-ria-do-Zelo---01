@@ -931,18 +931,8 @@ else:
         if categoria_jornal == "Todos os Registros":
             
             # --- NOVA NOTÍCIA URGENTE: ALERTA ADMINISTRATIVO (BANNER DE TOPO) ---
-            st.markdown("""
-<div class="mural-card" style="border-top-color: #ec4899;">
-    <span class="mural-tag-noticia" style="background-color: #ec4899; color: #ffffff !important;">🦊 FALHA DE SEGURANÇA SINALIZADA</span>
-    <div class="mural-titulo">LOG DE ERRO #404: INTERCEPTAÇÃO DE REQUISIÇÃO EM LOOP CONTÍNUO [ATUALIZADO]</div>
-    <div class="mural-meta">Fonte: Departamento de TI e Engenharia de Software // Base-01</div>
-    <div class="mural-corpo">
-        O Setor de TI emite este comunicado de alerta informando que a sobrecarga nos servidores da intranet persistirá devido a um novo pacote massivo de dados redundantes interceptados na rede. A mensagem fantasma, transmitida pelo usuário antigo <b>Peashooter02</b>, sofreu uma mutação de tamanho e agora replica em loop contínuo o seguinte relatório descritivo de alvo:<br><br>
-        <i>"Uma jovem portadora de uma beleza tão deslumbrante que torna difícil descrevê-la sem parecer exagero, quase como se molécula por molécula de seu ser tivesse sido feita detalhe por detalhe por Afrodite em pessoa. Seus cabelos longos, sedosos, volumosos, brilhantes e com cuidados impecáveis parecem desafiar a realidade, quase como um rio de cobre líquido, sem nenhum único fio ressecado ou desalinhado, cada fio reflete a luz em tons quentes de cobre e ouro avermelhados, como se tivessem sido cuidadosamente polidos para chegarem a tal nível de beleza. Seu rosto com traços delicados e harmoniosos realçados por uma pele clara impecavelmente bem cuidada. Seus olhos verde-esmeralda são capazes de mesmo sem proferir qualquer palavra refletirem sua alma doce e gentil, é como se cada íris fosse uma pintura feita por Da Vinci, Van Gogh e Picasso. Sua voz doce, gentil e delicada é mais perfeita que as canções de Beethoven, Mozart e Orfeu. Sua postura transmite uma graça natural indescritível, uma confiança e tranquilidade que não precisa de anúncio prévio para se destacar."</i><br><br>
-        A Diretoria Geral e o corpo de Técnicos de TI informam que continuam trabalhando ativamente na implementação de firewalls para tentar desligar o spam crônico dessa transmissão de 'procura-se', que <b>assombra os sistemas operacionais sem interrupção desde 1996</b>. Até o presente momento, nenhuma equipe de programação encontrou uma solução técnica ou a localização física da máquina de onde partem os pacotes. Caso o terminal apresente lentidão por excesso de lirismo na tela, reinicie o painel.
-    </div>
-</div>
-""", unsafe_allow_html=True)
+            
+
 
             # LINHA 1: Mosaico Assimétrico (Esquerda comprido, Direita dois blocos)
             col_esquerda, col_direita = st.columns([1, 1.2])
